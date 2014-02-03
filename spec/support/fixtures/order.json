@@ -1,0 +1,264 @@
+{
+  "response": [
+    {
+      "id": 123456,
+      "parentOrderId" : 123455,
+      "orderTypeCode": "PO",
+      "reference": "order#001",
+      "acknowledged": 1,
+      "orderStatus": {
+        "orderStatusId": 6,
+        "name": "Pending PO"
+      },
+      "stockStatusCode": "NON",
+      "allocationStatusCode": "ANR",
+      "placedOn": "2011-06-29T11:12:24.000+01:00",
+      "createdOn": "2011-06-29T11:12:24.000+01:00",
+      "createdById": 200,
+      "priceListId": 1,
+      "priceModeCode": "EXC",
+      "delivery": {
+        "deliveryDate": "2011-07-08T00:00:00.000+01:00",
+        "shippingMethodId": 1
+      },
+      "invoices": [
+        {
+          "invoiceReference": "",
+          "taxDate": "2011-06-29T00:00:00.000+01:00",
+          "dueDate": "2011-07-29T00:00:00.000+01:00"
+        }
+      ],
+      "currency": {
+        "accountingCurrencyCode": "GBP",
+        "orderCurrencyCode": "GBP",
+        "exchangeRate": "1.000000"
+      },
+      "totalValue": {
+        "net": "50.00",
+        "taxAmount": "10.00"
+      },
+      "assignment": {
+        "current": {
+          "staffOwnerContactId": 200,
+          "projectId": 1,
+          "channelId": 2,
+          "leadSourceId": 4,
+          "teamId": 2
+        }
+      },
+      "parties": {
+        "supplier": {
+          "contactId": 901,
+          "addressFullName": "Mr Drink",
+          "companyName": "Drink Supplies",
+          "addressLine1": "1 Main Road",
+          "addressLine2": "Out Of Town",
+          "addressLine3": "Bristol",
+          "addressLine4": "Avon",
+          "postalCode": "bs99 9sb",
+          "country": "United Kingdom",
+          "telephone": "01234 987654",
+          "mobileTelephone": "",
+          "email": "mr.drink@drinksupplies.com"
+        },
+        "delivery": {
+          "addressFullName": "",
+          "companyName": "wacCorp",
+          "addressLine1": "Brightpearl HQ",
+          "addressLine2": "",
+          "addressLine3": "Bristol",
+          "addressLine4": "",
+          "postalCode": "BS2 9AG",
+          "country": "United Kingdom",
+          "telephone": "01234 567890",
+          "mobileTelephone": "",
+          "email": "will@waccorp.com"
+        },
+        "billing": {
+          "contactId": 901,
+          "addressFullName": "",
+          "companyName": "wacCorp",
+          "addressLine1": "Brightpearl HQ",
+          "addressLine2": "",
+          "addressLine3": "Bristol",
+          "addressLine4": "",
+          "postalCode": "BS2 9AG",
+          "country": "United Kingdom",
+          "telephone": "01234 567890",
+          "mobileTelephone": "",
+          "email": "will@waccorp.com"
+        }
+      },
+   "orderRows": {
+        "152": {
+          "orderRowSequence": "5",
+          "productId": 1011,
+          "productName": "Product C",
+          "productSku": "SKU1000",
+          "quantity": {
+            "magnitude": "2.00"
+          },
+          "rowValue": {
+            "taxRate": "20.00",
+            "taxCode": "T20",
+            "rowNet": {
+              "currencyCode": "GBP",
+              "value": "0.0000"
+            },
+            "rowTax": {
+              "currencyCode": "GBP",
+              "value": "0.00"
+            }
+          },
+          "productOptions": {
+            "Size": "Medium"
+          },
+          "nominalCode": "4000",
+          "composition": {
+            "bundleParent": false,
+            "bundleChild": true,
+            "parentOrderRowId": 149
+          }
+        },
+        "147": {
+          "orderRowSequence": "0",
+          "productId": 1008,
+          "productName": "Product B",
+          "productSku": "SKU0001",
+          "quantity": {
+            "magnitude": "1.00"
+          },
+          "rowValue": {
+            "taxRate": "20.00",
+            "taxCode": "T20",
+            "rowNet": {
+              "currencyCode": "GBP",
+              "value": "83.3333"
+            },
+          "rowTax": {
+              "currencyCode": "GBP",
+              "value": "16.67"
+            }
+          },
+          "nominalCode": "4000",
+          "composition": {
+            "bundleParent": false,
+            "bundleChild": false,
+            "parentOrderRowId": 0
+          }
+        },
+        "148": {
+          "orderRowSequence": "1",
+          "productId": 1009,
+          "productName": "Product C",
+          "productSku": "SKU1000",
+          "quantity": {
+            "magnitude": "5.00"
+          },
+          "rowValue": {
+            "taxRate": "20.00",
+            "taxCode": "T20",
+            "rowNet": {
+              "currencyCode": "GBP",
+              "value": "8.3333"
+            },
+          "rowTax": {
+              "currencyCode": "GBP",
+              "value": "8.33"
+            }
+          },
+          "productOptions": {
+            "Size": "Large"
+          },
+          "nominalCode": "4000",
+          "composition": {
+            "bundleParent": false,
+            "bundleChild": false,
+            "parentOrderRowId": 0
+          }
+        },
+        "149": {
+          "orderRowSequence": "2",
+          "productId": 1014,
+          "productName": "Bundle",
+          "productSku": "",
+          "quantity": {
+            "magnitude": "1.00"
+          },
+          "rowValue": {
+            "taxRate": "20.00",
+            "taxCode": "T20",
+            "rowNet": {
+              "currencyCode": "GBP",
+              "value": "12.5000"
+            },
+            "rowTax": {
+              "currencyCode": "GBP",
+              "value": "2.50"
+            }
+          },
+          "nominalCode": "4000",
+          "composition": {
+            "bundleParent": true,
+            "bundleChild": false,
+            "parentOrderRowId": 0
+          }
+        },
+        "150": {
+          "orderRowSequence": "3",
+          "productId": 1008,
+          "productName": "Product B",
+          "productSku": "SKU0001",
+          "quantity": {
+            "magnitude": "5.00"
+          },
+          "rowValue": {
+            "taxRate": "20.00",
+            "taxCode": "T20",
+            "rowNet": {
+              "currencyCode": "GBP",
+              "value": "0.0000"
+            },
+            "rowTax": {
+              "currencyCode": "GBP",
+              "value": "0.00"
+            }
+          },
+          "nominalCode": "4000",
+          "composition": {
+            "bundleParent": false,
+            "bundleChild": true,
+            "parentOrderRowId": 149
+          }
+        },
+        "151": {
+          "orderRowSequence": "4",
+          "productId": 1010,
+          "productName": "Product D",
+          "productSku": "",
+          "quantity": {
+            "magnitude": "3.00"
+          },
+          "rowValue": {
+            "taxRate": "20.00",
+            "taxCode": "T20",
+            "rowNet": {
+              "currencyCode": "GBP",
+              "value": "0.0000"
+            },
+            "rowTax": {
+              "currencyCode": "GBP",
+              "value": "0.00"
+            }
+          },
+          "nominalCode": "4000",
+          "composition": {
+            "bundleParent": false,
+            "bundleChild": true,
+            "parentOrderRowId": 149
+          }
+        }
+      }
+    }
+  ]
+}

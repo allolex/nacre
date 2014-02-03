@@ -29,4 +29,12 @@ RSpec.configure do |config|
 
 end
 
+def fixture_file_content(file_name)
+  fixture_file(file_name).read.chomp
+end
+
+def fixture_file(file_name)
+  File.open("spec/support/fixtures/#{file_name}")
+end
+
 include AuthenticationHelper

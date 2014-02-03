@@ -1,6 +1,8 @@
 require "nacre/version"
 require "nacre/configuration"
 
+require "nacre/order_collection"
+require "nacre/order"
 module Nacre
   class << self
     attr_accessor :configuration
