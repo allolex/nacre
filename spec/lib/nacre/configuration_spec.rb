@@ -9,9 +9,10 @@ describe Nacre::Configuration do
     let(:args) { {} }
 
     it 'should use defaults from the environment' do
-      ap config
+      expect(config.user_id).to eql(ENV['NACRE_USER_ID'])
       expect(config.email).to eql(ENV['NACRE_EMAIL'])
       expect(config.password).to eql(ENV['NACRE_PASSWORD'])
+      expect(config.base_url).to eql('https://ws-eu1.brightpearl.com')
     end
   end
 

@@ -1,0 +1,89 @@
+{ "reference" : {  },
+  "response" : { "metaData" : { "columns" : [ { "filterable" : true,
+                "name" : "productId",
+                "reportDataType" : "IDSET",
+                "required" : false,
+                "sortable" : true
+              },
+              { "filterable" : true,
+                "name" : "productName",
+                "reportDataType" : "SEARCH_STRING",
+                "required" : false,
+                "sortable" : true
+              },
+              { "filterable" : true,
+                "name" : "SKU",
+                "reportDataType" : "STRING",
+                "required" : false,
+                "sortable" : true
+              },
+              { "filterable" : true,
+                "name" : "EAN",
+                "reportDataType" : "STRING",
+                "required" : false,
+                "sortable" : true
+              },
+              { "filterable" : true,
+                "name" : "UPC",
+                "reportDataType" : "STRING",
+                "required" : false,
+                "sortable" : true
+              },
+              { "filterable" : true,
+                "name" : "ISBN",
+                "reportDataType" : "STRING",
+                "required" : false,
+                "sortable" : true
+              },
+              { "filterable" : true,
+                "name" : "stockTracked",
+                "reportDataType" : "BOOLEAN",
+                "required" : false,
+                "sortable" : true
+              },
+              { "filterable" : false,
+                "name" : "salesChannelName",
+                "reportDataType" : "STRING",
+                "required" : false,
+                "sortable" : true
+              },
+              { "filterable" : true,
+                "name" : "createdOn",
+                "reportDataType" : "PERIOD",
+                "required" : false,
+                "sortable" : true
+              },
+              { "filterable" : true,
+                "name" : "updatedOn",
+                "reportDataType" : "PERIOD",
+                "required" : false,
+                "sortable" : true
+              },
+              { "filterable" : false,
+                "name" : "brightpearlCategoryCode",
+                "referenceData" : [ "productCategoryMembership" ],
+                "reportDataType" : "INTEGER",
+                "required" : false,
+                "sortable" : false
+              },
+              { "filterable" : true,
+                "name" : "productGroupId",
+                "reportDataType" : "INTEGER",
+                "required" : false,
+                "sortable" : true
+              }
+            ],
+          "resultsAvailable" : 0,
+          "resultsReturned" : 0,
+          "sorting" : [ { "direction" : "ASC",
+                "filterable" : { "filterable" : true,
+                    "name" : "productId",
+                    "reportDataType" : "IDSET",
+                    "required" : false,
+                    "sortable" : true
+                  }
+              } ]
+        },
+      "results" : [  ]
+    }
+}
