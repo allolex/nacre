@@ -71,4 +71,14 @@ describe Nacre::Connection do
       end
     end
   end
+
+  describe '#get' do
+
+    let(:url) { 'http://example.com/some_path' }
+
+    it 'should send a GET request to the given URL' do
+      Faraday::Connection.any_instance.should_receive(:get).with(url)
+      Nacre::Connection.new.get(url)
+    end
+  end
 end

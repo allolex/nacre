@@ -9,6 +9,7 @@ module Nacre
     def initialize(args = {})
       initialize_link
       authenticate!
+      set_persistent_link(self.link)
     end
 
     def success?
@@ -20,12 +21,18 @@ module Nacre
       @response = @link.post(configuration.auth_url, auth_params)
       if @response.success?
         @authentication = Authentication.new(self.response.body)
+        configuration.authentication_token = @authentication.token
       end
       Response.new(@response)
     end
 
     def authenticated?
       !self.authentication.nil? && self.authentication.active?
+    end
+
+    def get(url)
+      @link.headers['brightpearl-auth'] = self.authentication.token
+      @link.get(url)
     end
 
     private
@@ -51,6 +58,10 @@ module Nacre
 
     def configuration
       Nacre.configuration
+    end
+
+    def set_persistent_link(link)
+      Nacre.link = link
     end
   end
 end

@@ -7,10 +7,11 @@ require "nacre/authentication"
 
 require "nacre/order"
 require "nacre/order_collection"
+require "nacre/order_search_results"
 
 module Nacre
   class << self
-    attr_accessor :configuration
+    attr_accessor :configuration, :link
   end
 
   def self.configure

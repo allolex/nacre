@@ -27,6 +27,9 @@ RSpec.configure do |config|
       c.email = ENV['NACRE_EMAIL']
       c.password = ENV['NACRE_PASSWORD']
     end
+
+    stub_request(:post, "https://ws-eu1.brightpearl.com/%s/authorise" % [ ENV['NACRE_USER_ID'] ]).
+      to_return(:status => 200, :body => auth_response_success_body, :headers => {})
   end
 
 end

@@ -2,7 +2,14 @@ require 'nacre/configuration_validator'
 
 module Nacre
   class Configuration
-    attr_accessor :base_url, :auth_url, :email, :password, :distribution_center, :user_id
+
+    attr_accessor :base_url,
+                  :auth_url,
+                  :email,
+                  :password,
+                  :distribution_center,
+                  :user_id,
+                  :authentication_token
 
     def initialize(args = {})
       @email = default_email
