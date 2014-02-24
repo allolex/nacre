@@ -11,6 +11,10 @@ describe Nacre::OrderSearchResults do
         Nacre::OrderSearchResults.new(JSON.parse(results_hash)['response'])
       end
 
+      it_should_behave_like 'Enumerable' do
+        let(:subject) { results }
+      end
+
       it 'should return an OrderSearchResults instance' do
         expect(results).to be_a(Nacre::OrderSearchResults)
       end

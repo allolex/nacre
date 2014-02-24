@@ -13,22 +13,16 @@ describe Nacre::OrderCollection do
       ]
     end
 
-    let(:orders) { Nacre::OrderCollection.new(parametrized_order_list) }
+    let(:subject) { Nacre::OrderCollection.new(parametrized_order_list) }
 
-    let(:order) { orders.members.first }
+    let(:order) { subject.members.first }
 
     it 'should have members' do
       expect(order.id).to eql('123444')
       expect(order.parent_order_id).to eql('555555')
     end
 
-    it 'should implement .each' do
-      expect(orders).to respond_to(:each)
-    end
-
-    it 'should implement .map' do
-      expect(orders).to respond_to(:map)
-    end
+    it_should_behave_like 'Enumerable'
   end
 
   describe '.from_json' do

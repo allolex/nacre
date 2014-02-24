@@ -8,6 +8,8 @@ module Nacre
 
     extend Inflectible
 
+    include Enumerable
+
     attr_accessor :orders
 
     def initialize(order_params_list = [])
@@ -21,6 +23,12 @@ module Nacre
       raise OrderSearchResultsError.new('Empty JSON') unless results_json.length > 2
       list = order_params_list(results_json)
       new(list)
+    end
+
+    def each(&block)
+      self.orders.each do |order|
+        block.call(order)
+      end
     end
 
     private
