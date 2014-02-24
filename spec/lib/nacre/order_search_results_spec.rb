@@ -14,7 +14,6 @@ describe Nacre::OrderSearchResults do
       it 'should return an OrderSearchResults instance' do
         expect(results).to be_a(Nacre::OrderSearchResults)
       end
-
     end
 
     context 'with invalid data' do
@@ -35,7 +34,6 @@ describe Nacre::OrderSearchResults do
       it 'should return an OrderSearchResults instance' do
         expect(results).to be_a(Nacre::OrderSearchResults)
       end
-
     end
 
     context 'with invalid data' do
@@ -57,5 +55,4 @@ describe Nacre::OrderSearchResults do
       expect(results.orders.first[:order_id]).to eql('123456')
     end
   end
-
 end

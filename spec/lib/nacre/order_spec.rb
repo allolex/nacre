@@ -51,6 +51,5 @@ describe Nacre::Order do
     it 'should return search results' do
       expect(order).to be_a(Nacre::OrderSearchResults)
     end
-
   end
 end
