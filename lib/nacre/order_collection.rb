@@ -21,7 +21,7 @@ module Nacre
       end
     end
 
-    def each &block
+    def each(&block)
       members.each do |member|
         block.call(member)
       end
