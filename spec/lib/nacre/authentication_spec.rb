@@ -3,10 +3,10 @@ require 'spec_helper'
 describe Nacre::Authentication do
 
   context 'when authentication is successful' do
-    let(:authentication) { Nacre::Authentication.new(auth_response_success_body) }
+    let(:authentication) { Nacre::Authentication.new(JSON.parse(auth_response_success_body)) }
 
     let(:token_string) do
-      JSON.parse(fixture_file_content('auth_success_body.json'))['response']
+      JSON.parse(auth_response_success_body)['response']
     end
 
     it 'should have a token' do
@@ -19,10 +19,10 @@ describe Nacre::Authentication do
   end
 
   context 'when authentication is successful' do
-    let(:authentication) { Nacre::Authentication.new(auth_response_failure_body) }
+    let(:authentication) { Nacre::Authentication.new(JSON.parse(auth_response_failure_body)) }
 
     let(:token_string) do
-      JSON.parse(fixture_file_content('auth_failure_body.json'))['response']
+      JSON.parse(auth_response_failure_body)['response']
     end
 
     it 'should have a token' do
