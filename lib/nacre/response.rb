@@ -5,7 +5,7 @@ module Nacre
 
     def initialize(api_response)
       @api_response = api_response
-      @body = JSON.parse(self.api_response.body)
+      @body = JSON.parse(api_response.body)
       @errors = @body['errors'] || []
     end
 

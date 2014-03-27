@@ -18,12 +18,13 @@ module Nacre
 
     def authenticate!
       @authentication = nil
-      @response = @link.post(configuration.auth_url, auth_params)
+      api_response = @link.post(configuration.auth_url, auth_params)
+      @response = Response.new(api_response)
       if @response.success?
-        @authentication = Authentication.new(self.response.body)
+        @authentication = Authentication.new(self.response.api_response.body)
         configuration.authentication_token = @authentication.token
       end
-      Response.new(@response)
+      @response
     end
 
     def authenticated?
