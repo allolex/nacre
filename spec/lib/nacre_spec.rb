@@ -1,18 +1,18 @@
 describe Nacre do
   describe '.configure' do
 
-    let(:test_url) { 'test_url' }
+    let(:user_id) { 'test_id' }
 
     it 'should allow configuration in a block' do
       Nacre.configure do |c|
-        c.base_url = test_url
+        c.user_id = user_id
       end
-      expect(Nacre.configuration.base_url).to eql(test_url)
+      expect(Nacre.configuration.user_id).to eql(user_id)
     end
 
   end
 
   describe '.configuration' do
-
+    pending 'specific configuration values'
   end
 end

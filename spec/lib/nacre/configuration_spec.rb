@@ -5,14 +5,33 @@ describe Nacre::Configuration do
 
   let(:config) { Nacre::Configuration.new(args) }
 
-  context 'defaults' do
-    let(:args) { {} }
+  let(:args) { {} }
 
-    it 'should use defaults from the environment' do
+  context 'environment defaults' do
+    it 'should get the User ID' do
       expect(config.user_id).to eql(ENV['NACRE_USER_ID'])
+    end
+
+    it 'should get the User Email' do
       expect(config.email).to eql(ENV['NACRE_EMAIL'])
+    end
+
+    it 'should get the User Password' do
       expect(config.password).to eql(ENV['NACRE_PASSWORD'])
+    end
+  end
+
+  context 'URLs from configuration' do
+    it 'should have the correct base URL' do
       expect(config.base_url).to eql('https://ws-eu1.brightpearl.com')
+    end
+
+    it 'should have the correct Resource URL' do
+      expect(config.resource_url).to eql("https://ws-eu1.brightpearl.com/2.0.0/%s" % [ENV['NACRE_USER_ID']])
+    end
+
+    it 'should have the correct auth URL' do
+      expect(config.auth_url).to eql("https://ws-eu1.brightpearl.com/%s/authorise" % [ ENV['NACRE_USER_ID'] ])
     end
   end
 
@@ -21,8 +40,6 @@ describe Nacre::Configuration do
       {
         email: 'test@example.com',
         password: 'password',
-        auth_url: 'https://auth.example.com/auth',
-        auth_url: 'https://api.example.com/'
       }
     end
 
@@ -35,7 +52,6 @@ describe Nacre::Configuration do
     let(:args) do
       {
         email: '',
-        auth_url: ''
       }
     end
 

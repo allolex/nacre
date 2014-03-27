@@ -49,7 +49,7 @@ module Nacre
     end
 
     def self.service_url
-      configuration.base_url + '/order-service'
+      configuration.resource_url + '/order-service'
     end
 
     def self.url

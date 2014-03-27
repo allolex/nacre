@@ -4,12 +4,12 @@ module Nacre
   class Configuration
 
     attr_accessor :base_url,
-                  :auth_url,
                   :email,
                   :password,
                   :distribution_center,
                   :user_id,
-                  :authentication_token
+                  :authentication_token,
+                  :api_version
 
     def initialize(args = {})
       @email = default_email
@@ -17,8 +17,7 @@ module Nacre
       @distribution_center = default_distribution_center
       @api_version = default_api_version
       @user_id = default_user_id
-      @base_url = default_base_url
-      @auth_url = default_auth_url
+      @api_version = default_api_version
       args.each_pair do |option, value|
         self.send("#{option}=", value)
       end
@@ -26,6 +25,18 @@ module Nacre
 
     def valid?
       ConfigurationValidator.validate(self)
+    end
+
+    def base_url
+      url_template % [distribution_center]
+    end
+
+    def auth_url
+      "#{base_url}/%s/authorise" % [user_id]
+    end
+
+    def resource_url
+      "#{base_url}/%s/%s" % [api_version, user_id]
     end
 
     private
@@ -52,14 +63,6 @@ module Nacre
 
     def url_template
       "https://ws-%s.brightpearl.com"
-    end
-
-    def default_base_url
-      url_template % [distribution_center]
-    end
-
-    def default_auth_url
-      "#{default_base_url}/%s/authorise" % [user_id]
     end
   end
 end
