@@ -1,11 +1,12 @@
-.env
 *.gem
 *.rbc
 .bundle
 .config
+.env
 Gemfile.lock
 coverage
 doc
 pkg
 rdoc
+test.rb
 tmp
