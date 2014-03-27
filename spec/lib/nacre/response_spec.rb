@@ -33,5 +33,10 @@ describe Nacre::Response do
     it 'should fail' do
       expect(response).to_not be_success
     end
+
+    it 'should have errors' do
+      expect(response.errors).to be_a(Array)
+      expect(response.errors.first['message']).to match('Unable')
+    end
   end
 end
