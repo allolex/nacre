@@ -12,7 +12,11 @@ module Nacre
     attr_reader :id, :parent_order_id
 
     def initialize(options = {})
-      @id = options[:id].to_s
+      @id = if blank?(options[:id].to_s)
+              options[:order_id].to_s
+            else
+              options[:id].to_s
+            end
       @parent_order_id = options[:parent_order_id].to_s
     end
 
@@ -27,6 +31,14 @@ module Nacre
     end
 
     private
+
+    def blank?(value)
+      value.nil? || matches?(value,'\s*')
+    end
+
+    def matches?(value,subexpression)
+      !! ( value =~ /\A#{subexpression}\z/i )
+    end
 
     def self.orders_from_json(json)
       order = JSON.parse(json)['response'].first
