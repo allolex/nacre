@@ -1,13 +1,11 @@
 require 'uri'
 require 'json'
 require 'nacre/order_search_results'
-require 'nacre/concerns/inflectible'
 
 module Nacre
 
   class Order
 
-    extend Inflectible
 
     attr_reader :id, :parent_order_id
 
