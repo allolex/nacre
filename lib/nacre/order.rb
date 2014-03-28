@@ -1,11 +1,13 @@
 require 'uri'
 require 'json'
 require 'nacre/order_search_results'
+require 'nacre/concerns/matchable'
 
 module Nacre
 
   class Order
 
+    include Matchable
 
     attr_reader :id, :parent_order_id
 
@@ -29,14 +31,6 @@ module Nacre
     end
 
     private
-
-    def blank?(value)
-      value.nil? || matches?(value,'\s*')
-    end
-
-    def matches?(value,subexpression)
-      !! ( value =~ /\A#{subexpression}\z/i )
-    end
 
     def self.orders_from_json(json)
       order = JSON.parse(json)['response'].first
