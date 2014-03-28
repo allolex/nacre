@@ -72,7 +72,7 @@ module Nacre
     end
 
     def set_persistent_link(link)
-      Nacre.link = link
+      Nacre.link = self
     end
   end
 end

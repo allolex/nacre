@@ -15,4 +15,13 @@ describe Nacre do
   describe '.configuration' do
     pending 'specific configuration values'
   end
+
+  describe '.link' do
+    context 'when a link is established' do
+      it 'should be a Connection' do
+        Nacre::Connection.new
+        expect(Nacre.link).to be_a(Nacre::Connection)
+      end
+    end
+  end
 end
