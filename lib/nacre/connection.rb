@@ -1,7 +1,11 @@
 require 'json'
 require 'faraday'
+require 'pry'
 
 module Nacre
+
+  class NotAuthenticatedError < StandardError; end
+
   class Connection
 
     attr_reader :response, :link, :authentication
@@ -32,11 +36,17 @@ module Nacre
     end
 
     def get(url)
-      @link.headers['brightpearl-auth'] = self.authentication.token
-      @link.get(url)
+      self.link.headers['brightpearl-auth'] = self.authentication.token
+      response = self.link.get(url)
+      raise NotAuthenticatedError if authentication_failed?(response)
+      response
     end
 
     private
+
+    def authentication_failed?(response)
+      response.body['response'].match(/\ANot authenticated/)
+    end
 
     def auth_params
       {

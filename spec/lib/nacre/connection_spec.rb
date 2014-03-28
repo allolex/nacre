@@ -76,9 +76,42 @@ describe Nacre::Connection do
 
     let(:url) { 'http://example.com/some_path' }
 
-    it 'should send a GET request to the given URL' do
-      Faraday::Connection.any_instance.should_receive(:get).with(url)
-      Nacre::Connection.new.get(url)
+    before :all do
+      Rsp = Struct.new(:body,:status)
+    end
+
+    context 'when authenticated' do
+      let(:api_response) {
+        Rsp.new(
+          fixture_file_content('order_search_result.json'),
+          200
+        )
+      }
+
+      it 'should send a GET request to the given URL' do
+        Faraday::Connection.any_instance.should_receive(:get).with(url).and_return(api_response)
+        Nacre::Connection.new.get(url)
+      end
+    end
+
+    context 'when not authenticated' do
+      let(:api_response) {
+        Rsp.new(
+          fixture_file_content('error_not_authenticated.json'),
+          401
+        )
+      }
+
+      let(:response) {
+        Nacre::Response.new(api_response)
+      }
+
+      it 'should raise an error' do
+        Faraday::Connection.any_instance.should_receive(:get).with(url).and_return(response)
+        expect { Nacre::Connection.new.get(url) }.to raise_error(Nacre::NotAuthenticatedError)
+      end
+
+
     end
   end
 end
