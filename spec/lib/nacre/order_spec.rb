@@ -41,8 +41,34 @@ describe Nacre::Order do
     end
   end
 
-  describe '.find' do
+  describe '#params' do
 
+    context 'with all the valid params' do
+      let(:valid_params) {
+        {
+                           :order_id => "570001",
+                    :parent_order_id => "",
+                      :order_type_id => "1",
+                         :contact_id => "298",
+                    :order_status_id => "3",
+              :order_stock_status_id => "1",
+                         :created_on => "2012-07-25T13:10:12.000Z",
+                      :created_by_id => "203",
+                       :customer_ref => "",
+            :order_payment_status_id => "3"
+        }
+      }
+
+      let(:order) { Nacre::Order.new(valid_params) }
+
+      it 'should output a hash identical to the input hash' do
+        expect(order.params).to eql(valid_params)
+      end
+
+    end
+  end
+
+  describe '.find' do
 
     context 'by ID' do
       let(:id_text) { 123456 }

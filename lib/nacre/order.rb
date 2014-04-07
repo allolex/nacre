@@ -42,6 +42,14 @@ module Nacre
       new(params)
     end
 
+    def params
+      params = {}
+      FIELDS.each do |key|
+        params[key] = "#{self.send(key.to_s)}"
+      end
+      params
+    end
+
     private
 
     def self.orders_from_json(json)
