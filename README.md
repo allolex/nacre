@@ -84,3 +84,16 @@ add the following lines:
 Have a look at the issues in Nacre's GitHub repository.
 
 
+## CONTRIBUTING
+
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Added some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request
+
+Please keep formatting "fixes" separate from actual code changes/improvements. *De gustibus non est disputandum* and no one is perfect. :wink:
+
+## Thanks 
+
+Many thanks go to Angela Heenan at and Helen Bowling at Brightpearl.
