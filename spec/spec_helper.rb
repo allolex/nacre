@@ -13,6 +13,9 @@ require 'awesome_print'
 require 'webmock/rspec'
 
 require 'nacre'
+require 'coveralls'
+
+Coveralls.wear!
 
 Dir[File.expand_path(File.dirname(__FILE__) + '/support/**/*.rb')].each do
   |support_file| require support_file
