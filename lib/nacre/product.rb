@@ -31,6 +31,14 @@ module Nacre
       new(params)
     end
 
+    def params
+      params = {}
+      FIELDS.each do |key|
+        params[key] = self.send(key)
+      end
+      params
+    end
+
     private
 
     def self.params_from_json(json)
