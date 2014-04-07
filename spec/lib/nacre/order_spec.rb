@@ -4,44 +4,25 @@ describe Nacre::Order do
 
   let!(:link) { Nacre::Connection.new }
 
-  describe 'attributes' do
+  describe 'initialization' do
 
     let(:order) { Nacre::Order.new(params) }
 
-    context ':order_id' do
-      let(:params) do
-        {
-          order_id: 123456,
-          parent_order_id: 123455
-        }
-      end
-
-      let(:order) { Nacre::Order.new(params) }
-
-      it 'should have an id' do
-        expect(order.id).to eql('123456')
-      end
-
-      it 'should have a parent_order_id' do
-        expect(order.parent_order_id).to eql('123455')
-      end
+    let(:params) do
+      {
+        order_id: 123456,
+        parent_order_id: 123455
+      }
     end
 
-    context 'with :id' do
-      let(:params) do
-        {
-          id: 123456,
-          parent_order_id: 123455
-        }
-      end
+    let(:order) { Nacre::Order.new(params) }
 
-      it 'should have an id' do
-        expect(order.id).to eql('123456')
-      end
+    it 'should have an order_id' do
+      expect(order.order_id).to eql(123456)
+    end
 
-      it 'should have a parent_order_id' do
-        expect(order.parent_order_id).to eql('123455')
-      end
+    it 'should have a parent_order_id' do
+      expect(order.parent_order_id).to eql(123455)
     end
   end
 
@@ -51,12 +32,12 @@ describe Nacre::Order do
 
     let(:order) { Nacre::Order.from_json(json) }
 
-    it 'should have an id' do
-      expect(order.id).to eql('123456')
+    it 'should have an order_id' do
+      expect(order.order_id).to eql(123456)
     end
 
     it 'should have a parent_order_id' do
-      expect(order.parent_order_id).to eql('123455')
+      expect(order.parent_order_id).to eql(123455)
     end
   end
 

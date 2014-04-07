@@ -7,17 +7,29 @@ module Nacre
 
   class Order
 
+    FIELDS = [
+      :order_id,
+      :parent_order_id,
+      :order_type_id,
+      :contact_id,
+      :order_status_id,
+      :order_stock_status_id,
+      :created_on,
+      :created_by_id,
+      :customer_ref,
+      :order_payment_status_id
+    ]
+
     include Matchable
 
-    attr_reader :id, :parent_order_id
+    FIELDS.each do |field|
+      attr_accessor field
+    end
 
     def initialize(options = {})
-      @id = if blank?(options[:id].to_s)
-              options[:order_id].to_s
-            else
-              options[:id].to_s
-            end
-      @parent_order_id = options[:parent_order_id].to_s
+      FIELDS.each do |attrib|
+        self.send("#{attrib.to_s}=",options[attrib]) unless blank?(options[attrib])
+      end
     end
 
     def self.find(id_list = [])
@@ -35,8 +47,8 @@ module Nacre
     def self.orders_from_json(json)
       order = JSON.parse(json)['response'].first
       {
-        id: order['id'],
-        parent_order_id: order['parentOrderId']
+        order_id: order['id'].to_i,
+        parent_order_id: order['parentOrderId'].to_i
       }
     end
 
