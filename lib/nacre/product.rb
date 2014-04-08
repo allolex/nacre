@@ -55,6 +55,10 @@ module Nacre
       @financial_details = Nacre::Product::FinancialDetails.new(params)
     end
 
+    def stock=(params)
+      @stock = Nacre::Product::StockDetails.new(params)
+    end
+
     private
 
     def self.params_from_json(json)
@@ -64,6 +68,7 @@ module Nacre
         identity: resource['identity'],
         sales_channels: resource['salesChannels'],
         financial_details: resource['financialDetails'],
+        stock: resource['stock'],
         brand_id: resource['brandId']
       }
     end

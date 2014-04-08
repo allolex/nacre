@@ -9,8 +9,7 @@ describe 'Nacre::Product' do
       product_type_id: 3,
       identity: {sku: nil, isbn: nil, ean: nil, upc: nil,barcode: nil},
       product_group_id: 4,
-      stock: {},
-      financial_details: {},
+      stock: { stock_tracked: false },
       financial_details: { tax_code: nil },
       sales_channels: [],
       composition: {},
@@ -46,6 +45,10 @@ describe 'Nacre::Product' do
 
       it 'should have financial_details' do
         expect(subject.financial_details).to be_a(Nacre::Product::FinancialDetails)
+      end
+
+      it 'should have stock details' do
+        expect(subject.stock).to be_a(Nacre::Product::StockDetails)
       end
 
       it 'should have the sales channels' do
