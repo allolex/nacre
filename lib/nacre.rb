@@ -11,9 +11,11 @@ require "nacre/order_search_results"
 
 require "nacre/product"
 require "nacre/product/identity"
+require 'nacre/product/financial_details'
 require 'nacre/product/sales_channel'
 require 'nacre/product/sales_channel_collection'
 require 'nacre/product/description'
+require 'nacre/product/tax_code'
 
 module Nacre
   class << self

@@ -11,6 +11,7 @@ describe 'Nacre::Product' do
       product_group_id: 4,
       stock: {},
       financial_details: {},
+      financial_details: { tax_code: nil },
       sales_channels: [],
       composition: {},
       variations: []
@@ -41,6 +42,10 @@ describe 'Nacre::Product' do
 
       it 'should have an identity' do
         expect(subject.identity).to be_a(Nacre::Product::Identity)
+      end
+
+      it 'should have financial_details' do
+        expect(subject.financial_details).to be_a(Nacre::Product::FinancialDetails)
       end
 
       it 'should have the sales channels' do
