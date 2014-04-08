@@ -34,9 +34,17 @@ module Nacre
     def params
       params = {}
       FIELDS.each do |key|
-        params[key] = self.send(key)
+        params[key] = if self.send(key).respond_to?(:params)
+                        self.send(key).params
+                      else
+                        self.send(key)
+                      end
       end
       params
+    end
+
+    def identity=(params)
+      @identity = Nacre::Product::Identity.new(params)
     end
 
     private
@@ -45,6 +53,7 @@ module Nacre
       resource = JSON.parse(json)['response'].first
       {
         product_id: resource['id'].to_i,
+        identity: resource['identity']
       }
     end
   end

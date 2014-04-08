@@ -7,7 +7,7 @@ describe 'Nacre::Product' do
       product_id: 1,
       brand_id: 2,
       product_type_id: 3,
-      identity: {},
+      identity: {sku: nil, isbn: nil, ean: nil, upc: nil,barcode: nil},
       product_group_id: 4,
       stock: {},
       financial_details: {},
@@ -31,8 +31,11 @@ describe 'Nacre::Product' do
       let(:json) { fixture_file_content('product.json') }
       let(:subject) { Nacre::Product.from_json(json) }
 
-      it 'should have an product_id' do
+      it 'should have the correct product_id' do
         expect(subject.product_id).to eql(1008)
+      end
+      it 'should have an identity' do
+        expect(subject.identity).to be_a(Nacre::Product::Identity)
       end
     end
   end

@@ -10,6 +10,7 @@ require "nacre/order_collection"
 require "nacre/order_search_results"
 
 require "nacre/product"
+require "nacre/product/identity"
 
 module Nacre
   class << self
