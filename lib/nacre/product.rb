@@ -47,13 +47,18 @@ module Nacre
       @identity = Nacre::Product::Identity.new(params)
     end
 
+    def sales_channels=(channels_list)
+      @sales_channels = Nacre::Product::SalesChannelCollection.new(channels_list)
+    end
+
     private
 
     def self.params_from_json(json)
       resource = JSON.parse(json)['response'].first
       {
         product_id: resource['id'].to_i,
-        identity: resource['identity']
+        identity: resource['identity'],
+        sales_channels: resource['salesChannels']
       }
     end
   end
