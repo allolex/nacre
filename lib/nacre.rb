@@ -11,6 +11,7 @@ require "nacre/order_search_results"
 
 require "nacre/product"
 require "nacre/product/identity"
+require 'nacre/product/sales_channel'
 
 module Nacre
   class << self
