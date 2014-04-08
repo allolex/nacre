@@ -58,7 +58,8 @@ module Nacre
       {
         product_id: resource['id'].to_i,
         identity: resource['identity'],
-        sales_channels: resource['salesChannels']
+        sales_channels: resource['salesChannels'],
+        brand_id: resource['brandId']
       }
     end
   end

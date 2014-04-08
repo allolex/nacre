@@ -34,6 +34,11 @@ describe 'Nacre::Product' do
       it 'should have the correct product_id' do
         expect(subject.product_id).to eql(1008)
       end
+
+      it 'should have the correct brand_id' do
+        expect(subject.brand_id).to eql(74)
+      end
+
       it 'should have an identity' do
         expect(subject.identity).to be_a(Nacre::Product::Identity)
       end
