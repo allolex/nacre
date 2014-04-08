@@ -37,10 +37,6 @@ describe Nacre::Product::Identity do
     end
   end
 
-  describe '#params' do
-    it 'should output the same parameters as in the input' do
-      expect(subject.params).to eql(params)
-    end
-  end
+  it_should_behave_like 'Parametrizable'
 
 end

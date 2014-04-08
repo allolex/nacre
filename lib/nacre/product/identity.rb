@@ -1,4 +1,5 @@
 require 'nacre/concerns/matchable'
+require 'nacre/concerns/parametrizable'
 
 class Nacre::Product::Identity
 
@@ -11,6 +12,7 @@ class Nacre::Product::Identity
   ]
 
   include Matchable
+  include Parametrizable
 
   FIELDS.each do |field|
     attr_accessor field
@@ -22,15 +24,4 @@ class Nacre::Product::Identity
     end
   end
 
-  def params
-    params = {}
-    FIELDS.each do |key|
-      params[key] = if self.send(key).respond_to?(:params)
-                      self.send(key).params
-                    else
-                      self.send(key)
-                    end
-    end
-    params
-  end
 end
