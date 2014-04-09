@@ -1,11 +1,14 @@
-require 'dotenv'  # First line of spec_helper
-Dotenv.load       # Second line of spec_helper
+require "codeclimate-test-reporter"
+CodeClimate::TestReporter.start
 
 require 'simplecov'
 SimpleCov.start do
   add_filter '/spec/'
   add_filter '/.bundle/'
 end
+
+require 'dotenv'  # First line of spec_helper
+Dotenv.load       # Second line of spec_helper
 
 require 'pry'
 require 'rspec'

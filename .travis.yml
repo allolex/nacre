@@ -1,14 +1,14 @@
 language: ruby
 env:
-  - NACRE_USER_ID='test_user_id' NACRE_EMAIL='testuser@example.com' NACRE_PASSWORD='123456'
+  - CODECLIMATE_REPO_TOKEN='2d89fff3a359f62355f9e07647fede441b37800782b861b48cbf798f5bcafca0' NACRE_USER_ID='test_user_id' NACRE_EMAIL='testuser@example.com' NACRE_PASSWORD='123456'
 script:
   - bundle exec rspec
 rvm:
   - 2.1.0
   - jruby-19mode
 branches:
-  only:
-    - master
+  except:
+    - /^experimental.*$/
 notifications:
   email:
     - nacre@allolex.net
