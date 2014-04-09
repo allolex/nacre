@@ -10,7 +10,7 @@ describe 'Nacre::Product' do
       identity: {sku: nil, isbn: nil, ean: nil, upc: nil,barcode: nil},
       product_group_id: 4,
       stock: { stock_tracked: false },
-      financial_details: { tax_code: nil },
+      financial_details: { tax_code: { id: nil, code: nil } },
       sales_channels: [],
       composition: {},
       variations: []

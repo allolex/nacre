@@ -1,36 +1,22 @@
 require 'uri'
 require 'json'
 require 'nacre/order_search_results'
-require 'nacre/concerns/matchable'
+require 'nacre/abstract_resource'
 
 module Nacre
 
-  class Order
+  class Order < AbstractResource
 
-    FIELDS = [
-      :order_id,
-      :parent_order_id,
-      :order_type_id,
-      :contact_id,
-      :order_status_id,
-      :order_stock_status_id,
-      :created_on,
-      :created_by_id,
-      :customer_ref,
-      :order_payment_status_id
-    ]
-
-    include Matchable
-
-    FIELDS.each do |field|
-      attr_accessor field
-    end
-
-    def initialize(options = {})
-      FIELDS.each do |attrib|
-        self.send("#{attrib.to_s}=",options[attrib]) unless blank?(options[attrib])
-      end
-    end
+    attribute :order_id
+    attribute :parent_order_id
+    attribute :order_type_id
+    attribute :contact_id
+    attribute :order_status_id
+    attribute :order_stock_status_id
+    attribute :created_on
+    attribute :created_by_id
+    attribute :customer_ref
+    attribute :order_payment_status_id
 
     def self.find(id_list = [])
       response = link.get(self.search_url)
@@ -40,14 +26,6 @@ module Nacre
     def self.from_json(json)
       params = orders_from_json(json)
       new(params)
-    end
-
-    def params
-      params = {}
-      FIELDS.each do |key|
-        params[key] = "#{self.send(key.to_s)}"
-      end
-      params
     end
 
     private

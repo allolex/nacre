@@ -1,23 +1,9 @@
-require 'nacre/concerns/matchable'
-require 'nacre/concerns/parametrizable'
+require 'nacre/abstract_resource'
 
 module Nacre
-  class Product::FinancialDetails
+  class Product::FinancialDetails < AbstractResource
 
-    FIELDS = [ :tax_code ]
-
-    include Matchable
-    include Parametrizable
-
-    FIELDS.each do |field|
-      attr_accessor field
-    end
-
-    def initialize(options = {})
-      FIELDS.each do |attrib|
-        self.send("#{attrib.to_s}=",options[attrib]) unless blank?(options[attrib])
-      end
-    end
+    attribute :tax_code
 
     def tax_code=(params)
       @tax_code = Product::TaxCode.new(params)

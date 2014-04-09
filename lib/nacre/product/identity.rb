@@ -1,27 +1,13 @@
-require 'nacre/concerns/matchable'
-require 'nacre/concerns/parametrizable'
+require 'nacre/abstract_resource'
 
-class Nacre::Product::Identity
+module Nacre
+  class Product::Identity < AbstractResource
 
-  FIELDS = [
-    :sku,
-    :isbn,
-    :ean,
-    :upc,
-    :barcode
-  ]
+    attribute :sku
+    attribute :isbn
+    attribute :ean
+    attribute :upc
+    attribute :barcode
 
-  include Matchable
-  include Parametrizable
-
-  FIELDS.each do |field|
-    attr_accessor field
   end
-
-  def initialize(options = {})
-    FIELDS.each do |attrib|
-      self.send("#{attrib.to_s}=",options[attrib]) unless blank?(options[attrib])
-    end
-  end
-
 end

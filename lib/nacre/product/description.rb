@@ -1,29 +1,11 @@
+require 'nacre/abstract_resource'
+
 module Nacre
-  class Product::Description
+  class Product::Description < AbstractResource
 
-    include Matchable
-    include Parametrizable
+    attribute :language_code
+    attribute :text
+    attribute :format
 
-    FIELDS = [
-      :language_code,
-      :text,
-      :format
-    ]
-
-    FIELDS.each do |field|
-      attr_accessor field
-    end
-
-    def initialize(options = {})
-      fill_attributes(options)
-    end
-
-    private
-
-    def fill_attributes(options)
-      FIELDS.each do |attrib|
-        self.send("#{attrib.to_s}=",options[attrib]) unless blank?(options[attrib])
-      end
-    end
   end
 end

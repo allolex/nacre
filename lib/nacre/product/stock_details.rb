@@ -1,20 +1,9 @@
+require 'nacre/abstract_resource'
+
 module Nacre
-  class Product::StockDetails
+  class Product::StockDetails < AbstractResource
 
-    FIELDS = [ :stock_tracked ]
-
-    include Matchable
-    include Parametrizable
-
-    FIELDS.each do |field|
-      attr_accessor field
-    end
-
-    def initialize(options = {})
-      FIELDS.each do |attrib|
-        self.send("#{attrib.to_s}=",options[attrib]) unless blank?(options[attrib])
-      end
-    end
+    attribute :stock_tracked
 
     def stock_tracked=(value)
       @stock_tracked = value.to_s == 'true' ? true : false

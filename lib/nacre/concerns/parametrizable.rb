@@ -2,7 +2,7 @@ module Parametrizable
 
   def params
     params = {}
-    self.class::FIELDS.each do |key|
+    self.class.fields.each do |key|
       params[key] = if self.send(key).respond_to?(:params)
                       self.send(key).params
                     else

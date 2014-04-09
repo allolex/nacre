@@ -1,16 +1,7 @@
+require 'nacre/abstract_resource'
+
 module Nacre
-  class Product
-
-    include Matchable
-
-    def self.fields
-      @fields ||= []
-    end
-
-    def self.attribute(name)
-      self.fields << name
-      attr_accessor name
-    end
+  class Product < AbstractResource
 
     attribute :product_id
     attribute :brand_id
@@ -23,33 +14,9 @@ module Nacre
     attribute :composition
     attribute :variations
 
-    def initialize(options = {})
-      self.attributes = options
-    end
-
-    def attributes=(attributes_hash)
-      self.class.fields.each do |field|
-        if attributes_hash.has_key?(field.to_sym)
-          public_send("#{field}=", attributes_hash[field.to_sym])
-        end
-      end
-    end
-
     def self.from_json(json)
       params = params_from_json(json)
       new(params)
-    end
-
-    def params
-      params = {}
-      self.class.fields.each do |key|
-        params[key] = if self.send(key).respond_to?(:params)
-                        self.send(key).params
-                      else
-                        self.send(key)
-                      end
-      end
-      params
     end
 
     def identity=(params)

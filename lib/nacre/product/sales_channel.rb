@@ -1,27 +1,14 @@
-require 'nacre/concerns/matchable'
+require 'nacre/abstract_resource'
 
 module Nacre
-  class Product::SalesChannel
+  class Product::SalesChannel < AbstractResource
 
-    include Matchable
-    include Parametrizable
-
-    FIELDS = [
-      :sales_channel_name,
-      :product_name,
-      :product_condition,
-      :categories,
-      :description,
-      :short_description
-    ]
-
-    FIELDS.each do |field|
-      attr_accessor field
-    end
-
-    def initialize(options = {})
-      fill_attributes(options)
-    end
+    attribute :sales_channel_name
+    attribute :product_name
+    attribute :product_condition
+    attribute :categories
+    attribute :description
+    attribute :short_description
 
     def description=(options = {})
       @description = Product::Description.new(options)
@@ -29,14 +16,6 @@ module Nacre
 
     def short_description=(options = {})
       @short_description = Product::Description.new(options)
-    end
-
-    private
-
-    def fill_attributes(options)
-      FIELDS.each do |attrib|
-        self.send("#{attrib.to_s}=",options[attrib]) unless blank?(options[attrib])
-      end
     end
   end
 end
