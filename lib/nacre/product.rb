@@ -3,26 +3,35 @@ module Nacre
 
     include Matchable
 
-    FIELDS = [
-      :product_id,
-      :brand_id,
-      :product_type_id,
-      :identity,
-      :product_group_id,
-      :stock,
-      :financial_details,
-      :sales_channels,
-      :composition,
-      :variations
-    ]
-
-    FIELDS.each do |field|
-      attr_accessor field
+    def self.fields
+      @fields ||= []
     end
 
+    def self.attribute(name)
+      self.fields << name
+      attr_accessor name
+    end
+
+    attribute :product_id
+    attribute :brand_id
+    attribute :product_type_id
+    attribute :identity
+    attribute :product_group_id
+    attribute :stock
+    attribute :financial_details
+    attribute :sales_channels
+    attribute :composition
+    attribute :variations
+
     def initialize(options = {})
-      FIELDS.each do |attrib|
-        self.send("#{attrib.to_s}=",options[attrib]) unless blank?(options[attrib])
+      self.attributes = options
+    end
+
+    def attributes=(attributes_hash)
+      self.class.fields.each do |field|
+        if attributes_hash.has_key?(field.to_sym)
+          public_send("#{field}=", attributes_hash[field.to_sym])
+        end
       end
     end
 
@@ -33,7 +42,7 @@ module Nacre
 
     def params
       params = {}
-      FIELDS.each do |key|
+      self.class.fields.each do |key|
         params[key] = if self.send(key).respond_to?(:params)
                         self.send(key).params
                       else
