@@ -13,6 +13,8 @@ describe 'Nacre::Product' do
       financial_details: { tax_code: { id: nil, code: nil } },
       sales_channels: [],
       composition: {},
+      custom_fields: nil,
+      null_custom_fields: nil,
       variations: []
     }
   end
@@ -60,6 +62,19 @@ describe 'Nacre::Product' do
     end
   end
 
+  context 'with custom fields' do
+      let(:json) { fixture_file_content('product_with_custom_fields.json') }
+
+      subject { Nacre::Product.from_json(json) }
+
+      it 'should have a custom fields hash attribute' do
+        expect(subject.custom_fields).to be_a(Hash)
+      end
+
+      it 'should have the null custom fields array attribute' do
+        expect(subject.null_custom_fields).to be_a(Array)
+      end
+  end
 
     end
   end

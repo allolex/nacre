@@ -13,6 +13,8 @@ module Nacre
     attribute :sales_channels
     attribute :composition
     attribute :variations
+    attribute :custom_fields
+    attribute :null_custom_fields
 
     def self.from_json(json)
       params = params_from_json(json)
@@ -33,6 +35,14 @@ module Nacre
 
     def stock=(params)
       @stock = Nacre::Product::StockDetails.new(params)
+    end
+
+    def custom_fields=(hash)
+      @custom_fields = hash unless hash.nil? || hash.empty?
+    end
+
+    def null_custom_fields=(list)
+      @null_custom_fields = list unless list.nil? || list.empty?
     end
 
     private
