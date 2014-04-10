@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'Nacre::Product' do
 
-  let(:valid_params) do
+  let(:params) do
     {
       product_id: 1,
       brand_id: 2,
@@ -17,13 +17,15 @@ describe 'Nacre::Product' do
     }
   end
 
+  subject { Nacre::Product.new(params) }
+
+  it_should_behave_like 'Parametrizable'
+
   context 'initialization' do
 
     describe '.new' do
-      let(:subject) { Nacre::Product.new(valid_params) }
-
       it 'should have a product_id' do
-        expect(subject.product_id).to eql(valid_params[:product_id])
+        expect(subject.product_id).to eql(params[:product_id])
       end
     end
 
@@ -57,11 +59,7 @@ describe 'Nacre::Product' do
     end
   end
 
-  describe '#params' do
-    let(:subject) { Nacre::Product.new(valid_params) }
 
-    it 'should output a hash identical to the input hash' do
-      expect(subject.params).to eql(valid_params)
     end
   end
 end
