@@ -76,6 +76,35 @@ describe 'Nacre::Product' do
       end
   end
 
+  context 'API interactions' do
+    let!(:link) { Nacre::Connection.new }
+
+    let(:resource) { 'product' }
+
+    let(:api_details) { [ Nacre.configuration.api_version, Nacre.configuration.user_id ] }
+
+    describe '.get' do
+      let(:resource_endpoint) {
+        "https://ws-eu1.brightpearl.com/%s/%s/#{resource}-service/#{resource}" % api_details
+      }
+
+      let(:range) { 1018 }
+
+      let(:options) { 'includeOptional=customFields,nullCustomFields' }
+
+      it 'should make a request to the correct endpoint' do
+        stub_request(:get, "#{resource_endpoint}/#{range}?#{options}").
+          to_return(
+            :status => 200,
+            :body => fixture_file_content('product_with_custom_fields.json'),
+            :headers => {}
+          )
+
+        product = Nacre::Product.get(1018)
+
+        a_request(:get, "#{resource_endpoint}/#{range}?#{options}").should have_been_made
+        expect(product.product_id).to eql(1018)
+      end
     end
   end
 end

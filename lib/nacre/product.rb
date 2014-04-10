@@ -47,7 +47,22 @@ module Nacre
       @null_custom_fields = list unless list.nil? || list.empty?
     end
 
+    # TODO: Shouldn't this be using Nacre::Response instead of Faraday::Response?
+    def self.get(range)
+      request_url = build_request_url(url,range,resource_options)
+      response = self.link.get(request_url)
+      Nacre::Product.from_json(response.body)
+    end
+
     private
+
+    def self.build_request_url(url, query, options)
+      "#{url}/#{query.to_s}?#{options}"
+    end
+
+    def self.resource_options
+      'includeOptional=customFields,nullCustomFields'
+    end
 
     def self.params_from_json(json)
       resource = JSON.parse(json)['response'].first
@@ -62,6 +77,21 @@ module Nacre
       end
       params
     end
+
+    def self.service_url
+      configuration.resource_url + '/product-service'
+    end
+
+    def self.url
+      service_url + '/product'
+    end
+
+    def self.link
+      Nacre.link
+    end
+
+    def self.configuration
+      Nacre.configuration
     end
   end
 end
