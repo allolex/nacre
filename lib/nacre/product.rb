@@ -3,6 +3,8 @@ require 'nacre/abstract_resource'
 module Nacre
   class Product < AbstractResource
 
+    extend Inflectible
+
     attribute :product_id
     attribute :brand_id
     attribute :product_type_id
@@ -49,14 +51,17 @@ module Nacre
 
     def self.params_from_json(json)
       resource = JSON.parse(json)['response'].first
-      {
-        product_id: resource['id'].to_i,
-        identity: resource['identity'],
-        sales_channels: resource['salesChannels'],
-        financial_details: resource['financialDetails'],
-        stock: resource['stock'],
-        brand_id: resource['brandId']
-      }
+
+      params = {}
+      resource.each_pair do |camel_key,value|
+        if camel_key == 'id'
+          params[:product_id] = value
+        else
+          params[snake_case(camel_key).to_sym] = value
+        end
+      end
+      params
+    end
     end
   end
 end
