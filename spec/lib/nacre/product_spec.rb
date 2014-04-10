@@ -31,7 +31,8 @@ describe 'Nacre::Product' do
 
     describe '.from_json' do
       let(:json) { fixture_file_content('product.json') }
-      let(:subject) { Nacre::Product.from_json(json) }
+
+      subject { Nacre::Product.from_json(json) }
 
       it 'should have the correct product_id' do
         expect(subject.product_id).to eql(1008)
