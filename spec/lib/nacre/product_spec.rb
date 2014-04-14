@@ -4,7 +4,7 @@ describe 'Nacre::Product' do
 
   let(:params) do
     {
-      product_id: 1,
+      id: 1,
       brand_id: 2,
       product_type_id: 3,
       identity: {sku: nil, isbn: nil, ean: nil, upc: nil,barcode: nil},
@@ -26,8 +26,8 @@ describe 'Nacre::Product' do
   context 'initialization' do
 
     describe '.new' do
-      it 'should have a product_id' do
-        expect(subject.product_id).to eql(params[:product_id])
+      it 'should have an id' do
+        expect(subject.id).to eql(params[:id])
       end
     end
 
@@ -36,8 +36,8 @@ describe 'Nacre::Product' do
 
       subject { Nacre::Product.from_json(json) }
 
-      it 'should have the correct product_id' do
-        expect(subject.product_id).to eql(1008)
+      it 'should have the correct id' do
+        expect(subject.id).to eql(1008)
       end
 
       it 'should have the correct brand_id' do
@@ -103,7 +103,7 @@ describe 'Nacre::Product' do
         product = Nacre::Product.get(1018)
 
         a_request(:get, "#{resource_endpoint}/#{range}?#{options}").should have_been_made
-        expect(product.product_id).to eql(1018)
+        expect(product.id).to eql(1018)
       end
     end
   end

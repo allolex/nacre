@@ -5,7 +5,7 @@ module Nacre
 
     extend Inflectible
 
-    attribute :product_id
+    attribute :id
     attribute :brand_id
     attribute :product_type_id
     attribute :identity
