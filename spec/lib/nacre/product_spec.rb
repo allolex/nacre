@@ -62,6 +62,27 @@ describe 'Nacre::Product' do
     end
   end
 
+  describe '#name' do
+    context 'when the Brightpearl sales channel product name is defined' do
+      let(:json) { fixture_file_content('product_music.json') }
+
+      subject { Nacre::Product.from_json(json) }
+
+      it 'should have the correct name' do
+        expect(subject.name).to eq('An Artist - A Title EP')
+      end
+    end
+
+    context 'when the Brightpearl sales channel product name is not defined' do
+      subject { Nacre::Product.new(params) }
+
+      it 'should not have a defined name' do
+        expect(subject.name).to be_nil
+      end
+
+    end
+  end
+
   context 'with custom fields' do
       let(:json) { fixture_file_content('product_with_custom_fields.json') }
 

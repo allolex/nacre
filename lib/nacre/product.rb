@@ -47,6 +47,10 @@ module Nacre
       @null_custom_fields = list unless list.nil? || list.empty?
     end
 
+    def name
+      sales_channels.product_name
+    end
+
     # TODO: Shouldn't this be using Nacre::Response instead of Faraday::Response?
     def self.get(range)
       request_url = build_request_url(url,range,resource_options)
@@ -66,16 +70,30 @@ module Nacre
 
     def self.params_from_json(json)
       resource = JSON.parse(json)['response'].first
+      format_hash_keys(resource)
+    end
 
-      params = {}
-      resource.each_pair do |camel_key,value|
-        if camel_key == 'id'
-          params[:product_id] = value
-        else
-          params[snake_case(camel_key).to_sym] = value
-        end
+    def self.format_hash_keys(value)
+      case value
+      when Hash
+        Hash[ value.map { |k,v| [ fix_key(k), format_hash_keys(v) ] } ]
+      when Array
+        value.map { |v| format_hash_keys(v) }
+      else
+        value
       end
-      params
+    end
+
+    def self.fix_key(key)
+      if camel_case?(key)
+        snake_case(key).to_sym
+      else
+        key.downcase.to_sym
+      end
+    end
+
+    def self.camel_case?(key)
+      !! key.match(/(?<=[a-z])[A-Z]/)
     end
 
     def self.service_url

@@ -1,0 +1,169 @@
+{
+   "response" : [
+      {
+         "productGroupId" : 165,
+         "warehouses" : {
+            "11" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "7" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "17" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "2" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 0,
+               "defaultLocationId" : 0
+            },
+            "18" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "16" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "13" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "6" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 0,
+               "defaultLocationId" : 0
+            },
+            "9" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "12" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "20" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "14" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "15" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "8" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "4" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 0,
+               "defaultLocationId" : 0
+            },
+            "19" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "10" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "5" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 0,
+               "defaultLocationId" : 0
+            }
+         },
+         "salesChannels" : [
+            {
+               "productName" : "An Artist - A Title EP",
+               "shortDescription" : {
+                  "languageCode" : "en",
+                  "format" : "HTML_FRAGMENT",
+                  "text" : ""
+               },
+               "salesChannelName" : "Brightpearl",
+               "productCondition" : "new",
+               "categories" : [
+                  {
+                     "categoryCode" : "297"
+                  }
+               ],
+               "description" : {
+                  "languageCode" : "en",
+                  "format" : "HTML_FRAGMENT",
+                  "text" : ""
+               }
+            }
+         ],
+         "nullCustomFields" : [
+            "PCF_CATNO",
+            "PCF_PRICECO",
+            "PCF_PROJECT"
+         ],
+         "nominalCodeStock" : "1001",
+         "stock" : {
+            "weight" : {
+               "magnitude" : 0
+            },
+            "stockTracked" : true
+         },
+         "brandId" : 75,
+         "variations" : [
+            {
+               "optionName" : "Disk",
+               "optionValueId" : 29,
+               "optionValue" : "1disk",
+               "optionId" : 8
+            },
+            {
+               "optionName" : "Diameter",
+               "optionValueId" : 18,
+               "optionValue" : "7in",
+               "optionId" : 4
+            }
+         ],
+         "identity" : {
+            "sku" : "999997",
+            "barcode" : "555"
+         },
+         "financialDetails" : {
+            "taxCode" : {
+               "id" : 7,
+               "code" : "T20"
+            },
+            "taxable" : false
+         },
+         "composition" : {
+            "bundle" : false
+         },
+         "productTypeId" : 4,
+         "id" : 1361,
+         "customFields" : {
+            "PCF_PROJECT" : "99999",
+            "PCF_CATNO" : "99999-7",
+            "PCF_PRICECO" : "403"
+         }
+      }
+   ]
+}
