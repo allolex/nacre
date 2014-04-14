@@ -38,18 +38,6 @@ module Nacre
       }
     end
 
-    def self.build_uri(query, options)
-      "#{search_url}?#{escape_query(query)}#{options}"
-    end
-
-    def self.escape_query(query)
-      if query.nil?
-        ''
-      else
-        URI.escape(query + '&')
-      end
-    end
-
     def self.service_url
       configuration.resource_url + '/order-service'
     end
