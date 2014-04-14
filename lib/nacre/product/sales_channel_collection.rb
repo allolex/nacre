@@ -9,7 +9,7 @@ module Nacre
     def initialize(resource_list = [])
       self.members = []
       resource_list.each do |resource_params|
-        self.members << Product::SalesChannel.new(resource_params)
+        self.members << Nacre::Product::SalesChannel.new(resource_params)
       end
     end
 
@@ -21,6 +21,15 @@ module Nacre
 
     def params
       self.members.map(&:params)
+    end
+
+    def product_name
+      name_sources = self.members.select { |member| member.sales_channel_name == 'Brightpearl' }
+      if name_sources.empty?
+        nil
+      else
+        name_sources.first.product_name
+      end
     end
 
   end
