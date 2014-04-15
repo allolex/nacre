@@ -10,7 +10,7 @@ describe Nacre::Order do
 
     let(:params) do
       {
-        order_id: 123456,
+        id: 123456,
         parent_order_id: 123455
       }
     end
@@ -18,7 +18,7 @@ describe Nacre::Order do
     let(:order) { Nacre::Order.new(params) }
 
     it 'should have an order_id' do
-      expect(order.order_id).to eql(123456)
+      expect(order.id).to eql(123456)
     end
 
     it 'should have a parent_order_id' do
@@ -32,8 +32,8 @@ describe Nacre::Order do
 
     let(:order) { Nacre::Order.from_json(json) }
 
-    it 'should have an order_id' do
-      expect(order.order_id).to eql(123456)
+    it 'should have an id' do
+      expect(order.id).to eql(123456)
     end
 
     it 'should have a parent_order_id' do
@@ -46,16 +46,16 @@ describe Nacre::Order do
     context 'with all the valid params' do
       let(:valid_params) {
         {
-                           :order_id => "570001",
-                    :parent_order_id => "",
-                      :order_type_id => "1",
-                         :contact_id => "298",
-                    :order_status_id => "3",
-              :order_stock_status_id => "1",
-                         :created_on => "2012-07-25T13:10:12.000Z",
-                      :created_by_id => "203",
-                       :customer_ref => "",
-            :order_payment_status_id => "3"
+          :id => "570001",
+          :parent_order_id => "",
+          :order_type_id => "1",
+          :contact_id => "298",
+          :order_status_id => "3",
+          :order_stock_status_id => "1",
+          :created_on => "2012-07-25T13:10:12.000Z",
+          :created_by_id => "203",
+          :customer_ref => "",
+          :order_payment_status_id => "3"
         }
       }
 

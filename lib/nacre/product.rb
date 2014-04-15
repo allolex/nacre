@@ -3,7 +3,6 @@ require 'nacre/abstract_resource'
 module Nacre
   class Product < AbstractResource
 
-    extend Inflectible
 
     attribute :id
     attribute :brand_id
@@ -17,11 +16,6 @@ module Nacre
     attribute :variations
     attribute :custom_fields
     attribute :null_custom_fields
-
-    def self.from_json(json)
-      params = params_from_json(json)
-      new(params)
-    end
 
     def identity=(params)
       @identity = Nacre::Product::Identity.new(params)
@@ -60,56 +54,9 @@ module Nacre
 
     private
 
-    def self.build_request_url(url, query, options)
-      "#{url}/#{query.to_s}?#{options}"
-    end
-
     def self.resource_options
       'includeOptional=customFields,nullCustomFields'
     end
 
-    def self.params_from_json(json)
-      resource = JSON.parse(json)['response'].first
-      format_hash_keys(resource)
-    end
-
-    def self.format_hash_keys(value)
-      case value
-      when Hash
-        Hash[ value.map { |k,v| [ fix_key(k), format_hash_keys(v) ] } ]
-      when Array
-        value.map { |v| format_hash_keys(v) }
-      else
-        value
-      end
-    end
-
-    def self.fix_key(key)
-      if camel_case?(key)
-        snake_case(key).to_sym
-      else
-        key.downcase.to_sym
-      end
-    end
-
-    def self.camel_case?(key)
-      !! key.match(/(?<=[a-z])[A-Z]/)
-    end
-
-    def self.service_url
-      configuration.resource_url + '/product-service'
-    end
-
-    def self.url
-      service_url + '/product'
-    end
-
-    def self.link
-      Nacre.link
-    end
-
-    def self.configuration
-      Nacre.configuration
-    end
   end
 end

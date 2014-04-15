@@ -1,11 +1,15 @@
+require 'uri'
+require 'json'
 require 'nacre/concerns/matchable'
 require 'nacre/concerns/parametrizable'
+require 'nacre/concerns/inflectible'
 
 module Nacre
   class AbstractResource
 
     include Matchable
     include Parametrizable
+    extend Inflectible
 
     def self.fields
       @fields ||= []
@@ -26,6 +30,87 @@ module Nacre
           public_send("#{field}=", attributes_hash[field.to_sym])
         end
       end
+    end
+
+    def self.from_json(json)
+      params = params_from_json(json)
+      new(params)
+    end
+
+    def self.find(id_list = [])
+      response = link.get(search_url)
+      results_class.from_json(response.body)
+    end
+
+
+    private
+
+    def self.results_class
+      raise NotImplementedError, "Subclass must implement .#{__method__}"
+    end
+
+    def self.service_name
+      format_service_name(self.name)
+    end
+
+    def self.format_service_name(name)
+      name.gsub(/\ANacre::/,'').downcase
+    end
+
+    def self.build_request_url(url, query, options)
+      "#{url}/#{query.to_s}?#{options}"
+    end
+
+    def self.resource_options
+      'includeOptional=customFields,nullCustomFields'
+    end
+
+    def self.params_from_json(json)
+      resource = JSON.parse(json)['response'].first
+      format_hash_keys(resource)
+    end
+
+    def self.format_hash_keys(value)
+      case value
+      when Hash
+        Hash[ value.map { |k,v| [ fix_key(k), format_hash_keys(v) ] } ]
+      when Array
+        value.map { |v| format_hash_keys(v) }
+      else
+        value
+      end
+    end
+
+    def self.fix_key(key)
+      if camel_case?(key)
+        snake_case(key).to_sym
+      else
+        key.downcase.to_sym
+      end
+    end
+
+    def self.camel_case?(key)
+      !! key.match(/(?<=[a-z])[A-Z]/)
+    end
+
+    def self.service_url
+      configuration.resource_url + '/' + service_name + '-service'
+    end
+
+    def self.url
+      service_url + '/' + service_name
+    end
+
+    def self.search_url
+      service_url + '/' + service_name + '-search'
+    end
+
+    def self.link
+      Nacre.link
+    end
+
+    def self.configuration
+      Nacre.configuration
     end
   end
 end
