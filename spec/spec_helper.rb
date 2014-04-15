@@ -50,3 +50,4 @@ end
 
 include AuthenticationHelper
 include NacreConfigHelper
+include UrlHelper
