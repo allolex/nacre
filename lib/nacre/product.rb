@@ -49,7 +49,7 @@ module Nacre
     def self.get(range)
       request_url = build_request_url(url,range,resource_options)
       response = self.link.get(request_url)
-      Nacre::Product.from_json(response.body)
+      self.from_json(response.body)
     end
 
     private
