@@ -1,0 +1,78 @@
+{
+    "response": [
+        {
+            "id": 1018,
+            "brandId": 76,
+            "productTypeId": 1,
+            "nominalCodeStock": "1200",
+            "identity": {
+                "sku": "",
+                "barcode": ""
+            },
+            "stock": {
+                "stockTracked": true,
+                "weight": {
+                    "magnitude": 0
+                }
+            },
+            "financialDetails": {
+                "taxable": false,
+                "taxCode": {
+                    "id": 7,
+                    "code": "T20"
+                }
+            },
+            "salesChannels": [
+                {
+                    "salesChannelName": "Brightpearl",
+                    "productName": "Gibson Explorer",
+                    "productCondition": "new",
+                    "categories": [
+                        {
+                            "categoryCode": "276"
+                        }
+                    ],
+                    "description": {
+                        "languageCode": "en",
+                        "text": "",
+                        "format": "HTML_FRAGMENT"
+                    },
+                    "shortDescription": {
+                        "languageCode": "en",
+                        "text": "",
+                        "format": "HTML_FRAGMENT"
+                    }
+                }
+            ],
+            "composition": {
+                "bundle": false
+            },
+            "customFields": {
+                "PCF_COLOR": {
+                    "id": 6,
+                    "value": "BK"
+                },
+                "PCF_FRETS": 24,
+                "PCF_SCALE": 23
+            },
+            "nullCustomFields": [
+                "PCF_FLOYDROS",
+                "PCF_PICKUPS",
+                "PCF_DETAIL",
+                "PCF_MODELYEA"
+            ],
+            "warehouses": {
+                 "2": {
+                    "defaultLocationId": 5,
+                    "reorderLevel": 1,
+                    "reorderQuantity": 0
+                 },
+                    "3": {
+                    "defaultLocationId": 0,
+                    "reorderLevel": 1,
+                    "reorderQuantity": 1
+                 }
+            }
+        }
+    ]
+}

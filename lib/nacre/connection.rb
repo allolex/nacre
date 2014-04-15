@@ -1,12 +1,15 @@
 require 'json'
 require 'faraday'
 require 'pry'
+require 'nacre/concerns/matchable'
 
 module Nacre
 
   class NotAuthenticatedError < StandardError; end
 
   class Connection
+
+    include Matchable
 
     attr_reader :response, :link, :authentication
 
@@ -45,7 +48,9 @@ module Nacre
     private
 
     def authentication_failed?(response)
-      response.body['response'].match(/\ANot authenticated/)
+      unless blank?(response.body)
+        response.body['response'].match(/\ANot authenticated/)
+      end
     end
 
     def auth_params
