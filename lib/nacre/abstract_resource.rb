@@ -37,17 +37,21 @@ module Nacre
       new(params)
     end
 
-    def self.find(id_list = [])
-      response = link.get(search_url)
-      results_class.from_json(response.body)
+    # TODO: Shouldn't this be using Nacre::Response instead of Faraday::Response?
+    def self.get(range)
+      request_url = build_request_url(url,range,resource_options)
+      response = self.link.get(request_url)
+      self.from_json(response.body)
     end
 
+    def self.find(id_list = [])
+      id_list = [id_list] unless id_list.kind_of?(Array)
+      request_url = build_search_url(search_url,"#{service_name}Id=#{id_list.join(',')}")
+      response = link.get(request_url)
+      SearchResults.from_json(response.body)
+    end
 
     private
-
-    def self.results_class
-      raise NotImplementedError, "Subclass must implement .#{__method__}"
-    end
 
     def self.service_name
       format_service_name(self.name)
@@ -59,6 +63,10 @@ module Nacre
 
     def self.build_request_url(url, query, options)
       "#{url}/#{query.to_s}?#{options}"
+    end
+
+    def self.build_search_url(url, query)
+      "#{url}?#{query.to_s}"
     end
 
     def self.resource_options

@@ -62,6 +62,28 @@ describe 'Nacre::Product' do
     end
   end
 
+  describe '.find' do
+
+    context 'by ID' do
+      let(:id_text) { 1000 }
+      let(:products) { Nacre::Product.find(id_text) }
+
+      before do
+        stub_request(:get, "https://ws-eu1.brightpearl.com/%s/%s/product-service/product-search?productId=%s" %
+                     [Nacre.configuration.api_version, Nacre.configuration.user_id, id_text] ).
+          to_return(:status => 200, :body => fixture_file_content('product_search_result.json') , :headers => {})
+      end
+
+      it 'should return search results' do
+        expect(products).to be_a(Nacre::SearchResults)
+      end
+
+      it 'should find an order with the correct ID' do
+        expect(products.first[:product_id]).to eql(id_text.to_s)
+      end
+    end
+  end
+
   describe '#name' do
     context 'when the Brightpearl sales channel product name is defined' do
       let(:json) { fixture_file_content('product_music.json') }

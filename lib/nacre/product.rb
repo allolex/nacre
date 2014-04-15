@@ -45,13 +45,6 @@ module Nacre
       sales_channels.product_name
     end
 
-    # TODO: Shouldn't this be using Nacre::Response instead of Faraday::Response?
-    def self.get(range)
-      request_url = build_request_url(url,range,resource_options)
-      response = self.link.get(request_url)
-      self.from_json(response.body)
-    end
-
     private
 
     def self.resource_options

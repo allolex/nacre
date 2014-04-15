@@ -1,4 +1,3 @@
-require 'nacre/order_search_results'
 require 'nacre/abstract_resource'
 
 module Nacre
@@ -15,12 +14,6 @@ module Nacre
     attribute :created_by_id
     attribute :customer_ref
     attribute :order_payment_status_id
-
-    private
-
-    def self.results_class
-      Nacre::OrderSearchResults
-    end
 
   end
 end

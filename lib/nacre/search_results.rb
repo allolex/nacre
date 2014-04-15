@@ -2,44 +2,43 @@ require 'nacre/concerns/inflectible'
 
 module Nacre
 
-  class OrderSearchResultsError < ArgumentError; end
+  class SearchResultsError < ArgumentError; end
 
-  class OrderSearchResults
+  class SearchResults
 
     extend Inflectible
-
     include Enumerable
 
-    attr_accessor :orders
+    attr_accessor :results
 
-    def initialize(order_params_list = [])
-      @orders = []
-      order_params_list.each do |order_params|
-        @orders << order_params
+    def initialize(params_list = [])
+      @results = []
+      params_list.each do |params|
+        @results << params
       end
     end
 
     def self.from_json(results_json)
-      raise OrderSearchResultsError.new('Empty JSON') unless results_json.length > 2
-      list = order_params_list(results_json)
+      raise SearchResultsError.new('Empty JSON') unless results_json.length > 2
+      list = result_params_list(results_json)
       new(list)
     end
 
     def each(&block)
-      self.orders.each do |order|
+      self.results.each do |order|
         block.call(order)
       end
     end
 
     private
 
-    def self.order_params_list(results)
+    def self.result_params_list(results)
       keys = keys_from_metadata(results)
-      order_list = orders_from_results(results)
-      order_list.map { |order| convert_to_params(keys, order) }
+      list = resources_from_results(results)
+      list.map { |resource| convert_to_params(keys, resource) }
     end
 
-    def self.orders_from_results(results)
+    def self.resources_from_results(results)
       hash = JSON.parse(results)
       hash['response']['results']
     end
