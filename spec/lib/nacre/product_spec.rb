@@ -75,12 +75,7 @@ describe 'Nacre::Product' do
       before do
         stub_request(
           :get,
-          'https://ws-eu1.brightpearl.com/%s/%s/product-service/product-search?productId=%s' %
-            [
-              Nacre.configuration.api_version,
-              Nacre.configuration.user_id,
-              id_text
-            ]
+          "#{product_search_url}?productId=%s" % [id_text]
         ).to_return(
           status: 200,
           body: fixture_file_content('product_search_result.json') ,
@@ -147,8 +142,7 @@ describe 'Nacre::Product' do
 
     describe '.get' do
       let(:resource_endpoint) {
-        "https://ws-eu1.brightpearl.com/%s/%s/#{resource}-service/#{resource}" %
-          api_details
+        product_service_url
       }
 
       let(:range) { 1018 }

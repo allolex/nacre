@@ -14,11 +14,11 @@ describe Nacre::Connection do
   before do
     stub_request(
       :post,
-      'https://ws-eu1.brightpearl.com/%s/authorise' % [ENV['NACRE_USER_ID']]
+      auth_url
     ).to_return(
-      status:  200,
-      body:  auth_response_success_body,
-      headers:  {}
+      status: 200,
+      body: auth_response_success_body,
+      headers: {}
     )
   end
 
@@ -56,8 +56,12 @@ describe Nacre::Connection do
 
     context 'with bad credentials' do
       before do
-        stub_request(:post, 'https://ws-eu1.brightpearl.com/%s/authorise' % [ENV['NACRE_USER_ID']]).
-          to_return(:status => 400, :body => auth_response_failure_body, :headers => {})
+        stub_request(:post, auth_url).
+          to_return(
+            status: 400,
+            body:  auth_response_failure_body,
+            headers: {}
+          )
       end
 
       let(:args) do

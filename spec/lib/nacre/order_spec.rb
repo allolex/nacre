@@ -75,12 +75,7 @@ describe Nacre::Order do
       before do
         stub_request(
           :get,
-         'https://ws-eu1.brightpearl.com/%s/%s/order-service/order-search?orderId=%s' %
-           [
-             Nacre.configuration.api_version,
-             Nacre.configuration.user_id,
-             id_text
-           ]
+         "#{order_search_url}?orderId=%s" % [id_text]
         ).to_return(
           status: 200,
           body: fixture_file_content('order_search_result.json'),
