@@ -7,7 +7,7 @@ describe 'Nacre::Product' do
       id: 1,
       brand_id: 2,
       product_type_id: 3,
-      identity: {sku: nil, isbn: nil, ean: nil, upc: nil,barcode: nil},
+      identity: { sku: nil, isbn: nil, ean: nil, upc: nil, barcode: nil },
       product_group_id: 4,
       stock: { stock_tracked: false },
       financial_details: { tax_code: { id: nil, code: nil } },
@@ -49,7 +49,9 @@ describe 'Nacre::Product' do
       end
 
       it 'should have financial_details' do
-        expect(subject.financial_details).to be_a(Nacre::Product::FinancialDetails)
+        expect(subject.financial_details).to be_a(
+          Nacre::Product::FinancialDetails
+        )
       end
 
       it 'should have stock details' do
@@ -57,7 +59,9 @@ describe 'Nacre::Product' do
       end
 
       it 'should have the sales channels' do
-        expect(subject.sales_channels).to be_a(Nacre::Product::SalesChannelCollection)
+        expect(subject.sales_channels).to be_a(
+          Nacre::Product::SalesChannelCollection
+        )
       end
     end
   end
@@ -69,9 +73,19 @@ describe 'Nacre::Product' do
       let(:products) { Nacre::Product.find(id_text) }
 
       before do
-        stub_request(:get, "https://ws-eu1.brightpearl.com/%s/%s/product-service/product-search?productId=%s" %
-                     [Nacre.configuration.api_version, Nacre.configuration.user_id, id_text] ).
-          to_return(:status => 200, :body => fixture_file_content('product_search_result.json') , :headers => {})
+        stub_request(
+          :get,
+          'https://ws-eu1.brightpearl.com/%s/%s/product-service/product-search?productId=%s' %
+            [
+              Nacre.configuration.api_version,
+              Nacre.configuration.user_id,
+              id_text
+            ]
+        ).to_return(
+          status: 200,
+          body: fixture_file_content('product_search_result.json') ,
+          headers: {}
+        )
       end
 
       it 'should return search results' do
@@ -106,17 +120,17 @@ describe 'Nacre::Product' do
   end
 
   context 'with custom fields' do
-      let(:json) { fixture_file_content('product_with_custom_fields.json') }
+    let(:json) { fixture_file_content('product_with_custom_fields.json') }
 
-      subject { Nacre::Product.from_json(json) }
+    subject { Nacre::Product.from_json(json) }
 
-      it 'should have a custom fields hash attribute' do
-        expect(subject.custom_fields).to be_a(Hash)
-      end
+    it 'should have a custom fields hash attribute' do
+      expect(subject.custom_fields).to be_a(Hash)
+    end
 
-      it 'should have the null custom fields array attribute' do
-        expect(subject.null_custom_fields).to be_a(Array)
-      end
+    it 'should have the null custom fields array attribute' do
+      expect(subject.null_custom_fields).to be_a(Array)
+    end
   end
 
   context 'API interactions' do
@@ -124,11 +138,17 @@ describe 'Nacre::Product' do
 
     let(:resource) { 'product' }
 
-    let(:api_details) { [ Nacre.configuration.api_version, Nacre.configuration.user_id ] }
+    let(:api_details) do
+      [
+        Nacre.configuration.api_version,
+        Nacre.configuration.user_id
+      ]
+    end
 
     describe '.get' do
       let(:resource_endpoint) {
-        "https://ws-eu1.brightpearl.com/%s/%s/#{resource}-service/#{resource}" % api_details
+        "https://ws-eu1.brightpearl.com/%s/%s/#{resource}-service/#{resource}" %
+          api_details
       }
 
       let(:range) { 1018 }
@@ -138,14 +158,18 @@ describe 'Nacre::Product' do
       it 'should make a request to the correct endpoint' do
         stub_request(:get, "#{resource_endpoint}/#{range}?#{options}").
           to_return(
-            :status => 200,
-            :body => fixture_file_content('product_with_custom_fields.json'),
-            :headers => {}
+            status:  200,
+            body:  fixture_file_content('product_with_custom_fields.json'),
+            headers:  {}
           )
 
         product = Nacre::Product.get(1018)
 
-        a_request(:get, "#{resource_endpoint}/#{range}?#{options}").should have_been_made
+        a_request(
+          :get,
+          "#{resource_endpoint}/#{range}?#{options}"
+        ).should have_been_made
+
         expect(product.id).to eql(1018)
       end
     end

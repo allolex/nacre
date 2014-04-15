@@ -3,9 +3,9 @@ require 'spec_helper'
 describe Nacre::Product::Description do
   let(:params) do
     {
-      language_code: "en",
-      text: "<p>Some description</p>",
-      format: "HTML_FRAGMENT"
+      language_code: 'en',
+      text: '<p>Some description</p>',
+      format: 'HTML_FRAGMENT'
     }
   end
 

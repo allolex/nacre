@@ -9,22 +9,25 @@ module Nacre
     def initialize(resource_list = [])
       self.members = []
       resource_list.each do |resource_params|
-        self.members << Nacre::Product::SalesChannel.new(resource_params)
+        members << Nacre::Product::SalesChannel.new(resource_params)
       end
     end
 
     def each(&block)
-      self.members.each do |member|
+      members.each do |member|
         block.call(member)
       end
     end
 
     def params
-      self.members.map(&:params)
+      members.map(&:params)
     end
 
     def product_name
-      name_sources = self.members.select { |member| member.sales_channel_name == 'Brightpearl' }
+      name_sources = members.select do |member|
+        member.sales_channel_name == 'Brightpearl'
+      end
+
       if name_sources.empty?
         nil
       else

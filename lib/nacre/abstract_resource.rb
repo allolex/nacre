@@ -16,7 +16,7 @@ module Nacre
     end
 
     def self.attribute(name)
-      self.fields << name
+      fields << name
       attr_accessor name
     end
 
@@ -37,16 +37,18 @@ module Nacre
       new(params)
     end
 
-    # TODO: Shouldn't this be using Nacre::Response instead of Faraday::Response?
     def self.get(range)
       request_url = build_request_url(url,range,resource_options)
-      response = self.link.get(request_url)
-      self.from_json(response.body)
+      response = link.get(request_url)
+      from_json(response.body)
     end
 
     def self.find(id_list = [])
       id_list = [id_list] unless id_list.kind_of?(Array)
-      request_url = build_search_url(search_url,"#{service_name}Id=#{id_list.join(',')}")
+      request_url = build_search_url(
+        search_url,
+        "#{service_name}Id=#{id_list.join(',')}"
+      )
       response = link.get(request_url)
       SearchResults.from_json(response.body)
     end
@@ -54,11 +56,11 @@ module Nacre
     private
 
     def self.service_name
-      format_service_name(self.name)
+      format_service_name(name)
     end
 
     def self.format_service_name(name)
-      name.gsub(/\ANacre::/,'').downcase
+      name.gsub(/\ANacre::/, '').downcase
     end
 
     def self.build_request_url(url, query, options)
@@ -81,7 +83,7 @@ module Nacre
     def self.format_hash_keys(value)
       case value
       when Hash
-        Hash[ value.map { |k,v| [ fix_key(k), format_hash_keys(v) ] } ]
+        Hash[value.map { |k, v| [fix_key(k), format_hash_keys(v)] }]
       when Array
         value.map { |v| format_hash_keys(v) }
       else
@@ -98,7 +100,7 @@ module Nacre
     end
 
     def self.camel_case?(key)
-      !! key.match(/(?<=[a-z])[A-Z]/)
+      !!key.match(/(?<=[a-z])[A-Z]/)
     end
 
     def self.service_url

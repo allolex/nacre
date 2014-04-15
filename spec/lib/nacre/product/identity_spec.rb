@@ -4,11 +4,11 @@ describe Nacre::Product::Identity do
 
   let(:params) do
     {
-      sku: "SKU0001",
-      isbn: "0-684-84328-5",
-      ean: "ISNB0-9712345-",
-      upc: "5778400001",
-      barcode: "738737638"
+      sku: 'SKU0001',
+      isbn: '0-684-84328-5',
+      ean: 'ISNB0-9712345-',
+      upc: '5778400001',
+      barcode: '738737638'
     }
   end
 

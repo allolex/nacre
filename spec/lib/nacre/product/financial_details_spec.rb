@@ -5,7 +5,7 @@ describe Nacre::Product::FinancialDetails do
     {
       tax_code: {
         id: 7,
-        code: "T20"
+        code: 'T20'
       }
     }
   end
@@ -19,5 +19,4 @@ describe Nacre::Product::FinancialDetails do
   end
 
   it_should_behave_like 'Parametrizable'
-
 end

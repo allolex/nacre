@@ -4,7 +4,7 @@ describe Nacre::Product::TaxCode do
   let(:params) do
     {
       id: 7,
-      code: "T20"
+      code: 'T20'
     }
   end
 

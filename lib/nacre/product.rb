@@ -3,7 +3,6 @@ require 'nacre/abstract_resource'
 module Nacre
   class Product < AbstractResource
 
-
     attribute :id
     attribute :brand_id
     attribute :product_type_id
@@ -18,19 +17,19 @@ module Nacre
     attribute :null_custom_fields
 
     def identity=(params)
-      @identity = Nacre::Product::Identity.new(params)
+      @identity = Product::Identity.new(params)
     end
 
     def sales_channels=(channels_list)
-      @sales_channels = Nacre::Product::SalesChannelCollection.new(channels_list)
+      @sales_channels = Product::SalesChannelCollection.new(channels_list)
     end
 
     def financial_details=(params)
-      @financial_details = Nacre::Product::FinancialDetails.new(params)
+      @financial_details = Product::FinancialDetails.new(params)
     end
 
     def stock=(params)
-      @stock = Nacre::Product::StockDetails.new(params)
+      @stock = Product::StockDetails.new(params)
     end
 
     def custom_fields=(hash)
@@ -50,6 +49,5 @@ module Nacre
     def self.resource_options
       'includeOptional=customFields,nullCustomFields'
     end
-
   end
 end

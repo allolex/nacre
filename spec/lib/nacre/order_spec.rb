@@ -46,16 +46,16 @@ describe Nacre::Order do
     context 'with all the valid params' do
       let(:valid_params) {
         {
-          :id => "570001",
-          :parent_order_id => "",
-          :order_type_id => "1",
-          :contact_id => "298",
-          :order_status_id => "3",
-          :order_stock_status_id => "1",
-          :created_on => "2012-07-25T13:10:12.000Z",
-          :created_by_id => "203",
-          :customer_ref => "",
-          :order_payment_status_id => "3"
+          id:  '570001',
+          parent_order_id:  '',
+          order_type_id:  '1',
+          contact_id:  '298',
+          order_status_id:  '3',
+          order_stock_status_id:  '1',
+          created_on:  '2012-07-25T13:10:12.000Z',
+          created_by_id:  '203',
+          customer_ref:  '',
+          order_payment_status_id:  '3'
         }
       }
 
@@ -73,9 +73,19 @@ describe Nacre::Order do
       let(:orders) { Nacre::Order.find(id_text) }
 
       before do
-        stub_request(:get, "https://ws-eu1.brightpearl.com/%s/%s/order-service/order-search?orderId=%s" %
-                     [Nacre.configuration.api_version, Nacre.configuration.user_id, id_text] ).
-          to_return(:status => 200, :body => fixture_file_content('order_search_result.json') , :headers => {})
+        stub_request(
+          :get,
+         'https://ws-eu1.brightpearl.com/%s/%s/order-service/order-search?orderId=%s' %
+           [
+             Nacre.configuration.api_version,
+             Nacre.configuration.user_id,
+             id_text
+           ]
+        ).to_return(
+          status: 200,
+          body: fixture_file_content('order_search_result.json'),
+          headers: {}
+        )
       end
 
       it 'should return search results' do

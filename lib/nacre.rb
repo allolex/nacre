@@ -1,17 +1,17 @@
-require "nacre/version"
-require "nacre/configuration"
+require 'nacre/version'
+require 'nacre/configuration'
 
-require "nacre/connection"
-require "nacre/response"
-require "nacre/authentication"
+require 'nacre/connection'
+require 'nacre/response'
+require 'nacre/authentication'
 
-require "nacre/search_results"
+require 'nacre/search_results'
 
-require "nacre/order"
-require "nacre/order_collection"
+require 'nacre/order'
+require 'nacre/order_collection'
 
-require "nacre/product"
-require "nacre/product/identity"
+require 'nacre/product'
+require 'nacre/product/identity'
 require 'nacre/product/financial_details'
 require 'nacre/product/sales_channel'
 require 'nacre/product/sales_channel_collection'

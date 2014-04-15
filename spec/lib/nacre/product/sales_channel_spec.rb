@@ -4,22 +4,22 @@ describe Nacre::Product::SalesChannel do
 
   let(:params) do
     {
-      sales_channel_name: "Brightpearl",
-      product_name: "Product B",
-      product_condition: "new",
+      sales_channel_name: 'Brightpearl',
+      product_name: 'Product B',
+      product_condition: 'new',
       categories: [
-        { category_code: "276" },
-        { category_code: "295" }
+        { category_code: '276' },
+        { category_code: '295' }
       ],
       description: {
-        language_code: "en",
-        text: "<p>Some description</p>",
-        format: "HTML_FRAGMENT"
+        language_code: 'en',
+        text: '<p>Some description</p>',
+        format: 'HTML_FRAGMENT'
       },
       short_description: {
-        language_code: "en",
-        text: "<p>Some short description</p>",
-        format: "HTML_FRAGMENT"
+        language_code: 'en',
+        text: '<p>Some short description</p>',
+        format: 'HTML_FRAGMENT'
       }
     }
   end

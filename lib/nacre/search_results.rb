@@ -25,7 +25,7 @@ module Nacre
     end
 
     def each(&block)
-      self.results.each do |order|
+      results.each do |order|
         block.call(order)
       end
     end
