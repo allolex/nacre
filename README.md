@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/allolex/nacre.svg?branch=master)](https://travis-ci.org/allolex/nacre) [![Coverage Status](https://coveralls.io/repos/allolex/nacre/badge.png)](https://coveralls.io/r/allolex/nacre) [![Code Climate](https://codeclimate.com/github/allolex/nacre.png)](https://codeclimate.com/github/allolex/nacre)
+[![Build Status](https://travis-ci.org/allolex/nacre.svg?branch=master)](https://travis-ci.org/allolex/nacre) [![Coverage Status](https://coveralls.io/repos/allolex/nacre/badge.png?branch=master)](https://coveralls.io/r/allolex/nacre?branch=master) [![Code Climate](https://codeclimate.com/github/allolex/nacre.png)](https://codeclimate.com/github/allolex/nacre)
 
 
 # Nacre, the sequel
