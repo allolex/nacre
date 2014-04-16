@@ -19,6 +19,7 @@ describe Nacre::Order do
       it 'should have an order_id' do
         expect(order.id).to eql(123456)
       end
+
       it 'should have a parent_order_id' do
         expect(order.parent_order_id).to eql(123455)
       end
@@ -33,9 +34,60 @@ describe Nacre::Order do
         )
       end
 
+      it 'should have the correct order_id' do
+        expect(subject.id).to eq(999999)
+      end
 
+      it 'should have the correct parent order ID' do
+        expect(subject.parent_order_id).to eq(0)
+      end
+
+      it 'should have the correct warehouse ID' do
+        expect(subject.warehouse_id).to eq(8)
+      end
+
+      it 'should have the reference' do
+        expect(subject.reference).to eq('')
+      end
+
+      it 'should have the price mode code' do
+        expect(subject.price_mode_code).to eq('EXC')
+      end
+
+      it 'should have the allocation status code' do
+        expect(subject.allocation_status_code).to eq('AAA')
+      end
+
+
+      it 'should have the acknowledged flag' do
+        expect(subject.acknowledged).to eq(0)
+      end
       it 'should have the invoices' do
         expect(subject.invoices).to be_a(Nacre::Order::InvoiceCollection)
+      end
+
+      it 'should have the payment status' do
+        expect(subject.order_payment_status).to eq('UNPAID')
+      end
+
+      it 'should have the price list ID' do
+        expect(subject.price_list_id).to eq(7)
+      end
+
+      it 'should have the id of the user who created it' do
+        expect(subject.created_by_id).to eq(208)
+      end
+
+      it 'should have the cost price list ID' do
+        expect(subject.cost_price_list_id).to eq(1)
+      end
+
+      it 'should have the shipping status code' do
+        expect(subject.shipping_status_code).to eq('ASS')
+      end
+
+      it 'should have the stock status code' do
+        expect(subject.stock_status_code).to eq('SOA')
       end
     end
   end
