@@ -70,6 +70,10 @@ describe Nacre::Order do
         expect(subject.order_payment_status).to eq('UNPAID')
       end
 
+      it 'should have an empty "null custom fields" list' do
+        expect(subject.null_custom_fields).to eq(nil)
+      end
+
       it 'should have the price list ID' do
         expect(subject.price_list_id).to eq(7)
       end
