@@ -18,6 +18,7 @@ module Nacre
     attribute :null_custom_fields
     attribute :order_payment_status
     attribute :order_payment_status_id
+    attribute :order_status
     attribute :order_status_id
     attribute :order_stock_status_id
     attribute :order_type_id
@@ -44,6 +45,10 @@ module Nacre
 
     def currency=(params)
       @currency = Order::Currency.new(params)
+    end
+
+    def order_status=(params)
+      @order_status = Order::Status.new(params)
     end
   end
 end
