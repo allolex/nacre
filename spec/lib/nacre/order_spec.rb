@@ -67,6 +67,25 @@ describe Nacre::Order do
     end
   end
 
+  describe '.get' do
+    let(:resource_endpoint) { order_service_url }
+    let(:range) { 999999 }
+    let(:url) { "#{resource_endpoint}/#{range}?includeOptional=customFields,nullCustomFields" }
+    let(:fixture_file_name) { 'order_music.json' }
+
+    it 'should make a request to the correct endpoint' do
+      stub_request(:get, url).
+        to_return(
+          status:  200,
+          body:  fixture_file_content(fixture_file_name),
+          headers:  {}
+        )
+      resource = described_class.get(range)
+      a_request(:get, url).should have_been_made
+      expect(resource.id).to eql(range)
+    end
+  end
+
   describe '.find' do
     context 'by ID' do
       let(:id_text) { 123456 }
