@@ -1,0 +1,167 @@
+{
+   "response" : [
+      {
+         "totalValue" : {
+            "baseNet" : "25.31",
+            "baseTaxAmount" : "0.00",
+            "taxAmount" : "0.00",
+            "net" : "31.25"
+         },
+         "acknowledged" : 0,
+         "delivery" : {
+            "shippingMethodId" : 0
+         },
+         "currency" : {
+            "exchangeRate" : "1.234900",
+            "orderCurrencyCode" : "EUR",
+            "accountingCurrencyCode" : "GBP"
+         },
+         "parentOrderId" : 0,
+         "reference" : "",
+         "warehouseId" : 8,
+         "orderTypeCode" : "SO",
+         "priceModeCode" : "EXC",
+         "allocationStatusCode" : "AAA",
+         "parties" : {
+            "delivery" : {
+               "country" : "France",
+               "telephone" : "0033199999999",
+               "mobileTelephone" : "",
+               "addressLine3" : "Paris",
+               "companyName" : "Generic Distribution",
+               "countryId" : 73,
+               "addressLine4" : "Paris",
+               "email" : "distro@example.com",
+               "addressLine2" : "",
+               "addressFullName" : "",
+               "addressLine1" : "1, rue de Rivoli",
+               "postalCode" : "75000"
+            },
+            "customer" : {
+               "country" : "France",
+               "telephone" : "0033199999999",
+               "mobileTelephone" : "",
+               "contactId" : 322,
+               "addressLine3" : "Paris",
+               "companyName" : "Generic Distribution",
+               "countryId" : 73,
+               "addressLine4" : "Paris",
+               "email" : "accounts@example.com",
+               "addressLine2" : "",
+               "addressFullName" : "",
+               "addressLine1" : "1, rue de Rivoli",
+               "postalCode" : "75000"
+            },
+            "billing" : {
+               "country" : "France",
+               "telephone" : "0033199999999",
+               "mobileTelephone" : "",
+               "contactId" : 322,
+               "addressLine3" : "Paris",
+               "companyName" : "Generic Distribution",
+               "countryId" : 73,
+               "addressLine4" : "Paris",
+               "email" : "accounts@example.com",
+               "addressLine2" : "",
+               "addressFullName" : "",
+               "addressLine1" : "1, rue de Rivoli",
+               "postalCode" : "75000"
+            }
+         },
+         "id" : 999999,
+         "createdOn" : "2012-12-06T15:14:00.000Z",
+         "orderRows" : {
+            "4431" : {
+               "productSku" : "TCX99D",
+               "productOptions" : {
+                  "Discs" : "1disc"
+               },
+               "quantity" : {
+                  "magnitude" : "3.00"
+               },
+               "productId" : 1057,
+               "productName" : "Able Bodies - Important Record CD",
+               "nominalCode" : "4000",
+               "orderRowSequence" : "20",
+               "composition" : {
+                  "bundleChild" : false,
+                  "parentOrderRowId" : 0,
+                  "bundleParent" : false
+               },
+               "rowValue" : {
+                  "rowTax" : {
+                     "currencyCode" : "EUR",
+                     "value" : "0.00"
+                  },
+                  "taxCode" : "T4",
+                  "rowNet" : {
+                     "currencyCode" : "EUR",
+                     "value" : "25.000000"
+                  },
+                  "taxRate" : "0.00"
+               }
+            },
+            "4430" : {
+               "productSku" : "28999-black",
+               "productOptions" : {
+                  "Disk" : "2disks",
+                  "Diameter" : "12in",
+                  "Colour" : "Black"
+               },
+               "quantity" : {
+                  "magnitude" : "1.00"
+               },
+               "productId" : 1373,
+               "productName" : "Arthur - Friendly Policeman LP",
+               "nominalCode" : "4000",
+               "orderRowSequence" : "10",
+               "composition" : {
+                  "bundleChild" : false,
+                  "parentOrderRowId" : 0,
+                  "bundleParent" : false
+               },
+               "rowValue" : {
+                  "rowTax" : {
+                     "currencyCode" : "EUR",
+                     "value" : "0.00"
+                  },
+                  "taxCode" : "T4",
+                  "rowNet" : {
+                     "currencyCode" : "EUR",
+                     "value" : "12.250000"
+                  },
+                  "taxRate" : "0.00"
+               }
+            }
+         },
+         "assignment" : {
+            "current" : {
+               "channelId" : 4,
+               "projectId" : 0,
+               "leadSourceId" : 3,
+               "staffOwnerContactId" : 208,
+               "teamId" : 0
+            }
+         },
+         "placedOn" : "2012-12-06T15:14:00.000Z",
+         "orderStatus" : {
+            "orderStatusId" : 4,
+            "name" : "Invoiced"
+         },
+         "invoices" : [
+            {
+               "dueDate" : "2013-02-04T00:00:00.000Z",
+               "invoiceReference" : "AA-99999",
+               "taxDate" : "2012-12-06T00:00:00.000Z"
+            }
+         ],
+         "orderPaymentStatus" : "UNPAID",
+         "nullCustomFields" : [],
+         "priceListId" : 7,
+         "createdById" : 208,
+         "costPriceListId" : 1,
+         "shippingStatusCode" : "ASS",
+         "stockStatusCode" : "SOA"
+      }
+   ]
+}
