@@ -1,4 +1,5 @@
 require 'nacre/abstract_resource'
+require 'date'
 
 module Nacre
 
@@ -20,6 +21,7 @@ module Nacre
     attribute :order_stock_status_id
     attribute :order_type_id
     attribute :parent_order_id
+    attribute :placed_on
     attribute :price_list_id
     attribute :price_mode_code
     attribute :reference
@@ -33,6 +35,10 @@ module Nacre
 
     def null_custom_fields=(list)
       @null_custom_fields = list unless list.nil? || list.empty?
+    end
+
+    def placed_on=(iso_date)
+      @placed_on = DateTime.iso8601(iso_date)
     end
   end
 end
