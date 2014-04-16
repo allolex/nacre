@@ -7,9 +7,9 @@ module Nacre
 
     def initialize(resource_list = [])
       self.members = []
-      # resource_list.each do |resource_params|
-      #   members << Nacre::Order::Invoice.new(resource_params)
-      # end
+      resource_list.each do |resource_params|
+        members << Nacre::Order::Invoice.new(resource_params)
+      end
     end
 
     def each(&block)
