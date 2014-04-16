@@ -24,6 +24,7 @@ module Nacre
     attribute :order_stock_status_id
     attribute :order_type_id
     attribute :parent_order_id
+    attribute :parties
     attribute :placed_on
     attribute :price_list_id
     attribute :price_mode_code

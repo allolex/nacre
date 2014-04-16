@@ -74,6 +74,10 @@ describe Nacre::Order do
         expect(subject.acknowledged).to eq(0)
       end
 
+      it 'should have the contact details (parties)' do
+        expect(subject.parties).to be_a(Nacre::Order::PartyDetails)
+      end
+
       it 'should have the date the order was placed' do
         expect(subject.placed_on).to be_a(DateTime)
       end
