@@ -10,6 +10,7 @@ require 'nacre/search_results'
 require 'nacre/order'
 require 'nacre/order_collection'
 
+require 'nacre/order/currency'
 require 'nacre/order/invoice'
 require 'nacre/order/invoice_collection'
 
