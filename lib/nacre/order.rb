@@ -13,6 +13,7 @@ module Nacre
     attribute :customer_ref
     attribute :id
     attribute :invoices
+    attribute :null_custom_fields
     attribute :order_payment_status
     attribute :order_payment_status_id
     attribute :order_status_id
@@ -28,6 +29,10 @@ module Nacre
 
     def invoices=(invoice_params_list)
       @invoices = Order::InvoiceCollection.new(invoice_params_list)
+    end
+
+    def null_custom_fields=(list)
+      @null_custom_fields = list unless list.nil? || list.empty?
     end
   end
 end
