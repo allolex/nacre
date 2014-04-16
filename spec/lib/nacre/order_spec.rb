@@ -6,23 +6,37 @@ describe Nacre::Order do
 
   describe 'initialization' do
 
-    let(:order) { Nacre::Order.new(params) }
+    context 'with simple params' do
+      let(:params) do
+        {
+          id: 123456,
+          parent_order_id: 123455
+        }
+      end
 
-    let(:params) do
-      {
-        id: 123456,
-        parent_order_id: 123455
-      }
+      let(:order) { Nacre::Order.new(params) }
+
+      it 'should have an order_id' do
+        expect(order.id).to eql(123456)
+      end
+      it 'should have a parent_order_id' do
+        expect(order.parent_order_id).to eql(123455)
+      end
     end
 
-    let(:order) { Nacre::Order.new(params) }
+    context 'with complex params' do
+      let(:fixture_file_name) { 'order_music.json' }
 
-    it 'should have an order_id' do
-      expect(order.id).to eql(123456)
-    end
+      subject do
+        described_class.from_json(
+          fixture_file_content(fixture_file_name)
+        )
+      end
 
-    it 'should have a parent_order_id' do
-      expect(order.parent_order_id).to eql(123455)
+
+      it 'should have the invoices' do
+        expect(subject.invoices).to be_a(Nacre::Order::InvoiceCollection)
+      end
     end
   end
 

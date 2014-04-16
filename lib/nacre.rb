@@ -10,6 +10,9 @@ require 'nacre/search_results'
 require 'nacre/order'
 require 'nacre/order_collection'
 
+require 'nacre/order/invoice'
+require 'nacre/order/invoice_collection'
+
 require 'nacre/product'
 require 'nacre/product/identity'
 require 'nacre/product/financial_details'
