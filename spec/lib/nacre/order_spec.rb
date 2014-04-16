@@ -58,6 +58,9 @@ describe Nacre::Order do
         expect(subject.allocation_status_code).to eq('AAA')
       end
 
+      it 'should have the currency set' do
+        expect(subject.currency).to be_a(Nacre::Order::Currency)
+      end
 
       it 'should have the acknowledged flag' do
         expect(subject.acknowledged).to eq(0)

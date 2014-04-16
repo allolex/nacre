@@ -11,6 +11,7 @@ module Nacre
     attribute :cost_price_list_id
     attribute :created_by_id
     attribute :created_on
+    attribute :currency
     attribute :customer_ref
     attribute :id
     attribute :invoices
@@ -39,6 +40,10 @@ module Nacre
 
     def placed_on=(iso_date)
       @placed_on = DateTime.iso8601(iso_date)
+    end
+
+    def currency=(params)
+      @currency = Order::Currency.new(params)
     end
   end
 end
