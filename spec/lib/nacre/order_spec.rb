@@ -62,6 +62,10 @@ describe Nacre::Order do
       it 'should have the acknowledged flag' do
         expect(subject.acknowledged).to eq(0)
       end
+
+      it 'should have the date the order was placed' do
+        expect(subject.placed_on).to be_a(DateTime)
+      end
       it 'should have the invoices' do
         expect(subject.invoices).to be_a(Nacre::Order::InvoiceCollection)
       end
