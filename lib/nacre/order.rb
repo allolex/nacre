@@ -29,6 +29,7 @@ module Nacre
     attribute :reference
     attribute :shipping_status_code
     attribute :stock_status_code
+    attribute :total_value
     attribute :warehouse_id
 
     def invoices=(invoice_params_list)
@@ -49,6 +50,10 @@ module Nacre
 
     def order_status=(params)
       @order_status = Order::Status.new(params)
+    end
+
+    def total_value=(params)
+      @total_value = Order::Value.new(params)
     end
   end
 end
