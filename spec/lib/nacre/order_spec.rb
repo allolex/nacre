@@ -62,6 +62,10 @@ describe Nacre::Order do
         expect(subject.currency).to be_a(Nacre::Order::Currency)
       end
 
+      it 'should have the total value' do
+        expect(subject.total_value).to be_a(Nacre::Order::Value)
+      end
+
       it 'should have the acknowledged flag' do
         expect(subject.acknowledged).to eq(0)
       end

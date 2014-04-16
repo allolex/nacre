@@ -14,6 +14,7 @@ require 'nacre/order/currency'
 require 'nacre/order/invoice'
 require 'nacre/order/invoice_collection'
 require 'nacre/order/status'
+require 'nacre/order/value'
 
 require 'nacre/product'
 require 'nacre/product/identity'
