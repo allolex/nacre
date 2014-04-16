@@ -69,6 +69,11 @@ describe Nacre::Order do
       it 'should have the date the order was placed' do
         expect(subject.placed_on).to be_a(DateTime)
       end
+
+      it 'should have the order status' do
+        expect(subject.order_status).to be_a(Nacre::Order::Status)
+      end
+
       it 'should have the invoices' do
         expect(subject.invoices).to be_a(Nacre::Order::InvoiceCollection)
       end

@@ -13,6 +13,7 @@ require 'nacre/order_collection'
 require 'nacre/order/currency'
 require 'nacre/order/invoice'
 require 'nacre/order/invoice_collection'
+require 'nacre/order/status'
 
 require 'nacre/product'
 require 'nacre/product/identity'
