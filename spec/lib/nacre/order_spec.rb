@@ -66,6 +66,10 @@ describe Nacre::Order do
         expect(subject.total_value).to be_a(Nacre::Order::Value)
       end
 
+      it 'should have the delivery details' do
+        expect(subject.delivery).to be_a(Nacre::Order::DeliveryDetails)
+      end
+
       it 'should have the acknowledged flag' do
         expect(subject.acknowledged).to eq(0)
       end

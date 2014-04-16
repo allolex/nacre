@@ -13,6 +13,7 @@ module Nacre
     attribute :created_on
     attribute :currency
     attribute :customer_ref
+    attribute :delivery
     attribute :id
     attribute :invoices
     attribute :null_custom_fields
@@ -54,6 +55,10 @@ module Nacre
 
     def total_value=(params)
       @total_value = Order::Value.new(params)
+    end
+
+    def delivery=(params)
+      @delivery = Order::DeliveryDetails.new(params)
     end
   end
 end
