@@ -41,6 +41,7 @@ module Nacre
     end
 
     def name
+      return nil if sales_channels.nil?
       sales_channels.product_name
     end
 
