@@ -13,7 +13,11 @@ module Nacre
     attribute :created_on
     attribute :created_by_id
     attribute :customer_ref
+    attribute :invoices
     attribute :order_payment_status_id
 
+    def invoices=(invoice_params_list)
+      @invoices = Order::InvoiceCollection.new(invoice_params_list)
+    end
   end
 end
