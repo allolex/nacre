@@ -1,9 +1,12 @@
 require 'nacre/abstract_resource'
+require 'nacre/concerns/searchable'
 require 'date'
 
 module Nacre
 
   class Order < AbstractResource
+
+    extend Searchable
 
     attribute :acknowledged
     attribute :allocation_status_code
