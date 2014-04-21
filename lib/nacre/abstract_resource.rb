@@ -43,16 +43,6 @@ module Nacre
       from_json(response.body)
     end
 
-    def self.find(id_list = [])
-      id_list = [id_list] unless id_list.kind_of?(Array)
-      request_url = build_search_url(
-        search_url,
-        "#{service_name}Id=#{id_list.join(',')}"
-      )
-      response = link.get(request_url)
-      SearchResults.from_json(response.body)
-    end
-
     private
 
     def self.service_name
@@ -109,10 +99,6 @@ module Nacre
 
     def self.url
       service_url + '/' + service_name
-    end
-
-    def self.search_url
-      service_url + '/' + service_name + '-search'
     end
 
     def self.link
