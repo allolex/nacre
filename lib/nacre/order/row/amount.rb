@@ -10,7 +10,7 @@ module Nacre
     end
 
     def value
-      "%0.6f" % [(@value / 1000000).to_f]
+      '%0.6f' % [(@value / 1000000).to_f]
     end
 
     def value_raw

@@ -12,4 +12,3 @@ describe Nacre::Order::Row::Quantity do
 
   it_should_behave_like 'Parametrizable'
 end
-

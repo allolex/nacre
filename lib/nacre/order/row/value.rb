@@ -11,7 +11,7 @@ module Nacre
     end
 
     def tax_rate
-      "%.6f" % [(@tax_rate / 1000000).to_f]
+      '%.6f' % [(@tax_rate / 1000000).to_f]
     end
 
     def tax_rate_raw
