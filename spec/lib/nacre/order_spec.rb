@@ -62,13 +62,38 @@ describe Nacre::Order do
         expect(subject.currency).to be_a(Nacre::Order::Currency)
       end
 
+      it 'should have the total value' do
+        expect(subject.total_value).to be_a(Nacre::Order::Value)
+      end
+
+      it 'should have the delivery details' do
+        expect(subject.delivery).to be_a(Nacre::Order::DeliveryDetails)
+      end
+
       it 'should have the acknowledged flag' do
         expect(subject.acknowledged).to eq(0)
+      end
+
+      it 'should have the contact details (parties)' do
+        expect(subject.parties).to be_a(Nacre::Order::PartyDetails)
+      end
+
+      it 'should have the order rows' do
+        expect(subject.order_rows).to be_a(Nacre::Order::RowCollection)
+      end
+
+      it 'should have the assignment details' do
+        expect(subject.assignment).to be_a(Nacre::Order::AssignmentCollection)
       end
 
       it 'should have the date the order was placed' do
         expect(subject.placed_on).to be_a(DateTime)
       end
+
+      it 'should have the order status' do
+        expect(subject.order_status).to be_a(Nacre::Order::Status)
+      end
+
       it 'should have the invoices' do
         expect(subject.invoices).to be_a(Nacre::Order::InvoiceCollection)
       end

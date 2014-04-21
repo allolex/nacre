@@ -33,7 +33,7 @@
                "addressLine4" : "Paris",
                "email" : "distro@example.com",
                "addressLine2" : "",
-               "addressFullName" : "",
+               "addressFullName" : "Delivery",
                "addressLine1" : "1, rue de Rivoli",
                "postalCode" : "75000"
             },
@@ -48,7 +48,7 @@
                "addressLine4" : "Paris",
                "email" : "accounts@example.com",
                "addressLine2" : "",
-               "addressFullName" : "",
+               "addressFullName" : "Customer",
                "addressLine1" : "1, rue de Rivoli",
                "postalCode" : "75000"
             },
@@ -63,7 +63,7 @@
                "addressLine4" : "Paris",
                "email" : "accounts@example.com",
                "addressLine2" : "",
-               "addressFullName" : "",
+               "addressFullName" : "Billing",
                "addressLine1" : "1, rue de Rivoli",
                "postalCode" : "75000"
             }

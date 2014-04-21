@@ -100,7 +100,7 @@ module Nacre
     end
 
     def self.camel_case?(key)
-      !!key.match(/(?<=[a-z])[A-Z]/)
+      Nacre::CAMEL_CASE_RE === key
     end
 
     def self.service_url
@@ -121,6 +121,10 @@ module Nacre
 
     def self.configuration
       Nacre.configuration
+    end
+
+    def true?(value)
+      value == true || value == 'true'
     end
   end
 end
