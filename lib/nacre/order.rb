@@ -7,6 +7,7 @@ module Nacre
 
     attribute :acknowledged
     attribute :allocation_status_code
+    attribute :assignment
     attribute :contact_id
     attribute :cost_price_list_id
     attribute :created_by_id
@@ -19,6 +20,7 @@ module Nacre
     attribute :null_custom_fields
     attribute :order_payment_status
     attribute :order_payment_status_id
+    attribute :order_rows
     attribute :order_status
     attribute :order_status_id
     attribute :order_stock_status_id
@@ -60,6 +62,18 @@ module Nacre
 
     def delivery=(params)
       @delivery = Order::DeliveryDetails.new(params)
+    end
+
+    def parties=(params)
+      @parties = Order::PartyDetails.new(params)
+    end
+
+    def assignment=(params)
+      @assignment = Order::AssignmentCollection.new(params)
+    end
+
+    def order_rows=(params)
+      @order_rows = Order::RowCollection.new(params)
     end
   end
 end

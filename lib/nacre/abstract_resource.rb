@@ -122,5 +122,9 @@ module Nacre
     def self.configuration
       Nacre.configuration
     end
+
+    def true?(value)
+      value == true || value == 'true'
+    end
   end
 end
