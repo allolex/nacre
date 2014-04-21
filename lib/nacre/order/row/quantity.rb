@@ -8,7 +8,7 @@ module Nacre
     end
 
     def magnitude
-      "%0.6f" % [@magnitude]
+      '%0.6f' % [@magnitude]
     end
 
   end
