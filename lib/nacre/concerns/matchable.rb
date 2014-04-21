@@ -5,7 +5,7 @@ module Matchable
   end
 
   def matches?(value,subexpression)
-    !! ( value =~ /\A#{subexpression}\z/i )
+    /\A#{subexpression}\z/i === value
   end
 
 end

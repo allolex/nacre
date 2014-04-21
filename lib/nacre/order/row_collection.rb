@@ -1,14 +1,14 @@
 module Nacre
-  class Order::InvoiceCollection
+  class Order::RowCollection
 
     include Enumerable
 
     attr_accessor :members
 
-    def initialize(resource_list = [])
+    def initialize(resource_hash = {})
       self.members = []
-      resource_list.each do |resource_params|
-        members << Nacre::Order::Invoice.new(resource_params)
+      resource_hash.each_pair do |key, value|
+        members << Nacre::Order::Row.new(key, value)
       end
     end
 
@@ -19,8 +19,7 @@ module Nacre
     end
 
     def params
-      members.map(&:params)
+      members.map { |member| { member.key.to_sym => member.params } }
     end
-
   end
 end
