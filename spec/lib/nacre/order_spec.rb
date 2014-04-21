@@ -78,6 +78,14 @@ describe Nacre::Order do
         expect(subject.parties).to be_a(Nacre::Order::PartyDetails)
       end
 
+      it 'should have the order rows' do
+        expect(subject.order_rows).to be_a(Nacre::Order::RowCollection)
+      end
+
+      it 'should have the assignment details' do
+        expect(subject.assignment).to be_a(Nacre::Order::AssignmentCollection)
+      end
+
       it 'should have the date the order was placed' do
         expect(subject.placed_on).to be_a(DateTime)
       end
