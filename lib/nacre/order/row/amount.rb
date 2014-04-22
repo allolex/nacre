@@ -1,21 +1,23 @@
+require 'nacre/concerns/amountable'
+
 module Nacre
   class Order::Row::Amount < AbstractResource
+
+    include Amountable
 
     attribute :value
     attribute :currency_code
 
-    # Values are stored to six significant decimal places
     def value=(amount)
-      @value = (amount.to_f * 1000000).to_i
+      @value = protect_number(amount)
     end
 
     def value
-      '%0.6f' % [(@value / 1000000).to_f]
+      '%0.6f' % [unprotect_number(@value)]
     end
 
     def value_raw
       @value
     end
-
   end
 end
