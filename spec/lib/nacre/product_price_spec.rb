@@ -126,7 +126,7 @@ describe Nacre::ProductPrice do
     end
 
     context 'when there are no errors' do
-      it 'should return an empty t plist' do
+      it 'should return an empty list' do
         pending
       end
     end
