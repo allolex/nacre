@@ -19,7 +19,9 @@ module Nacre
     end
 
     def params
-      members.map { |member| { member.key.to_sym => member.params } }
+      res = {}
+      members.each { |member| res[member.key] = member.params }
+      res
     end
 
     private

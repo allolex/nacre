@@ -10,6 +10,7 @@ module Nacre
     attribute :order_row_sequence
     attribute :composition
     attribute :row_value
+    attribute :tax_rate
 
     attr_accessor :key
 

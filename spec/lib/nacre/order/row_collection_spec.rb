@@ -28,9 +28,9 @@ describe Nacre::Order::RowCollection do
           tax_code: 'T4',
           row_net: {
             currency_code: 'EUR',
-            value: '25.000000'
+            value: '25.500000'
           },
-          taxRate: '0.000000'
+          tax_rate: '0.000000'
         }
       },
       '4430' => {
@@ -71,6 +71,8 @@ describe Nacre::Order::RowCollection do
   subject { described_class.new(params) }
 
   it_should_behave_like 'Enumerable'
+
+  it_should_behave_like 'Parametrizable'
 
   it 'should be a collection of Order::Row' do
     expect(subject.first).to be_a(Nacre::Order::Row)

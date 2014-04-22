@@ -45,6 +45,8 @@ describe Nacre::PriceListCollection do
 
   it_should_behave_like 'Enumerable'
 
+  it_should_behave_like 'Parametrizable'
+
   it 'should be a collection of price lists' do
     expect(subject.first).to be_a(Nacre::PriceList)
   end
