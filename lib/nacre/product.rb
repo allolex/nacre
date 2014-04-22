@@ -1,7 +1,10 @@
 require 'nacre/abstract_resource'
+require 'nacre/concerns/searchable'
 
 module Nacre
   class Product < AbstractResource
+
+    extend Nacre::Searchable
 
     attribute :id
     attribute :brand_id

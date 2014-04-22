@@ -29,6 +29,10 @@ require 'nacre/order/row/product_options'
 require 'nacre/order/row/quantity'
 require 'nacre/order/row/value'
 
+require 'nacre/price_list'
+require 'nacre/price_list_collection'
+require 'nacre/product_price'
+
 require 'nacre/product'
 require 'nacre/product/identity'
 require 'nacre/product/financial_details'
