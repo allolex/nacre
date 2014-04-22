@@ -33,8 +33,13 @@ module Nacre
     end
 
     def self.from_json(json)
-      params = params_from_json(json)
-      new(params)
+      if /response/ === json
+        params = params_from_json(json)
+        new(params)
+      else
+        link.errors = (list_extracted_errors(json) + link.errors).flatten
+        nil
+      end
     end
 
     def self.get(range)
@@ -43,7 +48,16 @@ module Nacre
       from_json(response.body)
     end
 
+    def self.errors
+      link.errors
+    end
+
     private
+
+    def self.list_extracted_errors(json)
+      parsed_body = JSON.parse(json, symbolize_names: true)
+      parsed_body[:errors]
+    end
 
     def self.service_name
       format_service_name(name)

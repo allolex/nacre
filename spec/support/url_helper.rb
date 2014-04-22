@@ -23,6 +23,10 @@ module UrlHelper
     resource_service_url('product')
   end
 
+  def price_list_service_url
+    "#{base_url}/product-service/price-list"
+  end
+
   def resource_search_url(resource)
     "#{base_url}/#{resource}-service/#{resource}-search"
   end
