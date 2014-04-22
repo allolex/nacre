@@ -17,6 +17,8 @@ describe Nacre::Order::AssignmentCollection do
 
   it_should_behave_like 'Enumerable'
 
+  it_should_behave_like 'Parametrizable'
+
   it 'should be a collection of Order::AssignmentDetails' do
     expect(subject.first).to be_a(Nacre::Order::Assignment)
   end
