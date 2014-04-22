@@ -16,5 +16,4 @@ module Nacre::Searchable
     service_url + '/' + service_name + '-search'
   end
 
-
 end
