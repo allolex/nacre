@@ -33,8 +33,13 @@ module Nacre
     end
 
     def self.from_json(json)
-      params = params_from_json(json)
-      new(params)
+      if /response/ === json
+        params = params_from_json(json)
+        new(params)
+      else
+        link.errors = (list_extracted_errors(json) + link.errors).flatten
+        nil
+      end
     end
 
     def self.get(range)
@@ -43,17 +48,16 @@ module Nacre
       from_json(response.body)
     end
 
-    def self.find(id_list = [])
-      id_list = [id_list] unless id_list.kind_of?(Array)
-      request_url = build_search_url(
-        search_url,
-        "#{service_name}Id=#{id_list.join(',')}"
-      )
-      response = link.get(request_url)
-      SearchResults.from_json(response.body)
+    def self.errors
+      link.errors
     end
 
     private
+
+    def self.list_extracted_errors(json)
+      parsed_body = JSON.parse(json, symbolize_names: true)
+      parsed_body[:errors]
+    end
 
     def self.service_name
       format_service_name(name)
@@ -109,10 +113,6 @@ module Nacre
 
     def self.url
       service_url + '/' + service_name
-    end
-
-    def self.search_url
-      service_url + '/' + service_name + '-search'
     end
 
     def self.link

@@ -23,14 +23,12 @@ describe Nacre::Connection do
   end
 
   describe '#authentication_token' do
-
     it 'should be set' do
       expect(connection.authentication.token).to_not be_nil
     end
   end
 
   describe '#link' do
-
     it 'should have a HTTP client link' do
       expect(connection.link).to respond_to(:get)
       expect(connection.link).to respond_to(:post)
@@ -42,8 +40,13 @@ describe Nacre::Connection do
     end
   end
 
-  describe '.authenticate!' do
+  describe '#errors' do
+    it 'should be an Array' do
+      expect(connection.errors).to be_a(Array)
+    end
+  end
 
+  describe '.authenticate!' do
     context 'with good credentials' do
       it 'should return a successful response' do
         expect(connection.authenticate!).to be_success
@@ -83,7 +86,6 @@ describe Nacre::Connection do
   end
 
   describe '#get' do
-
     let(:url) { 'http://example.com/some_path' }
 
     before :all do

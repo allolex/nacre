@@ -13,7 +13,10 @@ module Nacre
 
     attr_reader :response, :link, :authentication
 
+    attr_accessor :errors
+
     def initialize(args = {})
+      self.errors = []
       initialize_link
       authenticate!
       set_persistent_link(self.link)
@@ -23,8 +26,12 @@ module Nacre
       self.response.success?
     end
 
-    def authenticate!
+    def reset_credentials
       @authentication = nil
+    end
+
+    def authenticate!
+      reset_credentials
       api_response = @link.post(configuration.auth_url, auth_params)
       @response = Response.new(api_response)
       if self.response.success?
@@ -48,8 +55,9 @@ module Nacre
     private
 
     def authentication_failed?(response)
-      unless blank?(response.body)
-        response.body['response'].match(/\ANot authenticated/)
+      response_string = response.body['response']
+      unless blank?(response_string)
+        response_string.match(/\ANot authenticated/)
       end
     end
 
