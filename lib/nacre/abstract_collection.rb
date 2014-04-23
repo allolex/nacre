@@ -27,7 +27,7 @@ module Nacre
     private
 
     def resource_class
-      raise 'Calling class must define .collection_class'
+      raise NotImplementedError, "Including object must implement private ##{__method__}"
     end
   end
 end
