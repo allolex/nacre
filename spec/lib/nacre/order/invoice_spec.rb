@@ -11,18 +11,33 @@ describe Nacre::Order::Invoice do
 
   subject { described_class.new(params) }
 
-  it 'should have a due date' do
-    expect(subject.due_date).to be_a(DateTime)
-    expect(subject.due_date.to_s).to eq('2013-02-04T00:00:00+00:00')
+  describe '#invoice_reference' do
+    it 'should have the correct value' do
+      expect(subject.invoice_reference).to eq('AA-99999')
+    end
   end
 
-  it 'should have an invoice reference' do
-    expect(subject.invoice_reference).to eq('AA-99999')
+  describe '#due_date' do
+    it 'should be formatted correctly' do
+      expect(subject.due_date.to_s).to eq('2013-02-04T00:00:00.000Z')
+    end
   end
 
-  it 'should have a tax date' do
-    expect(subject.tax_date).to be_a(DateTime)
-    expect(subject.tax_date.to_s).to eq('2012-12-06T00:00:00+00:00')
+  describe '#due_date_raw' do
+    it 'should return a DateTime object' do
+      expect(subject.due_date_raw).to be_a(DateTime)
+    end
   end
 
+  describe '#tax_date' do
+    it 'should be formatted correctly' do
+      expect(subject.tax_date.to_s).to eq('2012-12-06T00:00:00.000Z')
+    end
+  end
+
+  describe '#tax_date_raw' do
+    it 'should return a DateTime object' do
+      expect(subject.tax_date_raw).to be_a(DateTime)
+    end
+  end
 end
