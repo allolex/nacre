@@ -8,36 +8,38 @@ module Nacre
 
     extend Searchable
 
-    attribute :acknowledged
-    attribute :allocation_status_code
-    attribute :assignment
-    attribute :contact_id
-    attribute :cost_price_list_id
-    attribute :created_by_id
-    attribute :created_on
-    attribute :currency
-    attribute :customer_ref
-    attribute :delivery
-    attribute :id
-    attribute :invoices
-    attribute :null_custom_fields
-    attribute :order_payment_status
-    attribute :order_payment_status_id
-    attribute :order_rows
-    attribute :order_status
-    attribute :order_status_id
-    attribute :order_stock_status_id
-    attribute :order_type_id
-    attribute :parent_order_id
-    attribute :parties
-    attribute :placed_on
-    attribute :price_list_id
-    attribute :price_mode_code
-    attribute :reference
-    attribute :shipping_status_code
-    attribute :stock_status_code
-    attribute :total_value
-    attribute :warehouse_id
+    [
+      :acknowledged,
+      :allocation_status_code,
+      :assignment,
+      :contact_id,
+      :cost_price_list_id,
+      :created_by_id,
+      :created_on,
+      :currency,
+      :customer_ref,
+      :delivery,
+      :id,
+      :invoices,
+      :null_custom_fields,
+      :order_payment_status,
+      :order_payment_status_id,
+      :order_rows,
+      :order_status,
+      :order_status_id,
+      :order_stock_status_id,
+      :order_type_id,
+      :parent_order_id,
+      :parties,
+      :placed_on,
+      :price_list_id,
+      :price_mode_code,
+      :reference,
+      :shipping_status_code,
+      :stock_status_code,
+      :total_value,
+      :warehouse_id
+    ].each { |field| attribute field }
 
     def invoices=(invoice_params_list)
       @invoices = Order::InvoiceCollection.new(invoice_params_list)
