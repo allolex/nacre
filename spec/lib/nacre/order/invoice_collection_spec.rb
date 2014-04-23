@@ -15,6 +15,8 @@ describe Nacre::Order::InvoiceCollection do
 
   it_should_behave_like 'Enumerable'
 
+  it_should_behave_like 'Parametrizable'
+
   it 'should contain invoices' do
     expect(subject.first).to be_a(Nacre::Order::Invoice)
   end
