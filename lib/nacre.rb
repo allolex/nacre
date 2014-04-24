@@ -4,6 +4,7 @@ require 'nacre/configuration'
 require 'nacre/connection'
 require 'nacre/response'
 require 'nacre/authentication'
+require 'nacre/column_property'
 
 require 'nacre/search_results'
 
