@@ -84,29 +84,6 @@ module Nacre
       format_hash_keys(resource)
     end
 
-    def self.format_hash_keys(value)
-      case value
-      when Hash
-        Hash[value.map { |k, v| [fix_key(k), format_hash_keys(v)] }]
-      when Array
-        value.map { |v| format_hash_keys(v) }
-      else
-        value
-      end
-    end
-
-    def self.fix_key(key)
-      if camel_case?(key)
-        snake_case(key).to_sym
-      else
-        key.downcase.to_sym
-      end
-    end
-
-    def self.camel_case?(key)
-      Nacre::CAMEL_CASE_RE === key
-    end
-
     def self.service_url
       configuration.resource_url + '/' + service_name + '-service'
     end
