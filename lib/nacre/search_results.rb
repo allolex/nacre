@@ -31,10 +31,6 @@ module Nacre
       end
     end
 
-    def params
-      Hash[results]
-    end
-
     private
 
     def extract_results(params)
