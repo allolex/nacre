@@ -1,4 +1,6 @@
-module Inflectible
+module Nacre::Inflectible
+
+  CAMEL_CASE_RE = /(?<=[a-z])[A-Z]/
 
   def snake_case(value)
     value.to_s.split(/(?=[A-Z])/).join('_').downcase
@@ -24,6 +26,6 @@ module Inflectible
   end
 
   def camel_case?(key)
-    Nacre::CAMEL_CASE_RE === key
+    CAMEL_CASE_RE === key
   end
 end
