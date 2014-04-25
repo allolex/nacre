@@ -1,6 +1,8 @@
 module Nacre
   class ProductPrice < AbstractResource
 
+    extend Getable
+
     attribute :product_id
     attribute :price_lists
 
@@ -10,7 +12,7 @@ module Nacre
 
     private
 
-    def self.resource_options
+    def self.request_options
       ''
     end
 

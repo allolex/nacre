@@ -68,7 +68,7 @@ describe 'Nacre::Product' do
       before do
         stub_request(
           :get,
-          "#{product_search_url}?productId=%s" % [id_text]
+          "#{product_search_url}?%s" % [default_search_options(["productId=#{id_text}"])]
         ).to_return(
           status: 200,
           body: fixture_file_content('product_search_result.json') ,
@@ -103,7 +103,6 @@ describe 'Nacre::Product' do
       it 'should not have a defined name' do
         expect(subject.name).to be_nil
       end
-
     end
   end
 
@@ -140,10 +139,8 @@ describe 'Nacre::Product' do
 
       let(:range) { 1018 }
 
-      let(:options) { 'includeOptional=customFields,nullCustomFields' }
-
       it 'should make a request to the correct endpoint' do
-        stub_request(:get, "#{resource_endpoint}/#{range}?#{options}").
+        stub_request(:get, "#{resource_endpoint}/#{range}?#{default_get_options}").
           to_return(
             status:  200,
             body:  fixture_file_content('product_with_custom_fields.json'),
@@ -154,7 +151,7 @@ describe 'Nacre::Product' do
 
         a_request(
           :get,
-          "#{resource_endpoint}/#{range}?#{options}"
+          "#{resource_endpoint}/#{range}?#{default_get_options}"
         ).should have_been_made
 
         expect(product.id).to eql(1018)
