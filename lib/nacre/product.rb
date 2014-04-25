@@ -4,7 +4,8 @@ require 'nacre/concerns/searchable'
 module Nacre
   class Product < AbstractResource
 
-    extend Nacre::Searchable
+    extend Searchable
+    extend Getable
 
     attribute :id
     attribute :brand_id
@@ -46,12 +47,6 @@ module Nacre
     def name
       return nil if sales_channels.nil?
       sales_channels.product_name
-    end
-
-    private
-
-    def self.resource_options
-      'includeOptional=customFields,nullCustomFields'
     end
   end
 end
