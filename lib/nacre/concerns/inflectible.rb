@@ -1,4 +1,4 @@
-module Inflectible
+module Nacre::Inflectible
 
   CAMEL_CASE_RE = /(?<=[a-z])[A-Z]/
 
