@@ -45,8 +45,6 @@ require 'nacre/product/stock_details'
 
 module Nacre
 
-  CAMEL_CASE_RE = /(?<=[a-z])[A-Z]/
-
   class << self
     attr_accessor :configuration, :link
   end
