@@ -1,6 +1,23 @@
 require 'spec_helper'
 
 module UrlHelper
+
+  def default_search_options(extra_options = [])
+    options = %w/
+      firstResult=1
+      includeOptional=customFields,nullCustomFields
+      pageSize=100
+      /
+    (options + extra_options).sort.join('&')
+  end
+
+  def default_get_options(extra_options = [])
+    options = %w/
+      includeOptional=customFields,nullCustomFields
+      /
+    (options + extra_options).sort.join('&')
+  end
+
   def base_url
     'https://ws-eu1.brightpearl.com/%s/%s' %
       [Nacre.configuration.api_version, Nacre.configuration.user_id]
