@@ -3,6 +3,7 @@ require 'json'
 require 'nacre/concerns/matchable'
 require 'nacre/concerns/parametrizable'
 require 'nacre/concerns/inflectible'
+require 'nacre/concerns/getable'
 
 module Nacre
   class AbstractResource
@@ -42,12 +43,6 @@ module Nacre
       end
     end
 
-    def self.get(range)
-      request_url = build_request_url(url,range,resource_options)
-      response = link.get(request_url)
-      from_json(response.body)
-    end
-
     def self.errors
       link.errors
     end
@@ -71,14 +66,6 @@ module Nacre
       "#{url}/#{query.to_s}?#{options}"
     end
 
-    def self.build_search_url(url, query)
-      "#{url}?#{query.to_s}"
-    end
-
-    def self.resource_options
-      'includeOptional=customFields,nullCustomFields'
-    end
-
     def self.params_from_json(json)
       resource = JSON.parse(json)['response'].first
       format_hash_keys(resource)
@@ -86,10 +73,6 @@ module Nacre
 
     def self.service_url
       configuration.resource_url + '/' + service_name + '-service'
-    end
-
-    def self.url
-      service_url + '/' + service_name
     end
 
     def self.link

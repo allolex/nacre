@@ -7,6 +7,7 @@ module Nacre
   class Order < AbstractResource
 
     extend Searchable
+    extend Getable
 
     [
       :acknowledged,
