@@ -57,6 +57,14 @@ describe Nacre::RequestUrl do
     end
   end
 
+  describe '#pagination_params' do
+    it 'should return a hash of pagination options' do
+      expect(subject.pagination_params).to eq(
+        { first_record: 1, window: 100 }
+      )
+    end
+  end
+
   describe '#pagination=' do
     it 'should take a hash' do
       subject.pagination = { first_record: 11, window: 10 }

@@ -21,6 +21,10 @@ module Nacre
       @pagination.map { |k,v| "#{KEY_MAP[k]}=#{v}" }
     end
 
+    def pagination_params
+      @pagination
+    end
+
     def options
       ["includeOptional=#{@options.join(',')}"]
     end

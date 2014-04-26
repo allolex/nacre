@@ -5,12 +5,11 @@ module Nacre::Searchable
   def find(id_list = [])
     id_value = [id_list].flatten.join(',')
 
-    request_url = Nacre::RequestUrl.new(
-      default_params.merge(
-        search_url: search_url,
-        fields: { resource_id => id_value }
-      )
-    )
+    current_params =  default_params.merge(
+                        search_url: search_url,
+                        fields: { resource_id => id_value }
+                      )
+    request_url = Nacre::RequestUrl.new(current_params)
     response = link.get(request_url.to_s)
     Nacre::SearchResults.from_json(response.body)
   end
