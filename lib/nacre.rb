@@ -6,6 +6,7 @@ require 'nacre/response'
 require 'nacre/authentication'
 require 'nacre/column_property'
 
+require 'nacre/request_url'
 require 'nacre/search_results'
 
 require 'nacre/order'
