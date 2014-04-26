@@ -1,34 +1,40 @@
+require 'nacre/request_url'
+
 module Nacre::Searchable
 
   def find(id_list = [])
-    id_list = [id_list] unless id_list.kind_of?(Array)
-    request_url = build_search_url(
-      search_url,
-      "#{service_name}Id=#{id_list.join(',')}",
-      search_options
+    id_value = [id_list].flatten.join(',')
+
+    request_url = Nacre::RequestUrl.new(
+      default_params.merge(
+        search_url: search_url,
+        fields: { resource_id => id_value }
+      )
     )
-    response = link.get(request_url)
+    response = link.get(request_url.to_s)
     Nacre::SearchResults.from_json(response.body)
   end
 
   private
 
-  def build_search_url(url, query, options)
-    "#{url}?#{query.to_s}&#{options}"
+  def resource_id
+    "#{service_name}_id".to_sym
   end
 
   def search_url
     service_url + '/' + service_name + '-search'
   end
 
-  def default_pagination
-    %w/pageSize=100 firstResult=1/
-  end
-
-  def search_options
-    (
-      default_pagination +
-      %w/includeOptional=customFields,nullCustomFields/
-    ).sort.join('&')
+  def default_params
+    {
+      pagination: {
+        first_record: 1,
+        window: 100
+      },
+      options: [
+        'customFields',
+        'nullCustomFields'
+      ]
+    }
   end
 end
