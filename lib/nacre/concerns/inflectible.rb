@@ -1,9 +1,16 @@
 module Nacre::Inflectible
 
   CAMEL_CASE_RE = /(?<=[a-z])[A-Z]/
+  SNAKE_CASE_RE = /_(\w)/
 
   def snake_case(value)
     value.to_s.split(/(?=[A-Z])/).join('_').downcase
+  end
+
+  def camelize(value)
+    value = value.to_s
+    return value unless snake_case?(value)
+    value.gsub(/_(\w)/) { $1.upcase }
   end
 
   def format_hash_keys(value)
@@ -27,5 +34,9 @@ module Nacre::Inflectible
 
   def camel_case?(key)
     CAMEL_CASE_RE === key
+  end
+
+  def snake_case?(key)
+    SNAKE_CASE_RE === key
   end
 end
