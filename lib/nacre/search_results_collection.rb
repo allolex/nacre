@@ -63,14 +63,6 @@ module Nacre
       SearchResults
     end
 
-    def self.service_name
-      'order'
-    end
-
-    def search_url
-      service_url + '/' + service_name + '-search'
-    end
-
     def link
       Nacre.link
     end
