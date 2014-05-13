@@ -31,12 +31,11 @@ module Nacre
       members.each_with_index do |search_results, search_results_index|
         search_results.each_with_index do |resource, resource_index|
           record_count += 1
-          if search_again?( collection_index: search_results_index,
-                            available_records: record_count,
-                            resource_count: search_results.count,
-                            current_resource_index: resource_index )
-            search_again(record_count + 1)
-          end
+          search_again(record_count + 1) if search_again?(
+            collection_index: search_results_index,
+            available_records: record_count,
+            resource_count: search_results.count,
+            current_resource_index: resource_index )
           block.call(resource)
         end
       end
