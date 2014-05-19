@@ -182,19 +182,19 @@ describe Nacre::SearchResultsCollection do
   end
 
   describe '#each_page' do
+
+    it 'should return search results' do
+      subject.each_page do |results_page|
+        expect(results_page).to be_a(Nacre::SearchResults)
+      end
+    end
+
     it 'should return each page of results from its members' do
-
+      count = 0
+      subject.each_page do |results_page|
+        count += 1
+      end
+      expect(count).to eq(4)
     end
   end
-
-  describe '#first' do
-    it 'should return the first result' do
-
-    end
-
-    it 'should return two results with #first(2)' do
-
-    end
-  end
-
 end
