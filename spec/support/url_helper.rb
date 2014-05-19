@@ -6,7 +6,7 @@ module UrlHelper
     options = %w/
       firstResult=1
       includeOptional=customFields,nullCustomFields
-      pageSize=100
+      pageSize=500
       /
     (options + extra_options).sort.join('&')
   end
