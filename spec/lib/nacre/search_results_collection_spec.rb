@@ -50,6 +50,49 @@ describe Nacre::SearchResultsCollection do
 
   it_should_behave_like 'Enumerable'
 
+  describe '.from_json' do
+    context 'with valid JSON data' do
+      let(:json) { fixture_file_content('order_search_result_with_more.json') }
+
+      subject { Nacre::SearchResultsCollection.from_json(json, initial_options) }
+
+      before do
+        @url = Nacre::RequestUrl.new(
+          initial_options
+        )
+        @url.pagination = { first_record: 4, window: 3 }
+        stub_request(
+          :get,
+          @url.to_s
+        ).to_return(
+          status: 200,
+          body: fixture_file_content('order_next_search_result.json'),
+          headers: {}
+        )
+      end
+
+      it 'should return a SearchResultsCollection instance' do
+        expect(subject).to be_a(Nacre::SearchResultsCollection)
+      end
+
+      it 'should return each individual result from its members' do
+        count = 0
+        subject.each do |result|
+          count += 1
+        end
+        expect(count).to eq(6)
+      end
+
+    end
+
+    context 'with invalid data' do
+      it 'should raise an error' do
+        expect { Nacre::SearchResultsCollection.from_json('') }
+          .to raise_error(ArgumentError)
+      end
+    end
+  end
+
   describe '#members' do
     it 'should be a list' do
       expect(subject.members).to be_a(Array)
