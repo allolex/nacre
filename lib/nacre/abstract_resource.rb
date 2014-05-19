@@ -23,6 +23,8 @@ module Nacre
 
     def initialize(options = {})
       self.attributes = options
+      post_initialize
+      self
     end
 
     def attributes=(attributes_hash)
@@ -48,6 +50,8 @@ module Nacre
     end
 
     private
+
+    def post_initialize; end
 
     def self.list_extracted_errors(json)
       parsed_body = JSON.parse(json, symbolize_names: true)

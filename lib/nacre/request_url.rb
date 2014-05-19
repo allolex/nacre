@@ -13,6 +13,10 @@ module Nacre
       window: 'pageSize'
     }
 
+    def post_initialize
+      @pagination = @pagination || default_pagination
+    end
+
     def fields
       @fields.map { |k,v| "#{camelize(k)}=#{v}" }
     end
@@ -35,6 +39,15 @@ module Nacre
 
     def to_s
       "#{search_url}?#{arguments.join('&')}"
+    end
+
+    private
+
+    def default_pagination
+      {
+        first_record: 1,
+        window: 500
+      }
     end
   end
 end
