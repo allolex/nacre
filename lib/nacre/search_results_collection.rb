@@ -43,6 +43,12 @@ module Nacre
       end
     end
 
+    def each_page(&block)
+      members.each do |page|
+        block.call(page)
+      end
+    end
+
     def self.from_json(json, options)
       raise ArgumentError.new('Empty JSON') unless json.length > 2
       params = format_hash_keys(JSON.parse(json, symbolize_names: true))
@@ -74,6 +80,5 @@ module Nacre
     def link
       Nacre.link
     end
-
   end
 end
