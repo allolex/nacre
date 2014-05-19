@@ -13,7 +13,7 @@ describe Nacre::RequestUrl do
       },
       pagination: {
         first_record: 1,
-        window: 100
+        window: 500
       },
       options: [
         'customFields',
@@ -58,7 +58,7 @@ describe Nacre::RequestUrl do
     describe '#pagination' do
       it 'should return a URL encoded string' do
         expect(subject.pagination).to eq(
-          ['firstResult=1','pageSize=100']
+          ['firstResult=1','pageSize=500']
         )
       end
     end
@@ -66,7 +66,7 @@ describe Nacre::RequestUrl do
     describe '#pagination_params' do
       it 'should return a hash of pagination options' do
         expect(subject.pagination_params).to eq(
-          { first_record: 1, window: 100 }
+          { first_record: 1, window: 500 }
         )
       end
     end
@@ -107,7 +107,7 @@ describe Nacre::RequestUrl do
       let(:args) do
         %w/
           firstResult=1
-          pageSize=100
+          pageSize=500
           includeOptional=customFields,nullCustomFields
         /.sort
       end

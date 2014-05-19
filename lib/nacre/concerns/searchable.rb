@@ -18,7 +18,7 @@ module Nacre::Searchable
     {
       pagination: {
         first_record: 1,
-        window: 100
+        window: 500
       },
       options: [
         'customFields',
