@@ -4,9 +4,11 @@ module Nacre
     attr_accessor :total, :request_url
 
     include Searchable
+    extend Inflectible
 
     def initialize(params: [], options: {})
       self.members = []
+      params = [ params ] unless params.respond_to?(:each)
       params.each do |resource_params|
         members << resource_class.new(resource_params)
       end
@@ -39,6 +41,12 @@ module Nacre
           block.call(resource)
         end
       end
+    end
+
+    def self.from_json(json, options)
+      raise ArgumentError.new('Empty JSON') unless json.length > 2
+      params = format_hash_keys(JSON.parse(json, symbolize_names: true))
+      new(params: [ params ], options: options)
     end
 
     private
