@@ -11,9 +11,9 @@ module Nacre
 
     include Matchable
 
-    attr_reader :response, :link, :authentication
+    attr_reader :link, :authentication
 
-    attr_accessor :errors
+    attr_accessor :response, :errors
 
     def initialize(args = {})
       self.errors = []
@@ -47,18 +47,17 @@ module Nacre
 
     def get(url)
       self.link.headers['brightpearl-auth'] = self.authentication.token
-      response = self.link.get(url)
-      raise NotAuthenticatedError if authentication_failed?(response)
-      response
+      self.response = self.link.get(url)
+      raise NotAuthenticatedError if authentication_failed?
+      self.response
     end
 
     private
 
-    def authentication_failed?(response)
-      response_string = response.body['response']
-      unless blank?(response_string)
-        response_string.match(/\ANot authenticated/)
-      end
+    def authentication_failed?
+      response_string = self.response.body['response']
+      return false if blank?(response_string)
+      /\ANot authenticated/ === response_string
     end
 
     def auth_params
