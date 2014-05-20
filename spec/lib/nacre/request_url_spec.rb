@@ -36,6 +36,39 @@ describe Nacre::RequestUrl do
       end
     end
 
+    describe '#ids' do
+      context 'when given a single id string' do
+        it 'should return a single id string' do
+          ids = '1'
+          subject.ids = ids
+          expect(subject.ids).to eq(ids)
+        end
+      end
+
+      context 'when given a single id list' do
+        it 'should return a single id string' do
+          ids = [1]
+          subject.ids = ids
+          expect(subject.ids).to eq(ids.first.to_s)
+        end
+      end
+      context 'when given a range of ids' do
+        it 'should return an id range string' do
+          ids = '1-5'
+          subject.ids = ids
+          expect(subject.ids).to eq('1-5')
+        end
+      end
+
+      context 'when given a single id' do
+        it 'should return an id list string' do
+          ids = %w/1 2 3 4 5/
+          subject.ids = ids
+          expect(subject.ids).to eq('1,2,3,4,5')
+        end
+      end
+    end
+
     describe '#fields' do
       it 'should return URL encoded fields and values' do
         expect(subject.fields).to eq(['orderId=1'])
@@ -118,13 +151,44 @@ describe Nacre::RequestUrl do
     end
 
     describe '#to_s' do
-      let(:test_url) do
-        '%s?%s=1&%s' % [search_url, id_field, default_search_options]
+      context 'with no range provided' do
+        let(:url) do
+          '%s?%s=1&%s' % [search_url, id_field, default_search_options]
+        end
+
+        it 'should return the correct URL' do
+          expect(subject.to_s).to eq(url)
+        end
       end
 
-      it 'should return the correct URL' do
-        expect(subject.to_s).to eq(test_url)
+      context 'with a range provided' do
+
+        let(:range) { '1-3' }
+
+        let(:params) do
+          {
+            search_url: order_get_url,
+            ids: range,
+            options: [
+              'customFields',
+              'nullCustomFields'
+            ]
+          }
+        end
+
+        let(:url) do
+          '%s/%s?%s' % [order_get_url, range, default_get_options]
+        end
+
+        it 'should have no pagination options' do
+          expect(subject.pagination).to eq('')
+        end
+
+        it 'should return the correct URL' do
+          expect(subject.to_s).to eq(url)
+        end
       end
+
     end
   end
 
