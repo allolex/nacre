@@ -5,6 +5,7 @@ module Nacre
 
     attribute :options
     attribute :pagination
+    attribute :ids
     attribute :fields
     attribute :search_url
 
@@ -18,11 +19,24 @@ module Nacre
     end
 
     def fields
+      return nil if blank?(@fields)
       @fields.map { |k,v| "#{camelize(k)}=#{v}" }
     end
 
+    def ids
+      if @ids.respond_to?(:each)
+        @ids.join(',')
+      else
+        @ids
+      end
+    end
+
     def pagination
-      @pagination.map { |k,v| "#{KEY_MAP[k]}=#{v}" }
+      if blank?(@ids)
+        @pagination.map { |k,v| "#{KEY_MAP[k]}=#{v}" }
+      else
+        ''
+      end
     end
 
     def pagination_params
@@ -34,11 +48,19 @@ module Nacre
     end
 
     def arguments
-      fields.sort + (pagination + options).sort
+      if @ids.nil?
+        fields.sort + (pagination + options).sort
+      else
+        options.sort
+      end
     end
 
     def to_s
-      "#{search_url}?#{arguments.join('&')}"
+      if @ids.nil?
+        "#{search_url}?#{arguments.join('&')}"
+      else
+        "#{search_url}/#{ids}?#{arguments.join('&')}"
+      end
     end
 
     private
