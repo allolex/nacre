@@ -167,7 +167,7 @@ describe Nacre::RequestUrl do
 
         let(:params) do
           {
-            search_url: order_get_url,
+            search_url: order_service_url,
             ids: range,
             options: [
               'customFields',
@@ -177,7 +177,7 @@ describe Nacre::RequestUrl do
         end
 
         let(:url) do
-          '%s/%s?%s' % [order_get_url, range, default_get_options]
+          '%s/%s?%s' % [order_service_url, range, default_get_options]
         end
 
         it 'should have no pagination options' do
