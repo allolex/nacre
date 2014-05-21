@@ -1,6 +1,9 @@
+require 'nacre/concerns/resourceable'
+
 module Nacre
   class AbstractCollection
 
+    extend Resourceable
     include Enumerable
 
     attr_accessor :members
