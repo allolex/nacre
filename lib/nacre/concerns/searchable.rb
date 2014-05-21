@@ -15,16 +15,22 @@ module Nacre::Searchable
   end
 
   def default_search_options
+    options = default_get_options
+    options[:pagination] =  {
+                              first_record: 1,
+                              window: 500
+                            }
+    options
+  end
+
+  def default_get_options
     {
-      pagination: {
-        first_record: 1,
-        window: 500
-      },
       options: [
         'customFields',
         'nullCustomFields'
       ]
     }
+
   end
 
   private
