@@ -40,6 +40,7 @@ require 'nacre/product_price'
 require 'nacre/request_url'
 require 'nacre/response'
 require 'nacre/search_results'
+require 'nacre/search_results_collection'
 require 'nacre/version'
 
 module Nacre

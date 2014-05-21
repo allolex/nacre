@@ -6,6 +6,8 @@ module Nacre::Getable
     from_json(response.body)
   end
 
+  private
+
   def url
     service_url + '/' + service_name
   end
@@ -14,4 +16,7 @@ module Nacre::Getable
     'includeOptional=customFields,nullCustomFields'
   end
 
+  def build_request_url(url, query, options)
+    "#{url}/#{query.to_s}?#{options}"
+  end
 end

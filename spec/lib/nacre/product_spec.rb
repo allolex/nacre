@@ -77,7 +77,7 @@ describe 'Nacre::Product' do
       end
 
       it 'should return search results' do
-        expect(products).to be_a(Nacre::SearchResults)
+        expect(products).to be_a(Nacre::SearchResultsCollection)
       end
 
       it 'should find an order with the correct ID' do
