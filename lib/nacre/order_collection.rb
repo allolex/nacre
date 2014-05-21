@@ -2,11 +2,11 @@ require 'nacre/concerns/inflectible'
 
 module Nacre
 
-  class OrderCollection
+  class OrderCollection < AbstractCollection
 
     include Enumerable
-
     extend Inflectible
+    extend Getable
 
     attr_accessor :members
 
@@ -35,6 +35,10 @@ module Nacre
     end
 
     private
+
+    def self.service_name
+      'order'
+    end
 
     def self.extract_orders(json)
       JSON.parse(json)['response']
