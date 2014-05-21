@@ -69,10 +69,6 @@ module Nacre
       name.gsub(/\ANacre::/, '').downcase
     end
 
-    def self.build_request_url(url, query, options)
-      "#{url}/#{query.to_s}?#{options}"
-    end
-
     def self.params_from_json(json)
       resource = JSON.parse(json)['response'].first
       format_hash_keys(resource)
