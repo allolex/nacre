@@ -1,13 +1,14 @@
 [![Build Status](https://travis-ci.org/allolex/nacre.svg?branch=master)](https://travis-ci.org/allolex/nacre) [![Coverage Status](https://coveralls.io/repos/allolex/nacre/badge.png?branch=master)](https://coveralls.io/r/allolex/nacre?branch=master) [![Code Climate](https://codeclimate.com/github/allolex/nacre.png)](https://codeclimate.com/github/allolex/nacre) [![Dependency Status](https://gemnasium.com/allolex/nacre.svg)](https://gemnasium.com/allolex/nacre)
 
 
-# Nacre, the sequel
+# Nacre
 
 Nacre is a Ruby gem that wraps the API of the Brightpearl accounting software service.
 
 http://www.brightpearl.com/developer/latest/
 
-Version 0.1.0 of this library is a complete re-write of the original version. We've all learned a few things since we first started and refactoring was too much trouble.
+As of version 0.1.0, this library is a complete re-write of the original version. We've all learned a few things since we first started and refactoring was too much trouble.
+
 
 ## Installation
 
@@ -23,7 +24,59 @@ And then execute:
 $ bundle
 ```
 
+
+## Warning
+
+This library is still under active development, so please expect some API-breaking changes.
+
+Specifically, searching by things other than ID will be supported.
+
+
+## Features
+
+
+### Supported API resources
+
+
+#### Orders
+
+- search for orders, e.g. `Nacre::Order.find`
+- retrieve a single order, e.g. `Nacre::Order.get(1)`
+- retrieve an order collection, e.g. `OrderCollection.get('1,2,3')`
+
+
+#### Products
+
+- search for products, e.g. `Nacre::Product.find`
+- retrieve a single product, e.g. `Nacre::Product.get(1)`
+
+
+### Lazily-loading searches
+
+Brightpearl currently returns a maximum of 500 search results. If you need to conserve local resources, you can configure your searches to return fewer results on each page. Nacre will load the next page of search results when it hits the end of the current page.
+
+
 ## Usage
+
+
+### Searching
+
+When using the API's search endpoint, the API returns search results that
+include some of the attributes from the queried resource, but not all. You may
+want to combine a search with pulling in a collection for that resource.
+
+For example, you want to get the first two orders from Brightpearl:
+
+```ruby
+
+    order_search = Nacre::Order.find                        # Search for all orders
+    order_ids = order_search.map { |rec| rec[:order_id] }   # Make a list of all the id's
+    orders_list = order_ids.first(2).join(',')              # Parametrize the first two id's from the search
+    orders = Nacre::OrderCollection.get(orders_list)        # Retreive the orders as an OrderCollection.
+    orders.each do |order|
+      # do stuff
+    end
+```
 
 Here's how I'm testing the gem as I develop it. It's just a throw-away script,
 but it should get you started. It has some redundant bits. :smile:
@@ -56,7 +109,7 @@ but it should get you started. It has some redundant bits. :smile:
     end
 
     if bp.response.success?
-      results = Nacre::Order.find(date: '2012-12-14')
+      results = Nacre::Order.find
       results.orders.each do |order_params|
         ap order_params
         order = Nacre::Order.new(order_params)
