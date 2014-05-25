@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe Nacre::OrderCollection do
 
+  let!(:link) { Nacre::Connection.new }
+
   let(:parametrized_order_list) do
     [
       {
