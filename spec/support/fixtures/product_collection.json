@@ -1,0 +1,296 @@
+{
+   "response" : [
+      {
+         "productGroupId" : 0,
+         "warehouses" : {
+            "11" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "7" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "17" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "2" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "18" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "16" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "13" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "6" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "9" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "12" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "20" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "14" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "15" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "8" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "4" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "19" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "10" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "5" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            }
+         },
+         "salesChannels" : [
+            {
+               "productName" : "Misc item without VAT",
+               "shortDescription" : {
+                  "languageCode" : "en",
+                  "format" : "HTML_FRAGMENT",
+                  "text" : ""
+               },
+               "salesChannelName" : "Brightpearl",
+               "productCondition" : "new",
+               "categories" : [
+                  {
+                     "categoryCode" : "276"
+                  }
+               ],
+               "description" : {
+                  "languageCode" : "en",
+                  "format" : "HTML_FRAGMENT",
+                  "text" : "Product description in here"
+               }
+            }
+         ],
+         "nullCustomFields" : [
+            "PCF_CATNO",
+            "PCF_PRICECO",
+            "PCF_PROJECT"
+         ],
+         "nominalCodeStock" : "1001",
+         "stock" : {
+            "weight" : {
+               "magnitude" : 100
+            },
+            "stockTracked" : false
+         },
+         "brandId" : 74,
+         "identity" : {
+            "sku" : "",
+            "barcode" : ""
+         },
+         "financialDetails" : {
+            "taxCode" : {
+               "id" : 7,
+               "code" : "T20"
+            },
+            "taxable" : false
+         },
+         "composition" : {
+            "bundle" : false
+         },
+         "productTypeId" : 1,
+         "id" : 1000
+      },
+      {
+         "productGroupId" : 0,
+         "warehouses" : {
+            "11" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "7" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "17" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "2" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "18" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "16" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "13" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "6" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "9" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "12" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "20" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "14" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "15" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "8" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "4" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "19" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "10" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            },
+            "5" : {
+               "reorderLevel" : 1,
+               "reorderQuantity" : 1,
+               "defaultLocationId" : 0
+            }
+         },
+         "salesChannels" : [
+            {
+               "productName" : "Misc item with VAT",
+               "shortDescription" : {
+                  "languageCode" : "en",
+                  "format" : "HTML_FRAGMENT",
+                  "text" : ""
+               },
+               "salesChannelName" : "Brightpearl",
+               "productCondition" : "new",
+               "categories" : [
+                  {
+                     "categoryCode" : "276"
+                  }
+               ],
+               "description" : {
+                  "languageCode" : "en",
+                  "format" : "HTML_FRAGMENT",
+                  "text" : ""
+               }
+            }
+         ],
+         "nullCustomFields" : [
+            "PCF_CATNO",
+            "PCF_PRICECO",
+            "PCF_PROJECT"
+         ],
+         "nominalCodeStock" : "1001",
+         "stock" : {
+            "weight" : {
+               "magnitude" : 0
+            },
+            "stockTracked" : false
+         },
+         "brandId" : 74,
+         "identity" : {
+            "sku" : "MISC1",
+            "barcode" : ""
+         },
+         "financialDetails" : {
+            "taxCode" : {
+               "id" : 7,
+               "code" : "T20"
+            },
+            "taxable" : false
+         },
+         "composition" : {
+            "bundle" : false
+         },
+         "productTypeId" : 1,
+         "id" : 1001
+      }
+   ]
+}

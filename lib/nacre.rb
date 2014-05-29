@@ -35,6 +35,7 @@ require 'nacre/product/sales_channel'
 require 'nacre/product/sales_channel_collection'
 require 'nacre/product/stock_details'
 require 'nacre/product/tax_code'
+require 'nacre/product_collection'
 require 'nacre/product_price'
 
 require 'nacre/request_url'
