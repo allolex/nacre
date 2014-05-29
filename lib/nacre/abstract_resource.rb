@@ -61,12 +61,8 @@ module Nacre
       parsed_body[:errors]
     end
 
-    def self.service_name
-      format_service_name(name)
-    end
-
-    def self.format_service_name(name)
-      name.gsub(/\ANacre::/, '').downcase
+    def self.resource_class
+      name
     end
 
     def self.params_from_json(json)
