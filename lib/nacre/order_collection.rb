@@ -10,14 +10,11 @@ module Nacre
 
     attr_accessor :members
 
-    def initialize(parametrized_orders = [])
+    def initialize(parametrized_resources = [])
       self.members = []
-      parametrized_orders.each do |o|
-        order_params = {
-          id: o[:order_id],
-          parent_order_id: o[:parent_order_id]
-        }
-        self.members << Order.new(order_params)
+      parametrized_resources.each do |r|
+        resource_params = normalize_params(r)
+        self.members << self.class.resource_class.new(resource_params)
       end
     end
 
@@ -28,19 +25,27 @@ module Nacre
     end
 
     def self.from_json(json)
-      orders = extract_orders(json)
+      resources = extract_resources(json)
       collection = new
-      collection.members = orders.map { |o| Order.new( json_to_params(o) ) }
+      collection.members = resources.map { |r| resource_class.new( json_to_params(r) ) }
       collection
     end
 
     private
 
-    def self.service_name
-      'order'
+    def normalize_params(params)
+      resource_params = params
+      id_key = "#{self.class.service_name}_id".to_sym
+      resource_params[:id] = params[id_key]
+      resource_params.delete(id_key)
+      resource_params
     end
 
-    def self.extract_orders(json)
+    def self.resource_class
+      Order
+    end
+
+    def self.extract_resources(json)
       JSON.parse(json)['response']
     end
 
