@@ -8,6 +8,6 @@ coverage
 doc
 pkg
 rdoc
-test.rb
+test*.rb
 tmp
 TODO.md
