@@ -61,10 +61,6 @@ module Nacre
       parsed_body[:errors]
     end
 
-    def self.resource_class
-      name
-    end
-
     def self.params_from_json(json)
       resource = JSON.parse(json)['response'].first
       format_hash_keys(resource)
