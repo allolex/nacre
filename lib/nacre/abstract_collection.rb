@@ -11,7 +11,7 @@ module Nacre
     def initialize(resource_hash = {})
       self.members = []
       resource_hash.each_pair do |key, value|
-        members << resource_class.new(key, value)
+        members << self.class.resource_class.new(key, value)
       end
     end
 
@@ -27,10 +27,8 @@ module Nacre
       res
     end
 
-    private
-
-    def resource_class
-      raise NotImplementedError, "Including object must implement private ##{__method__}"
+    def self.resource_class
+      raise NotImplementedError, "Subclass #{self.name} must implement .#{__method__}"
     end
   end
 end

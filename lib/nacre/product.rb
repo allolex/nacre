@@ -20,6 +20,10 @@ module Nacre
     attribute :custom_fields
     attribute :null_custom_fields
 
+    def self.resource_class
+      self
+    end
+
     def identity=(params)
       @identity = Product::Identity.new(params)
     end

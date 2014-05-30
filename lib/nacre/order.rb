@@ -42,6 +42,10 @@ module Nacre
       :warehouse_id
     ].each { |field| attribute field }
 
+    def self.resource_class
+      self
+    end
+
     def invoices=(invoice_params_list)
       @invoices = Order::InvoiceCollection.new(invoice_params_list)
     end
