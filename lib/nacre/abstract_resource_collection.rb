@@ -41,10 +41,6 @@ module Nacre
       resource_params
     end
 
-    def self.resource_class
-      Order
-    end
-
     def self.extract_resources(json)
       JSON.parse(json)['response']
     end
