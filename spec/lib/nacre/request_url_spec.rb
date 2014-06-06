@@ -199,8 +199,7 @@ describe Nacre::RequestUrl do
       expect(subject.pagination).to eq(['firstResult=1', 'pageSize=500'])
     end
 
-    it 'should raise an error when the fields are missing' do
-      pending 'This class should have validations'
+    xit 'should raise an error when the fields are missing' do
     end
   end
 end

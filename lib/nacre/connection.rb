@@ -15,7 +15,11 @@ module Nacre
 
     attr_accessor :response, :errors
 
-    def initialize(args = {})
+    def initialize(
+        user_id: Nacre.configuration.user_id,
+        email: Nacre.configuration.email,
+        password: Nacre.configuration.password
+      )
       self.errors = []
       initialize_link
       authenticate!
