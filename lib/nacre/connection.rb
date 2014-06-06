@@ -1,6 +1,5 @@
 require 'json'
 require 'faraday'
-require 'pry'
 require 'nacre/concerns/matchable'
 
 module Nacre
