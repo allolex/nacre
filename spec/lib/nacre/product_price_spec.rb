@@ -120,14 +120,12 @@ describe Nacre::ProductPrice do
 
   describe '.errors' do
     context 'when there are errors' do
-      it 'should return a list of errors' do
-        pending
+      xit 'should return a list of errors' do
       end
     end
 
     context 'when there are no errors' do
-      it 'should return an empty list' do
-        pending
+      xit 'should return an empty list' do
       end
     end
   end

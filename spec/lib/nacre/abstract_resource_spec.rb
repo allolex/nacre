@@ -3,8 +3,7 @@ require 'spec_helper'
 describe Nacre::AbstractResource do
 
   describe 'initialization' do
-    it 'should create attributes from the params' do
-      pending
+    xit 'should create attributes from the params' do
     end
   end
 
@@ -17,48 +16,40 @@ describe Nacre::AbstractResource do
   end
 
   describe '.attribute' do
-    it 'should create an accessor' do
-      pending
+    xit 'should create an accessor' do
     end
 
-    it 'should add the attribute to the fields list' do
-      pending
+    xit 'should add the attribute to the fields list' do
     end
   end
 
   describe '.fields' do
-    it 'should be a list of attribute symbols' do
-      pending
+    xit 'should be a list of attribute symbols' do
     end
   end
 
   describe '#attributes=' do
-    it 'should set the attributes only for existing fields' do
-      pending
+    xit 'should set the attributes only for existing fields' do
     end
 
-    it 'should ignore attributes for non-existent fields' do
-      pending
+    xit 'should ignore attributes for non-existent fields' do
     end
   end
 
   describe '.from_json' do
     context "when it's a real response" do
-      it 'returns a new object with the params from json' do
-        pending
+      xit 'returns a new object with the params from json' do
       end
     end
 
     context "when it's an error (outside of a response structure)" do
-      it 'adds the unstructured error to the connection errors' do
-        pending
+      xit 'adds the unstructured error to the connection errors' do
       end
     end
   end
 
   describe '.errors' do
-    it 'returns the errors from the connection' do
-      pending
+    xit 'returns the errors from the connection' do
     end
   end
 end
