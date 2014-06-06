@@ -15,7 +15,6 @@ describe Nacre::Order::Assignment do
 
   it 'should have an assignment key' do
     expect(subject.key).to eq('current')
-
   end
 
   it 'should have a channel ID' do

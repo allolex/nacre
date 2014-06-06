@@ -22,4 +22,10 @@ describe Nacre::Order::AssignmentCollection do
   it 'should be a collection of Order::AssignmentDetails' do
     expect(subject.first).to be_a(Nacre::Order::Assignment)
   end
+
+  describe '#current' do
+    it 'should returnt the current assignment' do
+      expect(subject.current.key).to eq(:current)
+    end
+  end
 end
