@@ -50,5 +50,5 @@ describe Nacre::Product::SalesChannel do
     expect(subject.short_description).to be_a(Nacre::Product::Description)
   end
 
-  it_should_behave_like 'Parametrizable'
+  it_behaves_like 'Parametrizable'
 end

@@ -12,7 +12,7 @@ describe Nacre::ProductCollection do
 
   let(:subject) { Nacre::ProductCollection.new(parametrized_list) }
 
-  it_should_behave_like 'Enumerable'
+  it_behaves_like 'Enumerable'
 
   context 'initialization' do
 

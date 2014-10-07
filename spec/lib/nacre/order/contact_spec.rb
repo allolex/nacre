@@ -73,5 +73,5 @@ describe Nacre::Order::Contact do
     expect(subject.telephone).to eq('0033199999999')
   end
 
-  it_should_behave_like 'Parametrizable'
+  it_behaves_like 'Parametrizable'
 end

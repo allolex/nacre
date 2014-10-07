@@ -101,7 +101,7 @@ describe Nacre::Connection do
       }
 
       it 'should send a GET request to the given URL' do
-        Faraday::Connection.any_instance.should_receive(:get).with(url).and_return(api_response)
+        allow_any_instance_of(Faraday::Connection).to receive(:get).with(url).and_return(api_response)
         Nacre::Connection.new.get(url)
       end
     end
@@ -119,7 +119,7 @@ describe Nacre::Connection do
       }
 
       it 'should raise an error' do
-        Faraday::Connection.any_instance.should_receive(:get).with(url).and_return(response)
+        allow_any_instance_of(Faraday::Connection).to receive(:get).with(url).and_return(response)
         expect { Nacre::Connection.new.get(url) }.to raise_error(Nacre::NotAuthenticatedError)
       end
 

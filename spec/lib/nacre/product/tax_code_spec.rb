@@ -20,5 +20,5 @@ describe Nacre::Product::TaxCode do
     end
   end
 
-  it_should_behave_like 'Parametrizable'
+  it_behaves_like 'Parametrizable'
 end

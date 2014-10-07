@@ -15,7 +15,7 @@ describe Nacre::OrderCollection do
 
   let(:subject) { Nacre::OrderCollection.new(parametrized_order_list) }
 
-  it_should_behave_like 'Enumerable'
+  it_behaves_like 'Enumerable'
 
   context 'initialization' do
 

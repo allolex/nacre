@@ -82,7 +82,7 @@ describe Nacre::ProductPrice do
 
       it 'should make a request to the correct endpoint' do
         make_resource_request(url, fixture_file_name)
-        a_request(:get, url).should have_been_made
+        expect(a_request(:get, url)).to have_been_made
       end
 
       it 'should return a price list collection' do
@@ -97,7 +97,7 @@ describe Nacre::ProductPrice do
 
       it 'should make a request to the correct endpoint' do
         make_resource_request(url, fixture_file_name)
-        a_request(:get, url).should have_been_made
+        expect(a_request(:get, url)).to have_been_made
       end
 
       it 'should return nil' do

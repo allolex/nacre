@@ -10,5 +10,5 @@ describe Nacre::Order::Row::Quantity do
     expect(subject.magnitude).to eq('3.000000')
   end
 
-  it_should_behave_like 'Parametrizable'
+  it_behaves_like 'Parametrizable'
 end

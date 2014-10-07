@@ -48,7 +48,7 @@ describe Nacre::SearchResultsCollection do
 
   subject { described_class.new(params: params, options: initial_options) }
 
-  it_should_behave_like 'Enumerable'
+  it_behaves_like 'Enumerable'
 
   describe '.from_json' do
     context 'with valid JSON data' do

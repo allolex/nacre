@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe 'Nacre::Product' do
 
+  let!(:link) { Nacre::Connection.new }
+
   let(:params) do
     {
       id: 1,
@@ -14,7 +16,7 @@ describe 'Nacre::Product' do
 
   subject { Nacre::Product.new(params) }
 
-  it_should_behave_like 'Parametrizable'
+  it_behaves_like 'Parametrizable'
 
   context 'initialization' do
 
@@ -149,10 +151,10 @@ describe 'Nacre::Product' do
 
         product = Nacre::Product.get(1018)
 
-        a_request(
+        expect(a_request(
           :get,
           "#{resource_endpoint}/#{range}?#{default_get_options}"
-        ).should have_been_made
+        )).to have_been_made
 
         expect(product.id).to eql(1018)
       end

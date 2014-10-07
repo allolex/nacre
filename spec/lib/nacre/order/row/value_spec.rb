@@ -19,7 +19,7 @@ describe Nacre::Order::Row::Value do
 
   subject { described_class.new(params) }
 
-  it_should_behave_like 'Parametrizable'
+  it_behaves_like 'Parametrizable'
 
   context 'using the default params' do
     describe '#tax_code' do

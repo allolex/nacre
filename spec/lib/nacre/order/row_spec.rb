@@ -38,7 +38,7 @@ describe Nacre::Order::Row do
 
   subject { described_class.new(key,params) }
 
-  it_should_behave_like 'Parametrizable'
+  it_behaves_like 'Parametrizable'
 
   it 'should have a key' do
     expect(subject.key).to eq('4431')

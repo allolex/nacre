@@ -27,7 +27,7 @@ describe Nacre::Product::SalesChannelCollection do
 
   subject { Nacre::Product::SalesChannelCollection.new(params) }
 
-  it_should_behave_like 'Enumerable'
+  it_behaves_like 'Enumerable'
 
   describe 'members' do
     it 'should contain SalesChannel instances' do
@@ -110,5 +110,5 @@ describe Nacre::Product::SalesChannelCollection do
     end
   end
 
-  it_should_behave_like 'Parametrizable'
+  it_behaves_like 'Parametrizable'
 end

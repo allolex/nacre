@@ -7,8 +7,8 @@ describe Nacre::Response do
 
   context 'with a valid response' do
     before do
-      Faraday::Response.any_instance.stub(:body).and_return(auth_response_success_body)
-      Faraday::Response.any_instance.stub(:success?).and_return(true)
+      allow_any_instance_of(Faraday::Response).to receive(:body).and_return(auth_response_success_body)
+      allow_any_instance_of(Faraday::Response).to receive(:success?).and_return(true)
     end
 
     it 'should have a body' do
@@ -22,8 +22,8 @@ describe Nacre::Response do
 
   context 'with a failure response' do
     before do
-      Faraday::Response.any_instance.stub(:body).and_return(auth_response_failure_body)
-      Faraday::Response.any_instance.stub(:success?).and_return(false)
+      allow_any_instance_of(Faraday::Response).to receive(:body).and_return(auth_response_failure_body)
+      allow_any_instance_of(Faraday::Response).to receive(:success?).and_return(false)
     end
 
     it 'should have a body' do

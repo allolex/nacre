@@ -10,7 +10,7 @@ describe Nacre::Order::Row::Amount do
 
   subject { described_class.new(params) }
 
-  it_should_behave_like 'Parametrizable'
+  it_behaves_like 'Parametrizable'
 
   describe '#currency_code' do
     it 'should be set to EUR' do

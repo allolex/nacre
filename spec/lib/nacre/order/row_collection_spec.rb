@@ -70,9 +70,9 @@ describe Nacre::Order::RowCollection do
 
   subject { described_class.new(params) }
 
-  it_should_behave_like 'Enumerable'
+  it_behaves_like 'Enumerable'
 
-  it_should_behave_like 'Parametrizable'
+  it_behaves_like 'Parametrizable'
 
   it 'should be a collection of Order::Row' do
     expect(subject.first).to be_a(Nacre::Order::Row)

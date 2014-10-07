@@ -176,14 +176,14 @@ describe Nacre::Order do
     let(:fixture_file_name) { 'order_music.json' }
 
     it 'should make a request to the correct endpoint' do
-      stub_request(:get, "#{resource_endpoint}/#{range}?#{default_get_options}").
+      stub = stub_request(:get, "#{resource_endpoint}/#{range}?#{default_get_options}").
         to_return(
           status:  200,
           body:  fixture_file_content(fixture_file_name),
           headers:  {}
         )
       resource = described_class.get(range)
-      a_request(:get, url).should have_been_made
+      expect(stub).to have_been_requested
       expect(resource.id).to eql(range)
     end
   end

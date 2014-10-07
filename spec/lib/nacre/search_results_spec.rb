@@ -11,7 +11,7 @@ describe Nacre::SearchResults do
   describe 'initialization' do
 
     context 'with parameters' do
-      it_should_behave_like 'Enumerable'
+      it_behaves_like 'Enumerable'
 
       it 'should return an SearchResults instance' do
         expect(subject).to be_a(Nacre::SearchResults)

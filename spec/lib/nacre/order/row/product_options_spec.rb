@@ -10,5 +10,5 @@ describe Nacre::Order::Row::ProductOptions do
     expect(subject.discs).to eq('1disc')
   end
 
-  it_should_behave_like 'Parametrizable'
+  it_behaves_like 'Parametrizable'
 end

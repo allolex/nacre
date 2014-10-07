@@ -13,5 +13,5 @@ describe Nacre::Order::DeliveryDetails do
     expect(subject.shipping_method_id).to eq(0)
   end
 
-  it_should_behave_like 'Parametrizable'
+  it_behaves_like 'Parametrizable'
 end
