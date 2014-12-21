@@ -24,7 +24,7 @@ describe Nacre::Order::AssignmentCollection do
   end
 
   describe '#current' do
-    it 'should returnt the current assignment' do
+    it 'should return the current assignment' do
       expect(subject.current.key).to eq(:current)
     end
   end
