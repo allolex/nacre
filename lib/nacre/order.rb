@@ -30,6 +30,7 @@ module Nacre
       :order_status_id,
       :order_stock_status_id,
       :order_type_id,
+      :order_type_code,
       :parent_order_id,
       :parties,
       :placed_on,

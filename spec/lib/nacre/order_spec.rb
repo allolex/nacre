@@ -151,6 +151,7 @@ describe Nacre::Order do
           id:  '570001',
           parent_order_id:  '',
           order_type_id:  '1',
+          order_type_code: 'SO',
           contact_id:  '298',
           order_status_id:  '3',
           order_stock_status_id:  '1',
