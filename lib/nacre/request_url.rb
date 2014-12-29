@@ -44,7 +44,11 @@ module Nacre
     end
 
     def options
-      ["includeOptional=#{@options.join(',')}"]
+      if @options
+        ["includeOptional=#{@options.join(',')}"]
+      else
+        []
+      end
     end
 
     def arguments

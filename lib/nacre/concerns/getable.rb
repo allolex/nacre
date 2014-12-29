@@ -2,12 +2,16 @@ module Nacre::Getable
 
   def get(range)
     if range?(range)
-      request_url = build_request_url(url, range, request_options)
-    else
       request_url = build_request_url(url, range)
+    else
+      request_url = build_request_url(url, range, request_options)
     end
     response = link.get(request_url)
-    from_json(response.body)
+    if response.success?
+      from_json(response.body)
+    else
+      raise ArgumentError, "Request error: #{request_url}\n#{response.body}"
+    end
   end
 
   private
@@ -29,6 +33,6 @@ module Nacre::Getable
   end
 
   def range?(arg)
-    /\d-\d/ === arg && /\d,\d/ === arg
+    /\d[,-]\d?/ === arg
   end
 end

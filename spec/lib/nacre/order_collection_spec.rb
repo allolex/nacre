@@ -42,11 +42,7 @@ describe Nacre::OrderCollection do
     let(:get_options) do
       {
         search_url: order_service_url,
-        ids: range,
-        options: [
-          'customFields',
-          'nullCustomFields'
-        ]
+        ids: range
       }
     end
 
@@ -62,7 +58,6 @@ describe Nacre::OrderCollection do
       )
       @collection = described_class.get(range)
     end
-
 
     it 'should query the API server' do
       expect(a_request(:get, @url.to_s)).to have_been_made
