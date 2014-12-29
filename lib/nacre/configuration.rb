@@ -9,7 +9,8 @@ module Nacre
                   :distribution_center,
                   :user_id,
                   :authentication_token,
-                  :api_version
+                  :api_version,
+                  :value_precision
 
     def initialize(args = {})
       @email = default_email
@@ -18,6 +19,7 @@ module Nacre
       @api_version = default_api_version
       @user_id = default_user_id
       @api_version = default_api_version
+      @value_precision = default_value_precision
       args.each_pair do |option, value|
         self.send("#{option}=", value)
       end
@@ -59,6 +61,10 @@ module Nacre
 
     def default_user_id
       ENV['NACRE_USER_ID']
+    end
+
+    def default_value_precision
+      ENV['NACRE_VALUE_PRECISION'] || '6'
     end
 
     def url_template

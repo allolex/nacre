@@ -13,11 +13,17 @@ module Nacre
     end
 
     def value
-      '%0.6f' % [unprotect_number(@value)]
+      "%0.#{decimal_places}f" % [unprotect_number(@value)]
     end
 
     def value_raw
       @value
+    end
+
+    private
+
+    def decimal_places
+      Nacre.configuration.value_precision
     end
   end
 end

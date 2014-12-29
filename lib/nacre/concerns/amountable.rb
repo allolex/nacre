@@ -2,14 +2,15 @@ module Nacre::Amountable
 
     private
 
-    # Six significant decimal places should prevent
-    # floating point errors
     def protect_number(amount)
-      (amount.to_f * 1000000).to_i
+      (amount.to_f * multiplier).to_i
     end
 
     def unprotect_number(amount)
-      (amount.to_f / 1000000)
+      (amount.to_f / multiplier)
     end
 
+    def multiplier
+      ('1' + '0' * Nacre.configuration.value_precision.to_i).to_i
+    end
 end

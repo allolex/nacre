@@ -22,6 +22,10 @@ describe Nacre::Configuration do
   end
 
   context 'URLs from configuration' do
+    it 'has the correct precision for money values' do
+      expect(config.value_precision).to eql('6')
+    end
+
     it 'should have the correct base URL' do
       expect(config.base_url).to eql('https://ws-eu1.brightpearl.com')
     end
