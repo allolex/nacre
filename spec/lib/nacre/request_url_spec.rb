@@ -37,34 +37,59 @@ describe Nacre::RequestUrl do
     end
 
     describe '#ids' do
-      context 'when given a single id string' do
-        it 'should return a single id string' do
-          ids = '1'
+      context 'with valid ids' do
+        before do
           subject.ids = ids
-          expect(subject.ids).to eq(ids)
+        end
+
+        context 'when given a single id string' do
+          let(:ids) { '1' }
+
+          it 'should return a single id string' do
+            expect(subject.ids).to eq(ids)
+          end
+        end
+
+        context 'when given a single id list' do
+          let(:ids) { [1] }
+
+          it 'should return a single id string' do
+            expect(subject.ids).to eq(ids.first.to_s)
+          end
+        end
+
+        context 'when given a range of ids' do
+          let(:ids) { ['1-5'] }
+
+          it 'should return an id range string' do
+            expect(subject.ids).to eq('1-5')
+          end
+        end
+
+        context 'when given a single id' do
+          let(:ids) { %w/1 2 3 4 5/ }
+
+          it 'should return an id list string' do
+            expect(subject.ids).to eq('1,2,3,4,5')
+          end
         end
       end
 
-      context 'when given a single id list' do
-        it 'should return a single id string' do
-          ids = [1]
-          subject.ids = ids
-          expect(subject.ids).to eq(ids.first.to_s)
-        end
-      end
-      context 'when given a range of ids' do
-        it 'should return an id range string' do
-          ids = '1-5'
-          subject.ids = ids
-          expect(subject.ids).to eq('1-5')
-        end
-      end
+      context 'with invalid ids' do
+        context 'with a bad range string' do
+          let(:ids) { '1-' }
 
-      context 'when given a single id' do
-        it 'should return an id list string' do
-          ids = %w/1 2 3 4 5/
-          subject.ids = ids
-          expect(subject.ids).to eq('1,2,3,4,5')
+          it 'raises an error' do
+            expect { subject.ids = ids }.to raise_error(ArgumentError, /Invalid range/)
+          end
+        end
+
+        context 'with a bad range list' do
+          let(:ids) { ['1,'] }
+
+          it 'raises an error' do
+            expect { subject.ids = ids }.to raise_error(ArgumentError, /Invalid range item/)
+          end
         end
       end
     end
@@ -162,7 +187,6 @@ describe Nacre::RequestUrl do
       end
 
       context 'with a range provided' do
-
         let(:range) { '1-3' }
 
         let(:params) do
