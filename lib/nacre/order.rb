@@ -86,5 +86,11 @@ module Nacre
     def order_rows=(params)
       @order_rows = Order::RowCollection.new(params)
     end
+
+    private
+
+    def self.request_options
+      nil
+    end
   end
 end
