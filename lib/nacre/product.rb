@@ -48,6 +48,14 @@ module Nacre
       @null_custom_fields = list unless list.nil? || list.empty?
     end
 
+    def sku
+      identity.sku
+    end
+
+    def barcode
+      identity.barcode
+    end
+
     def name
       return nil if sales_channels.nil?
       sales_channels.product_name
