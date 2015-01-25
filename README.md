@@ -5,11 +5,6 @@
 
 Nacre is a Ruby gem that wraps the API of the Brightpearl accounting software service.
 
-http://www.brightpearl.com/developer/latest/
-
-As of version 0.1.0, this library is a complete re-write of the original version. We've all learned a few things since we first started and refactoring was too much trouble.
-
-
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -25,14 +20,7 @@ $ bundle
 ```
 
 
-## Warning
-
-This library is still under active development, so please expect some API-breaking changes.
-
-Specifically, searching by things other than ID will be supported.
-
-
-## Features
+## FEATURES
 
 
 ### Supported API resources
@@ -49,6 +37,12 @@ Specifically, searching by things other than ID will be supported.
 
 - search for products, e.g. `Nacre::Product.find`
 - retrieve a single product, e.g. `Nacre::Product.get(1)`
+
+
+#### Channels
+
+- retrieve a single channel, e.g. `Nacre::Channel.get(2)`
+- retrieve a list of channels, e.g. `Nacre::Channel.get(1-4)`
 
 
 ### Lazily-loading searches
@@ -126,7 +120,6 @@ development. Create a `.env` file in the root of the development repository and
 add the following lines:
 
 ```
-
     NACRE_USER_ID: YOUR_BRIGHTPEARL_TEST_ACCOUNT_USER_ID
     NACRE_EMAIL: YOUR_BRIGHTPEARL_TEST_ACCOUNT_EMAIL
     NACRE_PASSWORD: YOUR_BRIGHTPEARL_TEST_ACCOUNT_PASSWORD
@@ -134,18 +127,31 @@ add the following lines:
     NACRE_API_VERSION: 2.0.0
 ```
 
+### To Do
 
-## TODO
+This library is still under active development. The [Brightpearl Developer documentation](http://www.brightpearl.com/developer/latest/) shows there are a number of areas that could use help.
 
-Have a look at the issues in Nacre's GitHub repository.
+- Creating, updating, deleting all resources.
+- Search resources by creation date.
+- [Warehouse resource support](https://www.brightpearl.com/developer/latest/warehouse/index.html).
+- Full [Price List support](https://www.brightpearl.com/developer/latest/product/price-list/index.html) (currently partially supported).
+- [Contact resource support](https://www.brightpearl.com/developer/latest/contact/index.html).
+- [Brightpearl Category support](https://www.brightpearl.com/developer/latest/product/brightpearl-category/index.html).
+
+
+### Notes
+
+As of version 0.1.0, this library is a complete re-write of the original
+version. We've all learned a few things since we first started and refactoring
+was too much trouble.
 
 
 ## CONTRIBUTING
 
 1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
+2. Create your feature branch (`git checkout -b feature/my-new-feature`)
 3. Commit your changes (`git commit -am 'Added some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
+4. Push to the branch (`git push origin feature/my-new-feature`)
 5. Create new Pull Request
 
 Please keep formatting "fixes" separate from actual code changes/improvements. *De gustibus non est disputandum* and no one is perfect. :wink:
