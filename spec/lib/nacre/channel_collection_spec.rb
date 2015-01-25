@@ -26,7 +26,6 @@ describe Nacre::ChannelCollection do
   it_behaves_like 'Enumerable'
 
   context 'initialization' do
-
     describe '.new' do
       it 'should create a list of Channels' do
         expect(subject.first).to be_a(Nacre::Channel)
@@ -44,7 +43,6 @@ describe Nacre::ChannelCollection do
   end
 
   describe '.get' do
-
     let(:range) { '1-3' }
 
     let(:get_options) do
