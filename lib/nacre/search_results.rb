@@ -13,7 +13,7 @@ module Nacre
                   :total_results, :returned_results, :columns
 
     def initialize(params = {})
-      unless params.empty?
+      unless params.empty? || params[:response].empty?
         extract_metadata(params[:response][:meta_data])
         extract_results(params[:response][:results])
       end
