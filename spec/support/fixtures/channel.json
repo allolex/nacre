@@ -1,0 +1,25 @@
+{
+  "response": [
+    {
+      "id": 3,
+      "name": "Good name",
+      "channelTypeId": 2,
+      "defaultWarehouseId": 4,
+      "contactGroupId": 5,
+      "defaultPriceListId": 6,
+      "channelBrandId": 7,
+      "warehouseIds": [
+          30,
+          40,
+          50
+      ],
+      "integrationDetail": {
+          "installedIntegrationId": 1,
+          "configSetId": 2,
+          "providerCode": "ebay",
+          "integrationTypeCode": "MKP",
+          "active": true
+      }
+    }
+  ]
+}

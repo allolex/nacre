@@ -38,6 +38,9 @@ require 'nacre/product/tax_code'
 require 'nacre/product_collection'
 require 'nacre/product_price'
 
+require 'nacre/channel'
+require 'nacre/channel_collection'
+
 require 'nacre/request_url'
 require 'nacre/response'
 require 'nacre/search_results'

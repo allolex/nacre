@@ -1,0 +1,61 @@
+{
+  "response": [
+    {
+      "id": 1,
+      "name": "Department 1",
+      "channelTypeId": 2,
+      "channelBrandId": 1
+    },
+    {
+      "id": 2,
+      "name": "Channel Post Duplicate",
+      "channelTypeId": 1,
+      "channelBrandId": 1
+    },
+    {
+      "id": 3,
+      "name": "Ebay Channel",
+      "channelTypeId": 5,
+      "defaultWarehouseId": 3,
+      "contactGroupId": 1,
+      "defaultPriceListId": 1,
+      "channelBrandId": 2,
+      "warehouseIds": [
+          3
+      ],
+      "integrationDetail": {
+          "installedIntegrationId": 1,
+          "configSetId": 2,
+          "providerCode": "ebay",
+          "integrationTypeCode": "MKP",
+          "active": true
+      }
+    },
+    {
+      "id": 4,
+      "name": "Channel 2",
+      "channelTypeId": 1,
+      "defaultWarehouseId": 3,
+      "contactGroupId": 1,
+      "defaultPriceListId": 1,
+      "channelBrandId": 2,
+      "warehouseIds": [
+          3
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Channel 3",
+      "channelTypeId": 1,
+      "defaultWarehouseId": 3,
+      "contactGroupId": 1,
+      "defaultPriceListId": 1,
+      "channelBrandId": 2,
+      "warehouseIds": [
+          3,
+          4,
+          5
+      ]
+    }
+  ]
+}

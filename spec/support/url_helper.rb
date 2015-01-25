@@ -44,6 +44,10 @@ module UrlHelper
     "#{base_url}/product-service/price-list"
   end
 
+  def channel_service_url
+    "#{base_url}/product-service/channel"
+  end
+
   def resource_search_url(resource)
     "#{base_url}/#{resource}-service/#{resource}-search"
   end
