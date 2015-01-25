@@ -177,7 +177,7 @@ describe Nacre::Order do
     let(:fixture_file_name) { 'order_music.json' }
 
     it 'should make a request to the correct endpoint' do
-      stub = stub_request(:get, "#{resource_endpoint}/#{range}?#{default_get_options}").
+      stub = stub_request(:get, "#{resource_endpoint}/#{range}").
         to_return(
           status:  200,
           body:  fixture_file_content(fixture_file_name),
