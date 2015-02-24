@@ -1,11 +1,7 @@
 module Nacre::Getable
 
   def get(range)
-    if range?(range)
-      request_url = build_request_url(url, range)
-    else
-      request_url = build_request_url(url, range, request_options)
-    end
+    request_url = build_request_url(url, range, request_options)
     response = link.get(request_url)
     if response.success?
       from_json(response.body)
