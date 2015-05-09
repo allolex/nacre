@@ -1,3 +1,4 @@
+require 'nacre/abstract_collection'
 require 'nacre/concerns/inflectible'
 
 module Nacre

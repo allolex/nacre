@@ -32,6 +32,12 @@ module UrlHelper
     "#{base_url}/#{resource}-service/#{resource}"
   end
 
+  def journal_service_url
+    resource = 'accounting'
+    endpoint = 'journal'
+    "#{base_url}/#{resource}-service/#{endpoint}"
+  end
+
   def order_service_url
     resource_service_url('order')
   end
@@ -58,5 +64,11 @@ module UrlHelper
 
   def product_search_url
     resource_search_url('product')
+  end
+
+  def journal_search_url
+    resource = 'accounting'
+    endpoint = 'journal'
+    "#{base_url}/#{resource}-service/#{endpoint}-search"
   end
 end

@@ -3,8 +3,11 @@ require 'nacre/column_property'
 require 'nacre/configuration'
 require 'nacre/connection'
 
+require 'nacre/journal'
 require 'nacre/order'
 require 'nacre/product'
+
+require 'nacre/journal_collection'
 
 require 'nacre/order/assignment'
 require 'nacre/order/assignment_collection'

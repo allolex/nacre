@@ -1,0 +1,38 @@
+{
+    "response": {
+        "journals": [
+            {
+                "id": 1000,
+                "contactId": 100,
+                "journalTypeCode": "PP",
+                "taxDate": "2015-01-01T00:00:00.000Z",
+                "createdOn": "2015-01-01T00:00:00.000Z",
+                "createdByContactId": 210,
+                "description": "12345",
+                "taxReconciliation": {},
+                "credits": [
+                    {
+                        "nominalCode": "1200",
+                        "change": {
+                            "value": "150.00"
+                        },
+                        "assignment": {},
+                        "invoiceReference": "30000",
+                        "taxCode": "T9"
+                    }
+                ],
+                "debits": [
+                    {
+                        "nominalCode": "2100",
+                        "change": {
+                            "value": "150.00"
+                        },
+                        "assignment": {},
+                        "invoiceReference": "30000",
+                        "taxCode": "T9"
+                    }
+                ]
+            }
+        ]
+    }
+}
