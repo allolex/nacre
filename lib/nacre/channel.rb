@@ -27,20 +27,12 @@ module Nacre
 
     private
 
+    def self.service_name
+      'product'
+    end
+
     def self.request_options
       ''
-    end
-
-    def self.resource_name
-      'channel'
-    end
-
-    def self.service_url
-      configuration.resource_url + '/' + 'product-service'
-    end
-
-    def self.url
-      service_url + '/' + resource_name
     end
   end
 end
