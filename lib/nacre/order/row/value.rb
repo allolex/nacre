@@ -1,4 +1,4 @@
-require 'nacre/concerns/amountable'
+require "nacre/concerns/amountable"
 
 module Nacre
   class Order::Row::Value < AbstractResource
@@ -16,7 +16,7 @@ module Nacre
 
     def tax_rate
       return nil if blank?(@tax_rate)
-      '%.6f' % [unprotect_number(@tax_rate)]
+      "%.6f" % [unprotect_number(@tax_rate)]
     end
 
     def tax_rate_raw

@@ -1,4 +1,4 @@
-require 'nacre/concerns/inflectible'
+require "nacre/concerns/inflectible"
 
 module Nacre
 
@@ -20,7 +20,7 @@ module Nacre
     end
 
     def self.from_json(json)
-      raise SearchResultsError.new('Empty JSON') unless json.length > 2
+      raise SearchResultsError.new("Empty JSON") unless json.length > 2
       params = format_hash_keys(JSON.parse(json, symbolize_names: true))
       new(params)
     end

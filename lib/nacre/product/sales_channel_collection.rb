@@ -25,7 +25,7 @@ module Nacre
 
     def product_name
       name_sources = members.select do |member|
-        member.sales_channel_name == 'Brightpearl'
+        member.sales_channel_name == "Brightpearl"
       end
 
       if name_sources.empty?

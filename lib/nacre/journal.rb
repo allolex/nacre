@@ -1,11 +1,9 @@
-require 'nacre/abstract_resource'
-require 'nacre/concerns/searchable'
-require 'date'
+require "nacre/abstract_resource"
+require "nacre/concerns/searchable"
+require "date"
 
 module Nacre
-
   class Journal < AbstractResource
-
     extend Searchable
     extend Getable
 
@@ -29,10 +27,10 @@ module Nacre
       Journal
     end
 
-    protected
+    private
 
     def self.service_name
-      'accounting'
+      "accounting"
     end
 
     def self.request_options
@@ -40,7 +38,7 @@ module Nacre
     end
 
     def self.params_from_json(json)
-      resource = JSON.parse(json)['response']['journals'].first
+      resource = JSON.parse(json)["response"]["journals"].first
       format_hash_keys(resource)
     end
   end

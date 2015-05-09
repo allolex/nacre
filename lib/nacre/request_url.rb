@@ -10,8 +10,8 @@ module Nacre
     attribute :search_url
 
     KEY_MAP = {
-      first_record: 'firstResult',
-      window: 'pageSize'
+      first_record: "firstResult",
+      window: "pageSize"
     }
 
     VALID_RANGE_RE = /\A(?:\d+(?:(?:,\d+)+|(?:-\d+))?)?\z/
@@ -27,7 +27,7 @@ module Nacre
 
     def ids
       if @ids.respond_to?(:each)
-        @ids.join(',')
+        @ids.join(",")
       else
         @ids
       end
@@ -39,7 +39,7 @@ module Nacre
     end
 
     def pagination
-      return '' if !blank?(ids)
+      return "" if !blank?(ids)
       @pagination.map { |k,v| "#{KEY_MAP[k]}=#{v}" }
     end
 
@@ -84,13 +84,13 @@ module Nacre
       if value.respond_to?(:each)
         validate_range_items(value)
       else
-        validate_range(value, 'Invalid range')
+        validate_range(value, "Invalid range")
       end
     end
 
     def validate_range_items(range_list)
       range_list.each do |item|
-        validate_range(item, 'Invalid range item')
+        validate_range(item, "Invalid range item")
       end
     end
 

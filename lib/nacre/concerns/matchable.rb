@@ -1,7 +1,7 @@
 module Matchable
 
   def blank?(value)
-    value.nil? || matches?(value,'\s*')
+    value.nil? || matches?(value, "\s*")
   end
 
   def matches?(value,subexpression)

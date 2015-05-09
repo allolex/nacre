@@ -1,12 +1,9 @@
-require 'nacre/abstract_resource_collection'
+require "nacre/abstract_resource_collection"
 
 module Nacre
   class JournalCollection < AbstractResourceCollection
-
-    private
-
     def self.extract_resources(json)
-      JSON.parse(json)['response']['journals']
+      JSON.parse(json)["response"]["journals"]
     end
 
     def self.resource_class
@@ -18,7 +15,7 @@ module Nacre
     end
 
     def self.service_name
-      'accounting'
+      "accounting"
     end
   end
 end

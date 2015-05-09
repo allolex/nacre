@@ -1,4 +1,4 @@
-require 'nacre/abstract_resource_collection'
+require "nacre/abstract_resource_collection"
 
 module Nacre
 

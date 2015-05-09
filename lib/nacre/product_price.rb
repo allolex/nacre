@@ -13,19 +13,19 @@ module Nacre
     private
 
     def self.request_options
-      ''
+      ""
     end
 
     def self.resource_name
-      'price-list'
+      "price-list"
     end
 
     def self.service_url
-      configuration.resource_url + '/' + 'product-service'
+      configuration.resource_url + "/" + "product-service"
     end
 
     def self.url
-      service_url + '/' + service_name
+      service_url + "/" + service_name
     end
 
   end

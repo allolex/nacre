@@ -1,6 +1,6 @@
-shared_examples_for 'Searchable' do
+shared_examples_for "Searchable" do
 
-  describe '.find' do
+  describe ".find" do
 
   end
 

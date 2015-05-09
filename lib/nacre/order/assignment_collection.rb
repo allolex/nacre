@@ -1,4 +1,4 @@
-require 'nacre/abstract_collection'
+require "nacre/abstract_collection"
 
 module Nacre
   class Order::AssignmentCollection < AbstractCollection

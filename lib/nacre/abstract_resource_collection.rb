@@ -1,5 +1,5 @@
-require 'nacre/abstract_collection'
-require 'nacre/concerns/inflectible'
+require "nacre/abstract_collection"
+require "nacre/concerns/inflectible"
 
 module Nacre
 
@@ -43,7 +43,7 @@ module Nacre
     end
 
     def self.extract_resources(json)
-      JSON.parse(json)['response']
+      JSON.parse(json)["response"]
     end
 
     def self.json_to_params(json_order)
@@ -55,16 +55,15 @@ module Nacre
     end
 
     def self.url
-      service_url + '/' + resource_name
+      "#{service_url}/#{resource_name}"
     end
 
     def self.resource_name
-      resource_class.to_s.gsub(/\ANacre::/, '').downcase
+      resource_class.to_s.gsub(/\ANacre::/, "").downcase
     end
 
     def self.service_name
       resource_name # Override if different
     end
-
   end
 end

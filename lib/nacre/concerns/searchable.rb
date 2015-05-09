@@ -1,9 +1,9 @@
-require 'nacre/request_url'
+require "nacre/request_url"
 
 module Nacre::Searchable
 
   def find(id_list = [])
-    id_value = [id_list].flatten.join(',')
+    id_value = [id_list].flatten.join(",")
 
     current_search_options =  default_search_options.merge(
                                 search_url: search_url,
@@ -26,8 +26,8 @@ module Nacre::Searchable
   def default_get_options
     {
       options: [
-        'customFields',
-        'nullCustomFields'
+        "customFields",
+        "nullCustomFields"
       ]
     }
 
@@ -40,6 +40,6 @@ module Nacre::Searchable
   end
 
   def search_url
-    service_url + '/' + resource_name + '-search'
+    service_url + "/" + resource_name + "-search"
   end
 end

@@ -13,11 +13,11 @@ module Nacre::Getable
   private
 
   def url
-    service_url + '/' + resource_name
+    service_url + "/" + resource_name
   end
 
   def request_options
-    'includeOptional=customFields,nullCustomFields'
+    "includeOptional=customFields,nullCustomFields"
   end
 
   def build_request_url(url, query, options = nil)

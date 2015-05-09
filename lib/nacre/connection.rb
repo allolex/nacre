@@ -1,6 +1,6 @@
-require 'json'
-require 'faraday'
-require 'nacre/concerns/matchable'
+require "json"
+require "faraday"
+require "nacre/concerns/matchable"
 
 module Nacre
 
@@ -49,7 +49,7 @@ module Nacre
     end
 
     def get(url)
-      self.link.headers['brightpearl-auth'] = self.authentication.token
+      self.link.headers["brightpearl-auth"] = self.authentication.token
       self.response = self.link.get(url)
       raise NotAuthenticatedError if authentication_failed?
       self.response
@@ -58,7 +58,7 @@ module Nacre
     private
 
     def authentication_failed?
-      response_string = self.response.body['response']
+      response_string = self.response.body["response"]
       return false if blank?(response_string)
       /\ANot authenticated/ === response_string
     end
@@ -78,8 +78,8 @@ module Nacre
     end
 
     def set_link_headers
-      @link.headers['Content-Type'] = 'application/json'
-      @link.headers['Accept'] = 'json'
+      @link.headers["Content-Type"] = "application/json"
+      @link.headers["Accept"] = "json"
     end
 
     def configuration

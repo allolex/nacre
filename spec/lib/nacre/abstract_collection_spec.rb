@@ -1,11 +1,11 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe Nacre::AbstractCollection do
 
-  it_behaves_like 'Resourceable' do
+  it_behaves_like "Resourceable" do
     let(:params) do
       {
-        foo: 'bar'
+        foo: "bar"
       }
     end
   end

@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 module UrlHelper
 
@@ -8,24 +8,25 @@ module UrlHelper
       includeOptional=customFields,nullCustomFields
       pageSize=500
       /
-    (options + extra_options).sort.join('&')
+    (options + extra_options).sort.join("&")
   end
 
   def default_get_options(extra_options = [])
     options = %w/
       includeOptional=customFields,nullCustomFields
       /
-    (options + extra_options).sort.join('&')
+    (options + extra_options).sort.join("&")
   end
 
   def base_url
-    'https://ws-eu1.brightpearl.com/%s/%s' %
-      [Nacre.configuration.api_version, Nacre.configuration.user_id]
+    format  "https://ws-eu1.brightpearl.com/%s/%s",
+            Nacre.configuration.api_version,
+            Nacre.configuration.user_id
   end
 
   def auth_url
-    'https://ws-eu1.brightpearl.com/%s/authorise' %
-      [Nacre.configuration.user_id]
+    format  "https://ws-eu1.brightpearl.com/%s/authorise",
+            Nacre.configuration.user_id
   end
 
   def resource_service_url(resource)
@@ -33,17 +34,17 @@ module UrlHelper
   end
 
   def journal_service_url
-    resource = 'accounting'
-    endpoint = 'journal'
+    resource = "accounting"
+    endpoint = "journal"
     "#{base_url}/#{resource}-service/#{endpoint}"
   end
 
   def order_service_url
-    resource_service_url('order')
+    resource_service_url("order")
   end
 
   def product_service_url
-    resource_service_url('product')
+    resource_service_url("product")
   end
 
   def price_list_service_url
@@ -59,16 +60,16 @@ module UrlHelper
   end
 
   def order_search_url
-    resource_search_url('order')
+    resource_search_url("order")
   end
 
   def product_search_url
-    resource_search_url('product')
+    resource_search_url("product")
   end
 
   def journal_search_url
-    resource = 'accounting'
-    endpoint = 'journal'
+    resource = "accounting"
+    endpoint = "journal"
     "#{base_url}/#{resource}-service/#{endpoint}-search"
   end
 end

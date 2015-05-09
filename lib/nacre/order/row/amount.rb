@@ -1,4 +1,4 @@
-require 'nacre/concerns/amountable'
+require "nacre/concerns/amountable"
 
 module Nacre
   class Order::Row::Amount < AbstractResource

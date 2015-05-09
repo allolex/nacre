@@ -1,4 +1,4 @@
-require 'nacre/abstract_resource_collection'
+require "nacre/abstract_resource_collection"
 
 module Nacre
   class ChannelCollection < AbstractResourceCollection
@@ -14,7 +14,7 @@ module Nacre
     end
 
     def self.service_name
-      'product'
+      "product"
     end
   end
 end

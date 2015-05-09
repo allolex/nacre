@@ -1,7 +1,7 @@
 module Nacre::Resourceable
 
   def resource_name
-    format_resource_name(resource_class)
+    format_resource_name
   end
 
   def service_name
@@ -14,12 +14,12 @@ module Nacre::Resourceable
 
   private
 
-  def format_resource_name(name)
-    resource_class.to_s.gsub(/\ANacre::/, '').downcase
+  def format_resource_name
+    resource_class.to_s.gsub(/\ANacre::/, "").downcase
   end
 
   def service_url
-    configuration.resource_url + '/' + service_name + '-service'
+    configuration.resource_url + "/" + service_name + "-service"
   end
 
   def configuration

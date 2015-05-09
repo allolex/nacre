@@ -1,4 +1,4 @@
-require 'nacre/configuration_validator'
+require "nacre/configuration_validator"
 
 module Nacre
   class Configuration
@@ -44,27 +44,27 @@ module Nacre
     private
 
     def default_email
-      ENV['NACRE_EMAIL']
+      ENV["NACRE_EMAIL"]
     end
 
     def default_password
-      ENV['NACRE_PASSWORD']
+      ENV["NACRE_PASSWORD"]
     end
 
     def default_distribution_center
-      ENV['NACRE_DISTRIBUTION_CENTER'] || 'eu1'
+      ENV["NACRE_DISTRIBUTION_CENTER"] || "eu1"
     end
 
     def default_api_version
-      ENV['NACRE_API_VERSION'] || '2.0.0'
+      ENV["NACRE_API_VERSION"] || "2.0.0"
     end
 
     def default_user_id
-      ENV['NACRE_USER_ID']
+      ENV["NACRE_USER_ID"]
     end
 
     def default_value_precision
-      ENV['NACRE_VALUE_PRECISION'] || '6'
+      ENV["NACRE_VALUE_PRECISION"] || "6"
     end
 
     def url_template

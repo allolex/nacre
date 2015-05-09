@@ -1,9 +1,9 @@
 describe Nacre do
-  describe '.configure' do
+  describe ".configure" do
 
-    let(:user_id) { 'test_id' }
+    let(:user_id) { "test_id" }
 
-    it 'should allow configuration in a block' do
+    it "should allow configuration in a block" do
       Nacre.configure do |c|
         c.user_id = user_id
       end
@@ -12,13 +12,13 @@ describe Nacre do
 
   end
 
-  describe '.configuration' do
-    pending 'specific configuration values'
+  describe ".configuration" do
+    pending "specific configuration values"
   end
 
-  describe '.link' do
-    context 'when a link is established' do
-      it 'should be a Connection' do
+  describe ".link" do
+    context "when a link is established" do
+      it "should be a Connection" do
         Nacre::Connection.new
         expect(Nacre.link).to be_a(Nacre::Connection)
       end

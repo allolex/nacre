@@ -4,7 +4,7 @@ module Nacre::Inflectible
   SNAKE_CASE_RE = /_(\w)/
 
   def snake_case(value)
-    value.to_s.split(/(?=[A-Z])/).join('_').downcase
+    value.to_s.split(/(?=[A-Z])/).join("_").downcase
   end
 
   def camelize(value)
