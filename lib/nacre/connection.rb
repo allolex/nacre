@@ -14,15 +14,11 @@ module Nacre
 
     attr_accessor :response, :errors
 
-    def initialize(
-        user_id: Nacre.configuration.user_id,
-        email: Nacre.configuration.email,
-        password: Nacre.configuration.password
-      )
+    def initialize
       self.errors = []
       initialize_link
       authenticate!
-      set_persistent_link(self.link)
+      persist_link
     end
 
     def success?
@@ -86,7 +82,7 @@ module Nacre
       Nacre.configuration
     end
 
-    def set_persistent_link(link)
+    def persist_link
       Nacre.link = self
     end
   end

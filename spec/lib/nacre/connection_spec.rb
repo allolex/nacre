@@ -1,15 +1,7 @@
 require "spec_helper"
 
 describe Nacre::Connection do
-  let(:args) do
-    {
-      user_id: nacre_user_id,
-      email: nacre_email,
-      password: nacre_password
-    }
-  end
-
-  let(:connection) { Nacre::Connection.new(args) }
+  let(:connection) { Nacre::Connection.new }
 
   before do
     stub_request(
