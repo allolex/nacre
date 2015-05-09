@@ -48,5 +48,22 @@ module Nacre
     def self.json_to_params(json_order)
       format_hash_keys(json_order)
     end
+
+    def self.service_url
+      "#{configuration.resource_url}/#{service_name}-service"
+    end
+
+    def self.url
+      service_url + '/' + resource_name
+    end
+
+    def self.resource_name
+      resource_class.to_s.gsub(/\ANacre::/, '').downcase
+    end
+
+    def self.service_name
+      resource_name # Override if different
+    end
+
   end
 end

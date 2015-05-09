@@ -13,16 +13,8 @@ module Nacre
       nil
     end
 
-    def self.resource_name
-      'channel'
-    end
-
-    def self.service_url
-      configuration.resource_url + '/' + 'product-service'
-    end
-
-    def self.url
-      service_url + '/' + resource_name
+    def self.service_name
+      'product'
     end
   end
 end
