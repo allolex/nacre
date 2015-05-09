@@ -39,7 +39,11 @@ describe Nacre::ProductCollection do
     let(:get_options) do
       {
         search_url: product_service_url,
-        ids: range
+        ids: range,
+        options: [
+          'customFields',
+          'nullCustomFields'
+        ]
       }
     end
 
