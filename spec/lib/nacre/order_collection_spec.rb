@@ -42,7 +42,11 @@ describe Nacre::OrderCollection do
     let(:get_options) do
       {
         search_url: order_service_url,
-        ids: range
+        ids: range,
+        options: [
+          'customFields',
+          'nullCustomFields'
+        ]
       }
     end
 
