@@ -35,7 +35,7 @@ module Nacre
 
     def normalize_params(params)
       resource_params = params
-      id_key = "#{self.class.service_name}_id".to_sym
+      id_key = "#{self.class.resource_name}_id".to_sym
       resource_params[:id] = params[id_key]
       resource_params.delete(id_key)
       resource_params

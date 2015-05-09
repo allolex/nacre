@@ -16,7 +16,7 @@ module Nacre
       ''
     end
 
-    def self.service_name
+    def self.resource_name
       'price-list'
     end
 

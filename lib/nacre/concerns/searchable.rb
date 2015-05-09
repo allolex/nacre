@@ -36,10 +36,10 @@ module Nacre::Searchable
   private
 
   def resource_id
-    "#{service_name}_id".to_sym
+    "#{resource_name}_id".to_sym
   end
 
   def search_url
-    service_url + '/' + service_name + '-search'
+    service_url + '/' + resource_name + '-search'
   end
 end

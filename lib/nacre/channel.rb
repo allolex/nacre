@@ -31,7 +31,7 @@ module Nacre
       ''
     end
 
-    def self.service_name
+    def self.resource_name
       'channel'
     end
 
@@ -40,7 +40,7 @@ module Nacre
     end
 
     def self.url
-      service_url + '/' + service_name
+      service_url + '/' + resource_name
     end
   end
 end

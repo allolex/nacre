@@ -39,7 +39,7 @@ shared_examples_for 'Resourceable' do
     end
   end
 
-  describe '.service_name' do
+  describe '.resource_name' do
 
     context 'when not overridden' do
       context 'when .resource_class is defined' do
@@ -47,13 +47,13 @@ shared_examples_for 'Resourceable' do
         subject { class_with_resource.new(params) }
 
         it 'should return the resource class name in lowercase' do
-          expect(subject.class.service_name).to eq('testresource')
+          expect(subject.class.resource_name).to eq('testresource')
         end
       end
 
       context 'when .resource_class is not defined' do
         it 'should raise an exception' do
-          expect { subject.class.service_name }.to raise_error(NotImplementedError)
+          expect { subject.class.resource_name }.to raise_error(NotImplementedError)
         end
       end
     end
@@ -64,7 +64,7 @@ shared_examples_for 'Resourceable' do
 
       let(:service_name) do
         Class.new(class_with_resource) do
-          def self.service_name
+          def self.resource_name
             @name
           end
         end
@@ -73,7 +73,7 @@ shared_examples_for 'Resourceable' do
       subject { service_name.new(params) }
 
       it 'should return the new value' do
-        expect(subject.class.service_name).to eq(@name)
+        expect(subject.class.resource_name).to eq(@name)
       end
     end
 

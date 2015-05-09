@@ -13,7 +13,7 @@ module Nacre::Getable
   private
 
   def url
-    service_url + '/' + service_name
+    service_url + '/' + resource_name
   end
 
   def request_options
