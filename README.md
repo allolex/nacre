@@ -45,6 +45,13 @@ $ bundle
 - retrieve a list of channels, e.g. `Nacre::Channel.get(1-4)`
 
 
+#### Journals
+
+- search for journals, e.g. `Nacre::Journal.find`
+- retrieve a single journal, e.g. `Nacre::Journal.get(2)`
+- retrieve a list of journals, e.g. `Nacre::Journal.get(1-4)`
+
+
 ### Lazily-loading searches
 
 Brightpearl currently returns a maximum of 500 search results. If you need to conserve local resources, you can configure your searches to return fewer results on each page. Nacre will load the next page of search results when it hits the end of the current page.
@@ -57,7 +64,9 @@ Brightpearl currently returns a maximum of 500 search results. If you need to co
 
 When using the API's search endpoint, the API returns search results that
 include some of the attributes from the queried resource, but not all. You may
-want to combine a search with pulling in a collection for that resource.
+want to combine a search with pulling in a collection for that resource. This
+will generally be more efficient if the search provides data you can use to
+filter the resources you'd like to get from the API.
 
 For example, you want to get the first two orders from Brightpearl:
 
