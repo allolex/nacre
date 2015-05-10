@@ -67,12 +67,14 @@ describe Nacre::Journal do
         expect(subject.tax_reconciliation).to respond_to :keys
       end
 
-      it "has a credits list" do
-        expect(subject.credits).to respond_to :<<
+      it "has a credits collection" do
+        expect(subject.credits).to respond_to :each
+        expect(subject.credits.type).to eq :credit
       end
 
-      it "has a debits list" do
-        expect(subject.debits).to respond_to :<<
+      it "has a debits collection" do
+        expect(subject.debits).to respond_to :each
+        expect(subject.debits.type).to eq :debit
       end
 
       it "has a journal_type_code" do

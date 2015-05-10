@@ -27,6 +27,14 @@ module Nacre
       Journal
     end
 
+    def debits=(debits_params_list)
+      @debits = Journal::EntryCollection.new(debits_params_list, type: :debit)
+    end
+
+    def credits=(credits_params_list)
+      @credits = Journal::EntryCollection.new(credits_params_list, type: :credit)
+    end
+
     private
 
     def self.service_name

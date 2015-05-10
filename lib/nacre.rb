@@ -7,8 +7,6 @@ require "nacre/journal"
 require "nacre/order"
 require "nacre/product"
 
-require "nacre/journal_collection"
-
 require "nacre/order/assignment"
 require "nacre/order/assignment_collection"
 require "nacre/order/contact"
@@ -27,6 +25,10 @@ require "nacre/order/row_collection"
 require "nacre/order/status"
 require "nacre/order/value"
 require "nacre/order_collection"
+
+require "nacre/journal/entry"
+require "nacre/journal/entry_collection"
+require "nacre/journal_collection"
 
 require "nacre/price_list"
 require "nacre/price_list_collection"
