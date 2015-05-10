@@ -54,7 +54,10 @@ $ bundle
 
 ### Lazily-loading searches
 
-Brightpearl currently returns a maximum of 500 search results. If you need to conserve local resources, you can configure your searches to return fewer results on each page. Nacre will load the next page of search results when it hits the end of the current page.
+Brightpearl currently returns a maximum of 500 search results. If you need to
+conserve local resources, you can configure your searches to return fewer
+results on each page. Nacre will load the next page of search results when it
+hits the end of the current page.
 
 
 ## Usage
@@ -121,8 +124,8 @@ but it should get you started. It has some redundant bits. :smile:
     end
 ```
 
-## DEVELOPMENT
 
+## DEVELOPMENT
 
 We're using the [Dotenv](https://github.com/bkeepers/dotenv) gem for
 development. Create a `.env` file in the root of the development repository and
@@ -136,9 +139,12 @@ add the following lines:
     NACRE_API_VERSION: 2.0.0
 ```
 
+
 ### To Do
 
-This library is still under active development. The [Brightpearl Developer documentation](http://www.brightpearl.com/developer/latest/) shows there are a number of areas that could use help.
+This library is still under active development. The 
+[Brightpearl Developer documentation](http://www.brightpearl.com/developer/latest/) 
+shows there are a number of areas that could use help.
 
 - Creating, updating, deleting all resources.
 - Search resources by creation date.
@@ -163,7 +169,8 @@ was too much trouble.
 4. Push to the branch (`git push origin feature/my-new-feature`)
 5. Create new Pull Request
 
-Please keep formatting "fixes" separate from actual code changes/improvements. *De gustibus non est disputandum* and no one is perfect. :wink:
+Please keep formatting "fixes" separate from actual code changes/improvements.
+*De gustibus non est disputandum* and no one is perfect. :wink:
 
 ## Thanks 
 
