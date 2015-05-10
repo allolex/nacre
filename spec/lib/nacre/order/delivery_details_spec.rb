@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe Nacre::Order::DeliveryDetails do
   let(:params) do
@@ -9,9 +9,9 @@ describe Nacre::Order::DeliveryDetails do
 
   subject { described_class.new(params) }
 
-  it 'should have a shipping method id' do
+  it "should have a shipping method id" do
     expect(subject.shipping_method_id).to eq(0)
   end
 
-  it_behaves_like 'Parametrizable'
+  it_behaves_like "Parametrizable"
 end

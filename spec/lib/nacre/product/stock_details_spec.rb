@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe Nacre::Product::StockDetails do
   let(:params) do
@@ -9,14 +9,14 @@ describe Nacre::Product::StockDetails do
 
   subject { Nacre::Product::StockDetails.new(params) }
 
-  describe '#stock_tracked' do
-    context 'when "true"' do
-      it 'should have a boolean value of TRUE for stock_tracked' do
+  describe "#stock_tracked" do
+    context "when 'true'" do
+      it "should have a boolean value of TRUE for stock_tracked" do
         expect(subject.stock_tracked).to eql(true)
       end
     end
 
-    context 'given not "true" values' do
+    context "given not 'true' values" do
       %w/false 12 truthy/.each do |test_value|
 
         let!(:params) do
@@ -30,5 +30,5 @@ describe Nacre::Product::StockDetails do
     end
   end
 
-  it_behaves_like 'Parametrizable'
+  it_behaves_like "Parametrizable"
 end

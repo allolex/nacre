@@ -3,7 +3,7 @@ module Nacre
     attr_reader :token
 
     def initialize(response_body)
-      @token = response_body['response']
+      @token = response_body["response"]
     end
 
     def active?

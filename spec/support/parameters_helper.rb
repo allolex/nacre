@@ -4,24 +4,24 @@ module ParametersHelper
     {
        reference: {
           order_status_names: {
-             '4' => 'Invoiced'
+             "4" => "Invoiced"
           },
           order_stock_status_names: {
-             '3' => 'All fulfilled'
+             "3" => "All fulfilled"
           },
           order_type_names: {
-             '1' => 'SALES_ORDER'
+             "1" => "SALES_ORDER"
           }
        },
        response: {
           meta_data: {
              sorting: [
                 {
-                   direction: 'ASC',
+                   direction: "ASC",
                    filterable: {
                       required: false,
-                      report_data_type: 'INTEGER',
-                      name: 'orderId',
+                      report_data_type: "INTEGER",
+                      name: "orderId",
                       sortable: true,
                       filterable: true
                    }
@@ -30,59 +30,59 @@ module ParametersHelper
              columns: [
                 {
                    required: false,
-                   report_data_type: 'INTEGER',
-                   name: 'orderId',
+                   report_data_type: "INTEGER",
+                   name: "orderId",
                    sortable: true,
                    filterable: true
                 },
                 {
                    reference_data: [
-                      'orderTypeNames'
+                      "orderTypeNames"
                    ],
                    required: false,
-                   report_data_type: 'INTEGER',
-                   name: 'orderTypeId',
+                   report_data_type: "INTEGER",
+                   name: "orderTypeId",
                    sortable: true,
                    filterable: true
                 },
                 {
                    required: false,
-                   report_data_type: 'INTEGER',
-                   name: 'contactId',
+                   report_data_type: "INTEGER",
+                   name: "contactId",
                    sortable: true,
                    filterable: true
                 },
                 {
                    reference_data: [
-                      'orderStatusNames'
+                      "orderStatusNames"
                    ],
                    required: false,
-                   report_data_type: 'INTEGER',
-                   name: 'orderStatusId',
+                   report_data_type: "INTEGER",
+                   name: "orderStatusId",
                    sortable: true,
                    filterable: true
                 },
                 {
                    reference_data: [
-                      'orderStockStatusNames'
+                      "orderStockStatusNames"
                    ],
                    required: false,
-                   report_data_type: 'INTEGER',
-                   name: 'orderStockStatusId',
+                   report_data_type: "INTEGER",
+                   name: "orderStockStatusId",
                    sortable: true,
                    filterable: true
                 },
                 {
                    required: false,
-                   report_data_type: 'PERIOD',
-                   name: 'createdOn',
+                   report_data_type: "PERIOD",
+                   name: "createdOn",
                    sortable: true,
                    filterable: true
                 },
                 {
                    required: false,
-                   report_data_type: 'INTEGER',
-                   name: 'createdById',
+                   report_data_type: "INTEGER",
+                   name: "createdById",
                    sortable: true,
                    filterable: true
                 }
@@ -99,7 +99,7 @@ module ParametersHelper
                 253,
                 4,
                 3,
-                '2012-12-13T13:00:42.000Z',
+                "2012-12-13T13:00:42.000Z",
                 280
              ],
              [
@@ -108,7 +108,7 @@ module ParametersHelper
                 253,
                 4,
                 3,
-                '2012-12-14T13:00:42.000Z',
+                "2012-12-14T13:00:42.000Z",
                 280
              ],
              [
@@ -117,7 +117,7 @@ module ParametersHelper
                 253,
                 4,
                 3,
-                '2012-12-14T14:00:42.000Z',
+                "2012-12-14T14:00:42.000Z",
                 280
              ]
           ]

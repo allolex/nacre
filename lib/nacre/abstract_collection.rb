@@ -1,4 +1,4 @@
-require 'nacre/concerns/resourceable'
+require "nacre/concerns/resourceable"
 
 module Nacre
   class AbstractCollection

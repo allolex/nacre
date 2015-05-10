@@ -1,4 +1,5 @@
-require 'nacre/concerns/inflectible'
+require "nacre/abstract_collection"
+require "nacre/concerns/inflectible"
 
 module Nacre
 
@@ -35,18 +36,34 @@ module Nacre
 
     def normalize_params(params)
       resource_params = params
-      id_key = "#{self.class.service_name}_id".to_sym
+      id_key = "#{self.class.resource_name}_id".to_sym
       resource_params[:id] = params[id_key]
       resource_params.delete(id_key)
       resource_params
     end
 
     def self.extract_resources(json)
-      JSON.parse(json)['response']
+      JSON.parse(json)["response"]
     end
 
     def self.json_to_params(json_order)
       format_hash_keys(json_order)
+    end
+
+    def self.service_url
+      "#{configuration.resource_url}/#{service_name}-service"
+    end
+
+    def self.url
+      "#{service_url}/#{resource_name}"
+    end
+
+    def self.resource_name
+      resource_class.to_s.gsub(/\ANacre::/, "").downcase
+    end
+
+    def self.service_name
+      resource_name # Override if different
     end
   end
 end

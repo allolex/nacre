@@ -1,6 +1,6 @@
-require 'nacre/abstract_resource'
-require 'nacre/concerns/searchable'
-require 'date'
+require "nacre/abstract_resource"
+require "nacre/concerns/searchable"
+require "date"
 
 module Nacre
 

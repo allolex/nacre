@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe Nacre::SearchResultsCollection do
   let!(:link) { Nacre::Connection.new }
@@ -40,19 +40,19 @@ describe Nacre::SearchResultsCollection do
         window: 3
       },
       options: [
-        'customFields',
-        'nullCustomFields'
+        "customFields",
+        "nullCustomFields"
       ]
     }
   end
 
   subject { described_class.new(params: params, options: initial_options) }
 
-  it_behaves_like 'Enumerable'
+  it_behaves_like "Enumerable"
 
-  describe '.from_json' do
-    context 'with valid JSON data' do
-      let(:json) { fixture_file_content('order_search_result_with_more.json') }
+  describe ".from_json" do
+    context "with valid JSON data" do
+      let(:json) { fixture_file_content("order_search_result_with_more.json") }
 
       subject { Nacre::SearchResultsCollection.from_json(json, initial_options) }
 
@@ -66,16 +66,16 @@ describe Nacre::SearchResultsCollection do
           @url.to_s
         ).to_return(
           status: 200,
-          body: fixture_file_content('order_next_search_result.json'),
+          body: fixture_file_content("order_next_search_result.json"),
           headers: {}
         )
       end
 
-      it 'should return a SearchResultsCollection instance' do
+      it "should return a SearchResultsCollection instance" do
         expect(subject).to be_a(Nacre::SearchResultsCollection)
       end
 
-      it 'should return each individual result from its members' do
+      it "should return each individual result from its members" do
         count = 0
         subject.each do |result|
           count += 1
@@ -85,27 +85,27 @@ describe Nacre::SearchResultsCollection do
 
     end
 
-    context 'with invalid data' do
-      it 'should raise an error' do
-        expect { Nacre::SearchResultsCollection.from_json('') }
+    context "with invalid data" do
+      it "should raise an error" do
+        expect { Nacre::SearchResultsCollection.from_json("") }
           .to raise_error(ArgumentError)
       end
     end
   end
 
-  describe '#members' do
-    it 'should be a list' do
+  describe "#members" do
+    it "should be a list" do
       expect(subject.members).to be_a(Array)
     end
 
-    it 'each item should respond to #results' do
+    it "each item should respond to #results" do
       expect(subject.members.first).to respond_to(:results)
     end
   end
 
-  describe '#each' do
+  describe "#each" do
 
-    it 'should return each individual result from its members' do
+    it "should return each individual result from its members" do
       count = 0
       subject.each do |result|
         count += 1
@@ -113,7 +113,7 @@ describe Nacre::SearchResultsCollection do
       expect(count).to eq(12)
     end
 
-    context 'when it reaches the last result from its members' do
+    context "when it reaches the last result from its members" do
       let(:params) { [first_result] }
 
       let(:resource_endpoint) { order_search_url }
@@ -143,53 +143,53 @@ describe Nacre::SearchResultsCollection do
           @url.to_s
         ).to_return(
           status: 200,
-          body: fixture_file_content('order_next_search_result.json'),
+          body: fixture_file_content("order_next_search_result.json"),
           headers: {}
         )
       end
 
-      context 'and there are more results on the server' do
+      context "and there are more results on the server" do
 
         before do
           stub_request(:get, "#{resource_endpoint}/#{range}?#{search_options}")
           @results = subject.first(5)
         end
 
-        it 'should request more results from the server' do
+        it "should request more results from the server" do
           expect(a_request(:get, @url.to_s)).to have_been_made
         end
 
-        it 'should have five results' do
+        it "should have five results" do
           expect(@results.count).to eq(5)
         end
       end
 
-      context 'and there are no more results on the server' do
+      context "and there are no more results on the server" do
 
         subject { described_class.new(params: full_params, options: initial_options) }
 
         let!(:results) { subject.first(13) }
 
-        it 'should not make a further request for results to the server' do
+        it "should not make a further request for results to the server" do
           expect(a_request(:get, @url.to_s)).to_not have_been_made
         end
 
-        it 'should return 12 results' do
+        it "should return 12 results" do
           expect(results.count).to eq(12)
         end
       end
     end
   end
 
-  describe '#each_page' do
+  describe "#each_page" do
 
-    it 'should return search results' do
+    it "should return search results" do
       subject.each_page do |results_page|
         expect(results_page).to be_a(Nacre::SearchResults)
       end
     end
 
-    it 'should return each page of results from its members' do
+    it "should return each page of results from its members" do
       count = 0
       subject.each_page do |results_page|
         count += 1

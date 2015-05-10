@@ -1,4 +1,4 @@
-require 'nacre/abstract_resource'
+require "nacre/abstract_resource"
 
 module Nacre
   class Product::FinancialDetails < AbstractResource

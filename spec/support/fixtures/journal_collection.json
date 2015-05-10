@@ -1,0 +1,775 @@
+{
+    "response": {
+        "journals": [
+            {
+                "id": 10008,
+                "contactId": 298,
+                "journalTypeCode": "SC",
+                "taxDate": "2009-11-01T00:00:00.000Z",
+                "dueDate": "2009-12-31T00:00:00.000Z",
+                "createdOn": "2009-11-01T00:00:00.000Z",
+                "createdByContactId": 208,
+                "taxReconciliation": {
+                    "date": "2010-01-22T00:00:00.000Z",
+                    "taxPeriodId": 2
+                },
+                "credits": [
+                    {
+                        "nominalCode": "1100",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {
+                            "channelId": 3,
+                            "leadSourceId": 3
+                        },
+                        "orderId": 999999,
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    }
+                ],
+                "debits": [
+                    {
+                        "nominalCode": "2200",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {
+                            "channelId": 3,
+                            "leadSourceId": 3
+                        },
+                        "orderId": 999999,
+                        "invoiceReference": "great customer",
+                        "taxCode": "T20"
+                    },
+                    {
+                        "nominalCode": "4000",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {
+                            "channelId": 3,
+                            "leadSourceId": 3
+                        },
+                        "orderId": 999999,
+                        "invoiceReference": "great customer",
+                        "taxCode": "T20"
+                    }
+                ]
+            },
+            {
+                "id": 10009,
+                "contactId": 298,
+                "journalTypeCode": "SI",
+                "taxDate": "2009-11-01T00:00:00.000Z",
+                "dueDate": "2009-12-31T00:00:00.000Z",
+                "createdOn": "2009-11-01T00:00:00.000Z",
+                "createdByContactId": 208,
+                "taxReconciliation": {
+                    "date": "2010-01-22T00:00:00.000Z",
+                    "taxPeriodId": 2
+                },
+                "credits": [
+                    {
+                        "nominalCode": "2200",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {
+                            "channelId": 3,
+                            "leadSourceId": 3
+                        },
+                        "orderId": 999999,
+                        "invoiceReference": "great customer",
+                        "taxCode": "T20"
+                    },
+                    {
+                        "nominalCode": "4000",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {
+                            "channelId": 3,
+                            "leadSourceId": 3
+                        },
+                        "orderId": 999999,
+                        "invoiceReference": "great customer",
+                        "taxCode": "T20"
+                    }
+                ],
+                "debits": [
+                    {
+                        "nominalCode": "1100",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {
+                            "channelId": 3,
+                            "leadSourceId": 3
+                        },
+                        "orderId": 999999,
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    }
+                ]
+            },
+            {
+                "id": 10010,
+                "contactId": 220,
+                "journalTypeCode": "SI",
+                "taxDate": "2009-11-02T00:00:00.000Z",
+                "dueDate": "2009-12-02T00:00:00.000Z",
+                "createdOn": "2009-11-02T00:00:00.000Z",
+                "createdByContactId": 208,
+                "taxReconciliation": {
+                    "date": "2010-01-22T00:00:00.000Z",
+                    "taxPeriodId": 2
+                },
+                "credits": [
+                    {
+                        "nominalCode": "2200",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {
+                            "channelId": 10,
+                            "leadSourceId": 3
+                        },
+                        "orderId": 999999,
+                        "invoiceReference": "great customer",
+                        "taxCode": "T20"
+                    },
+                    {
+                        "nominalCode": "4010",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {
+                            "channelId": 10,
+                            "leadSourceId": 3
+                        },
+                        "orderId": 999999,
+                        "invoiceReference": "great customer",
+                        "taxCode": "T20"
+                    }
+                ],
+                "debits": [
+                    {
+                        "nominalCode": "1100",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {
+                            "channelId": 10,
+                            "leadSourceId": 3
+                        },
+                        "orderId": 999999,
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    }
+                ]
+            },
+            {
+                "id": 10000,
+                "contactId": 711,
+                "journalTypeCode": "PP",
+                "taxDate": "2009-11-01T00:00:00.000Z",
+                "createdOn": "2009-11-01T00:00:00.000Z",
+                "createdByContactId": 210,
+                "description": "Revision",
+                "taxReconciliation": {},
+                "credits": [
+                    {
+                        "nominalCode": "1200",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {},
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    }
+                ],
+                "debits": [
+                    {
+                        "nominalCode": "2100",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {},
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    }
+                ]
+            },
+            {
+                "id": 10001,
+                "contactId": 205,
+                "journalTypeCode": "PP",
+                "taxDate": "2009-11-01T00:00:00.000Z",
+                "createdOn": "2009-11-01T00:00:00.000Z",
+                "createdByContactId": 210,
+                "description": "Revision",
+                "taxReconciliation": {},
+                "credits": [
+                    {
+                        "nominalCode": "2100",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {},
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    },
+                    {
+                        "nominalCode": "1200",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {},
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    }
+                ],
+                "debits": [
+                    {
+                        "nominalCode": "2100",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {},
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    },
+                    {
+                        "nominalCode": "2100",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {},
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    },
+                    {
+                        "nominalCode": "2100",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {},
+                        "orderId": 999999,
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    },
+                    {
+                        "nominalCode": "2100",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {},
+                        "orderId": 999999,
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    },
+                    {
+                        "nominalCode": "2100",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {},
+                        "orderId": 999999,
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    },
+                    {
+                        "nominalCode": "2100",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {},
+                        "orderId": 999999,
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    },
+                    {
+                        "nominalCode": "2100",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {},
+                        "orderId": 999999,
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    },
+                    {
+                        "nominalCode": "2100",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {},
+                        "orderId": 999999,
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    }
+                ]
+            },
+            {
+                "id": 10002,
+                "contactId": 643,
+                "journalTypeCode": "PP",
+                "taxDate": "2009-11-01T00:00:00.000Z",
+                "createdOn": "2009-11-01T00:00:00.000Z",
+                "createdByContactId": 210,
+                "description": "Revision",
+                "taxReconciliation": {},
+                "credits": [
+                    {
+                        "nominalCode": "2100",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {},
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    },
+                    {
+                        "nominalCode": "1200",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {},
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    }
+                ],
+                "debits": [
+                    {
+                        "nominalCode": "2100",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {},
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    },
+                    {
+                        "nominalCode": "2100",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {},
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    },
+                    {
+                        "nominalCode": "2100",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {},
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    },
+                    {
+                        "nominalCode": "2100",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {},
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    },
+                    {
+                        "nominalCode": "2100",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {},
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    },
+                    {
+                        "nominalCode": "2100",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {},
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    },
+                    {
+                        "nominalCode": "2100",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {},
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    },
+                    {
+                        "nominalCode": "2100",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {},
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    },
+                    {
+                        "nominalCode": "2100",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {},
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    },
+                    {
+                        "nominalCode": "2100",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {},
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    },
+                    {
+                        "nominalCode": "2100",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {},
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    },
+                    {
+                        "nominalCode": "2100",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {},
+                        "orderId": 999999,
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    },
+                    {
+                        "nominalCode": "2100",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {},
+                        "orderId": 999999,
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    },
+                    {
+                        "nominalCode": "2100",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {},
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    }
+                ]
+            },
+            {
+                "id": 10003,
+                "contactId": 477,
+                "journalTypeCode": "PI",
+                "taxDate": "2009-10-25T00:00:00.000+01:00",
+                "dueDate": "2009-11-23T00:00:00.000Z",
+                "createdOn": "2009-11-01T00:00:00.000Z",
+                "createdByContactId": 210,
+                "description": "Revision",
+                "taxReconciliation": {
+                    "date": "2010-01-22T00:00:00.000Z",
+                    "taxPeriodId": 2
+                },
+                "credits": [
+                    {
+                        "nominalCode": "2100",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {},
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    }
+                ],
+                "debits": [
+                    {
+                        "nominalCode": "7110",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {},
+                        "invoiceReference": "great customer",
+                        "taxCode": "T0"
+                    }
+                ]
+            },
+            {
+                "id": 10004,
+                "contactId": 712,
+                "journalTypeCode": "PP",
+                "taxDate": "2009-11-01T00:00:00.000Z",
+                "createdOn": "2009-11-01T00:00:00.000Z",
+                "createdByContactId": 210,
+                "taxReconciliation": {},
+                "credits": [
+                    {
+                        "nominalCode": "2100",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {},
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    }
+                ],
+                "debits": [
+                    {
+                        "nominalCode": "2100",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {},
+                        "orderId": 999999,
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    },
+                    {
+                        "nominalCode": "2100",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {},
+                        "orderId": 999999,
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    },
+                    {
+                        "nominalCode": "2100",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {},
+                        "orderId": 999999,
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    },
+                    {
+                        "nominalCode": "2100",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {},
+                        "orderId": 999999,
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    },
+                    {
+                        "nominalCode": "2100",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {},
+                        "orderId": 999999,
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    },
+                    {
+                        "nominalCode": "2100",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {},
+                        "orderId": 999999,
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    },
+                    {
+                        "nominalCode": "2100",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {},
+                        "orderId": 999999,
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    },
+                    {
+                        "nominalCode": "2100",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {},
+                        "orderId": 999999,
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    },
+                    {
+                        "nominalCode": "2100",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {},
+                        "orderId": 999999,
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    },
+                    {
+                        "nominalCode": "2100",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {},
+                        "orderId": 999999,
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    },
+                    {
+                        "nominalCode": "2100",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {},
+                        "orderId": 999999,
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    }
+                ]
+            },
+            {
+                "id": 10005,
+                "contactId": 690,
+                "journalTypeCode": "PC",
+                "taxDate": "2009-07-02T00:00:00.000+01:00",
+                "dueDate": "2009-08-01T00:00:00.000+01:00",
+                "createdOn": "2009-11-01T00:00:00.000Z",
+                "createdByContactId": 210,
+                "description": "Revision",
+                "taxReconciliation": {
+                    "date": "2010-04-24T00:00:00.000+01:00",
+                    "taxPeriodId": 4
+                },
+                "credits": [
+                    {
+                        "nominalCode": "5300",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {
+                            "projectId": 71
+                        },
+                        "invoiceReference": "great customer",
+                        "taxCode": "T0"
+                    }
+                ],
+                "debits": [
+                    {
+                        "nominalCode": "2100",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {
+                            "projectId": 71
+                        },
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    }
+                ]
+            },
+            {
+                "id": 10006,
+                "contactId": 690,
+                "journalTypeCode": "PP",
+                "taxDate": "2009-07-02T00:00:00.000+01:00",
+                "createdOn": "2009-11-01T00:00:00.000Z",
+                "createdByContactId": 210,
+                "taxReconciliation": {},
+                "credits": [
+                    {
+                        "nominalCode": "2100",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {},
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    }
+                ],
+                "debits": [
+                    {
+                        "nominalCode": "2100",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {},
+                        "invoiceReference": "great customer",
+                        "taxCode": "T9"
+                    }
+                ]
+            },
+            {
+                "id": 10007,
+                "journalTypeCode": "JJ",
+                "taxDate": "2009-11-01T00:00:00.000Z",
+                "createdOn": "2009-11-01T00:00:00.000Z",
+                "createdByContactId": 208,
+                "taxReconciliation": {},
+                "credits": [
+                    {
+                        "nominalCode": "1001",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {
+                            "channelId": 3,
+                            "leadSourceId": 3
+                        },
+                        "orderId": 999999,
+                        "taxCode": "T9"
+                    },
+                    {
+                        "nominalCode": "1001",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {
+                            "channelId": 3,
+                            "leadSourceId": 3
+                        },
+                        "orderId": 999999,
+                        "taxCode": "T9"
+                    }
+                ],
+                "debits": [
+                    {
+                        "nominalCode": "5000",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {
+                            "channelId": 3,
+                            "leadSourceId": 3
+                        },
+                        "orderId": 999999,
+                        "taxCode": "T9"
+                    },
+                    {
+                        "nominalCode": "5050",
+                        "change": {
+                            "value": "99.99"
+                        },
+                        "assignment": {
+                            "channelId": 3,
+                            "leadSourceId": 3
+                        },
+                        "orderId": 999999,
+                        "taxCode": "T9"
+                    }
+                ]
+            }
+        ]
+    }
+}

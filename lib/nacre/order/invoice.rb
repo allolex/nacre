@@ -1,4 +1,4 @@
-require 'date'
+require "date"
 
 module Nacre
   class Order::Invoice < AbstractResource
@@ -34,7 +34,7 @@ module Nacre
     private
 
     def time_format
-      '%Y-%m-%dT%H:%M:%S.%LZ'
+      "%Y-%m-%dT%H:%M:%S.%LZ"
     end
   end
 end

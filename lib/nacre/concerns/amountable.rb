@@ -11,6 +11,6 @@ module Nacre::Amountable
     end
 
     def multiplier
-      ('1' + '0' * Nacre.configuration.value_precision.to_i).to_i
+      ("1" + "0" * Nacre.configuration.value_precision.to_i).to_i
     end
 end

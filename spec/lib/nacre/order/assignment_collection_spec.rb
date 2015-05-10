@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe Nacre::Order::AssignmentCollection do
   let(:params) do
@@ -15,16 +15,16 @@ describe Nacre::Order::AssignmentCollection do
 
   subject { described_class.new(params) }
 
-  it_behaves_like 'Enumerable'
+  it_behaves_like "Enumerable"
 
-  it_behaves_like 'Parametrizable'
+  it_behaves_like "Parametrizable"
 
-  it 'should be a collection of Order::AssignmentDetails' do
+  it "should be a collection of Order::AssignmentDetails" do
     expect(subject.first).to be_a(Nacre::Order::Assignment)
   end
 
-  describe '#current' do
-    it 'should return the current assignment' do
+  describe "#current" do
+    it "should return the current assignment" do
       expect(subject.current.key).to eq(:current)
     end
   end

@@ -1,5 +1,5 @@
-require 'nacre/abstract_resource'
-require 'nacre/concerns/searchable'
+require "nacre/abstract_resource"
+require "nacre/concerns/searchable"
 
 module Nacre
   class Product < AbstractResource

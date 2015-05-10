@@ -1,5 +1,5 @@
-require 'nacre/abstract_resource'
-require 'nacre/concerns/searchable'
+require "nacre/abstract_resource"
+require "nacre/concerns/searchable"
 
 module Nacre
   class Channel < AbstractResource
@@ -27,20 +27,12 @@ module Nacre
 
     private
 
-    def self.request_options
-      ''
-    end
-
     def self.service_name
-      'channel'
+      "product"
     end
 
-    def self.service_url
-      configuration.resource_url + '/' + 'product-service'
-    end
-
-    def self.url
-      service_url + '/' + service_name
+    def self.request_options
+      ""
     end
   end
 end

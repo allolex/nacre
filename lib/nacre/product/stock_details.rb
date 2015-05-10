@@ -1,4 +1,4 @@
-require 'nacre/abstract_resource'
+require "nacre/abstract_resource"
 
 module Nacre
   class Product::StockDetails < AbstractResource
@@ -6,7 +6,7 @@ module Nacre
     attribute :stock_tracked
 
     def stock_tracked=(value)
-      @stock_tracked = value.to_s == 'true' ? true : false
+      @stock_tracked = value.to_s == "true" ? true : false
     end
 
   end

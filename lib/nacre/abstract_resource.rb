@@ -1,10 +1,10 @@
-require 'uri'
-require 'json'
-require 'nacre/concerns/matchable'
-require 'nacre/concerns/parametrizable'
-require 'nacre/concerns/inflectible'
-require 'nacre/concerns/resourceable'
-require 'nacre/concerns/getable'
+require "uri"
+require "json"
+require "nacre/concerns/matchable"
+require "nacre/concerns/parametrizable"
+require "nacre/concerns/inflectible"
+require "nacre/concerns/resourceable"
+require "nacre/concerns/getable"
 
 module Nacre
   class AbstractResource
@@ -62,12 +62,12 @@ module Nacre
     end
 
     def self.params_from_json(json)
-      resource = JSON.parse(json)['response'].first
+      resource = JSON.parse(json)["response"].first
       format_hash_keys(resource)
     end
 
     def true?(value)
-      value == true || value == 'true'
+      value == true || value == "true"
     end
   end
 end
