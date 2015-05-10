@@ -1,36 +1,41 @@
 require "nacre/request_url"
 
 module Nacre::Searchable
-
   def find(id_list = [])
+    current_options = search_options_from_ids id_list
+    request_url = Nacre::RequestUrl.new current_options
+    response = link.get request_url.to_s
+    Nacre::SearchResultsCollection.from_json(
+      response.body,
+      current_options
+    )
+  end
+
+  def search_options_from_ids(id_list)
     id_value = [id_list].flatten.join(",")
 
-    current_search_options =  default_search_options.merge(
-                                search_url: search_url,
-                                fields: { resource_id => id_value }
-                              )
-    request_url = Nacre::RequestUrl.new(current_search_options)
-    response = link.get(request_url.to_s)
-    Nacre::SearchResultsCollection.from_json(response.body, current_search_options)
+    default_search_options.merge(
+      fields: { resource_id => id_value }
+    )
   end
 
   def default_search_options
-    options = default_get_options
-    options[:pagination] =  {
-                              first_record: 1,
-                              window: 500
-                            }
+    options = {}
+    options[:options]    = default_get_options
+    options[:pagination] = default_pagination_options
+    options[:search_url] = search_url
     options
   end
 
   def default_get_options
-    {
-      options: [
-        "customFields",
-        "nullCustomFields"
-      ]
-    }
+    %w/customFields nullCustomFields/
+  end
 
+  def default_pagination_options
+    {
+      first_record: 1,
+      window: 500
+    }
   end
 
   private
@@ -40,6 +45,6 @@ module Nacre::Searchable
   end
 
   def search_url
-    service_url + "/" + resource_name + "-search"
+    "#{service_url}/#{resource_name}-search"
   end
 end
