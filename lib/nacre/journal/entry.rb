@@ -13,5 +13,9 @@ module Nacre
     def channel_id
       assignment[:channel_id]
     end
+
+    def project_id
+      assignment[:project_id]
+    end
   end
 end
