@@ -1,11 +1,9 @@
 require "nacre/concerns/inflectible"
 
 module Nacre
-
   class SearchResultsError < ArgumentError; end
 
   class SearchResults
-
     extend Inflectible
     include Enumerable
 
@@ -20,7 +18,10 @@ module Nacre
     end
 
     def self.from_json(json)
-      raise SearchResultsError.new("Empty JSON") unless json.length > 2
+      unless json.length > 2
+        raise SearchResultsError, "Empty JSON"
+      end
+
       params = format_hash_keys(JSON.parse(json, symbolize_names: true))
       new(params)
     end

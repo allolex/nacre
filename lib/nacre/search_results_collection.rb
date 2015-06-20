@@ -1,6 +1,5 @@
 module Nacre
   class SearchResultsCollection < AbstractCollection
-
     attr_accessor :total, :request_url
 
     include Searchable
@@ -50,9 +49,11 @@ module Nacre
     end
 
     def self.from_json(json, options)
-      raise ArgumentError.new("Empty JSON") unless json.length > 2
+      unless json.length > 2
+        raise SearchResultsError, "Empty JSON"
+      end
       params = format_hash_keys(JSON.parse(json, symbolize_names: true))
-      new(params: [ params ], options: options)
+      new(params: [params], options: options)
     end
 
     private
