@@ -27,9 +27,13 @@ module Nacre
 
     def self.from_json(json)
       resources = extract_resources(json)
-      collection = new
-      collection.members = resources.map { |r| resource_class.new( json_to_params(r) ) }
-      collection
+      if resources.empty?
+        raise ::InvalidJsonError, "The JSON provided has no resources in it."
+      else
+        collection = new
+        collection.members = resources.map { |r| resource_class.new( json_to_params(r) ) }
+        collection
+      end
     end
 
     private

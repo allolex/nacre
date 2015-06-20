@@ -3,6 +3,8 @@ require "nacre/column_property"
 require "nacre/configuration"
 require "nacre/connection"
 
+require "nacre/error"
+
 require "nacre/journal"
 require "nacre/order"
 require "nacre/product"

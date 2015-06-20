@@ -1,3 +1,5 @@
+require 'bigdecimal'
+
 module Nacre
   class Journal::Entry < AbstractResource
     attribute :nominal_code
