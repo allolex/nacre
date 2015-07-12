@@ -1,4 +1,5 @@
 require "nacre/concerns/inflectible"
+require 'pry'
 
 module Nacre
   class SearchResultsError < ArgumentError; end
@@ -11,7 +12,8 @@ module Nacre
                   :total_results, :returned_results, :columns
 
     def initialize(params = {})
-      unless params.empty? || params[:response].empty?
+      @results = []
+      unless params.empty? || params[:errors] || params[:response].empty?
         extract_metadata(params[:response][:meta_data])
         extract_results(params[:response][:results])
       end
