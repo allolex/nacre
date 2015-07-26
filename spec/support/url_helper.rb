@@ -55,6 +55,10 @@ module UrlHelper
     "#{base_url}/product-service/channel"
   end
 
+  def nominal_code_service_url
+    "#{base_url}/accounting-service/nominal-code"
+  end
+
   def resource_search_url(resource)
     "#{base_url}/#{resource}-service/#{resource}-search"
   end

@@ -1,0 +1,21 @@
+{
+    "response": [
+        {
+            "id": 1,
+            "code": "0010",
+            "name": "Freehold Property",
+            "type": {
+                "id": 1
+            },
+            "bank": false,
+            "expense": false,
+            "discount": false,
+            "editable": true,
+            "active": true,
+            "taxCode": 0,
+            "description": "",
+            "chartMapCode": "",
+            "reconcile": false
+        }
+    ]
+}
