@@ -51,6 +51,7 @@ $ bundle
 - retrieve a single journal, e.g. `Nacre::Journal.get(2)`
 - retrieve a list of journals, e.g. `Nacre::Journal.get(1-4)`
 
+#### Nominal Codes
 
 ### Lazily-loading searches
 
