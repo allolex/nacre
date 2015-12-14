@@ -10,7 +10,7 @@ Nacre is a Ruby gem that wraps the API of the Brightpearl accounting software se
 Add this line to your application's Gemfile:
 
 ```ruby
-gem "nacre", :git => "git://github.com/allolex/nacre.git"
+gem "nacre", git: "git://github.com/allolex/nacre.git"
 ```
 
 And then execute:
