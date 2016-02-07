@@ -56,7 +56,7 @@ module Nacre
     end
 
     def default_api_version
-      ENV["NACRE_API_VERSION"] || "2.0.0"
+      "public-api"
     end
 
     def default_user_id

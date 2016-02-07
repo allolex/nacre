@@ -2,7 +2,6 @@ require "spec_helper"
 
 describe Nacre::Configuration do
 
-
   let(:config) { Nacre::Configuration.new(args) }
 
   let(:args) { {} }
@@ -31,7 +30,7 @@ describe Nacre::Configuration do
     end
 
     it "should have the correct Resource URL" do
-      expect(config.resource_url).to eql("https://ws-eu1.brightpearl.com/2.0.0/%s" % [ENV["NACRE_USER_ID"]])
+      expect(config.resource_url).to eql("https://ws-eu1.brightpearl.com/public-api/%s" % [ENV["NACRE_USER_ID"]])
     end
 
     it "should have the correct auth URL" do
