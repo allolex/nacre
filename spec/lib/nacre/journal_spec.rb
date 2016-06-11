@@ -72,9 +72,17 @@ describe Nacre::Journal do
         expect(subject.credits.type).to eq :credit
       end
 
+      it "has one item in the credits collection" do
+        expect(subject.credits.size).to eq 1
+      end
+
       it "has a debits collection" do
         expect(subject.debits).to respond_to :each
         expect(subject.debits.type).to eq :debit
+      end
+
+      it "has one item in the debits collection" do
+        expect(subject.debits.size).to eq 1
       end
 
       it "has a journal_type_code" do

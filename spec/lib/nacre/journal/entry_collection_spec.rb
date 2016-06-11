@@ -32,6 +32,10 @@ describe Nacre::Journal::EntryCollection do
     it "has the correct type" do
       expect(subject.type).to eq type
     end
+
+    it "has the correct number of members" do
+      expect(subject.size).to eq 1
+    end
   end
 
   context "with credit entries" do
