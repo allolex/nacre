@@ -6,3 +6,8 @@ end
 
 class InvalidJsonError < Exception
 end
+
+module Nacre
+  class EmptyResourceError < Exception
+  end
+end

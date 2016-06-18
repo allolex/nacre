@@ -129,7 +129,6 @@ describe Nacre::Order do
   end
 
   describe ".from_json" do
-
     let(:json) { fixture_file_content("order.json") }
 
     let(:order) { Nacre::Order.from_json(json) }
@@ -144,9 +143,8 @@ describe Nacre::Order do
   end
 
   describe "#params" do
-
     context "with all the valid params" do
-      let(:valid_params) {
+      let(:valid_params) do
         {
           id:  "570001",
           parent_order_id:  "",
@@ -160,7 +158,7 @@ describe Nacre::Order do
           customer_ref:  "",
           order_payment_status_id:  "3"
         }
-      }
+      end
 
       let(:order) { Nacre::Order.new(valid_params) }
 
@@ -173,19 +171,56 @@ describe Nacre::Order do
   describe ".get" do
     let(:resource_endpoint) { order_service_url }
     let(:range) { 999999 }
-    let(:url) { "#{resource_endpoint}/#{range}?includeOptional=customFields,nullCustomFields" }
     let(:fixture_file_name) { "order_music.json" }
 
-    it "should make a request to the correct endpoint" do
-      stub = stub_request(:get, "#{resource_endpoint}/#{range}").
-        to_return(
+    let(:extra_fields) do
+      "includeOptional=customFields,nullCustomFields"
+    end
+
+    let(:url) do
+      "#{resource_endpoint}/#{range}?#{extra_fields}"
+    end
+
+
+    context "with an order that exists" do
+      it "should make a request to the correct endpoint" do
+        stub =  stub_request(
+                  :get, "#{resource_endpoint}/#{range}"
+                ).to_return(
+                  status:  200,
+                  body:  fixture_file_content(fixture_file_name),
+                  headers:  {}
+                )
+        resource = described_class.get(range)
+        expect(stub).to have_been_requested
+        expect(resource.id).to eql(range)
+      end
+    end
+
+    context "with an empty response" do
+      let(:json_response_body) do
+        {
+          response: []
+        }.to_json
+      end
+
+      let(:range) { 999_999_999_999 }
+
+      it "should make a request to the correct endpoint" do
+        stub_request(
+          :get, "#{resource_endpoint}/#{range}"
+        ).to_return(
           status:  200,
-          body:  fixture_file_content(fixture_file_name),
+          body: json_response_body,
           headers:  {}
         )
-      resource = described_class.get(range)
-      expect(stub).to have_been_requested
-      expect(resource.id).to eql(range)
+
+        expect {
+          described_class.get(range)
+        }.to raise_error(
+          Nacre::EmptyResourceError
+        )
+      end
     end
   end
 
@@ -194,10 +229,14 @@ describe Nacre::Order do
       let(:id_text) { 123456 }
       let(:orders) { Nacre::Order.find(id_text) }
 
+      let(:get_params) do
+        default_search_options(["orderId=#{id_text}"])
+      end
+
       before do
         stub_request(
           :get,
-          "#{order_search_url}?%s" % [default_search_options(["orderId=#{id_text}"])]
+          "#{order_search_url}?%s" % [get_params]
         ).to_return(
           status: 200,
           body: fixture_file_content("order_search_result.json"),

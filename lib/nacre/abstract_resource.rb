@@ -31,6 +31,8 @@ module Nacre
     end
 
     def attributes=(attributes_hash)
+      prevent_empty_resource! attributes_hash
+
       self.class.fields.each do |field|
         if attributes_hash.has_key?(field.to_sym)
           public_send("#{field}=", attributes_hash[field.to_sym])
@@ -55,6 +57,15 @@ module Nacre
     private
 
     def post_initialize; end
+
+    def prevent_empty_resource!(attributes_hash)
+      if attributes_hash.nil?
+        raise(
+          Nacre::EmptyResourceError,
+          "#{self.class} initialized with empty attributes."
+        )
+      end
+    end
 
     def self.list_extracted_errors(json)
       parsed_body = JSON.parse(json, symbolize_names: true)
