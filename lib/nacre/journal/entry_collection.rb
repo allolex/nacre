@@ -23,5 +23,8 @@ module Nacre
       members.map(&:params)
     end
 
+    def size
+      members.size
+    end
   end
 end

@@ -21,20 +21,28 @@ describe Nacre::Configuration do
   end
 
   context "URLs from configuration" do
+    let(:base_url) { "https://ws-eu1.brightpearl.com" }
+
+    let(:user_id) { ENV["NACRE_USER_ID"] }
+
     it "has the correct precision for money values" do
-      expect(config.value_precision).to eql("6")
+      expect(config.value_precision).to eql "6"
     end
 
     it "should have the correct base URL" do
-      expect(config.base_url).to eql("https://ws-eu1.brightpearl.com")
+      expect(config.base_url).to eql base_url
     end
 
     it "should have the correct Resource URL" do
-      expect(config.resource_url).to eql("https://ws-eu1.brightpearl.com/public-api/%s" % [ENV["NACRE_USER_ID"]])
+      expect(config.resource_url).to eql(
+        "#{base_url}/public-api/#{user_id}"
+      )
     end
 
     it "should have the correct auth URL" do
-      expect(config.auth_url).to eql("https://ws-eu1.brightpearl.com/%s/authorise" % [ ENV["NACRE_USER_ID"] ])
+      expect(config.auth_url).to eql(
+        "#{base_url}/#{user_id}/authorise"
+      )
     end
   end
 
