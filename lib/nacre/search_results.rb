@@ -1,5 +1,4 @@
 require "nacre/concerns/inflectible"
-require 'pry'
 
 module Nacre
   class SearchResultsError < ArgumentError; end
