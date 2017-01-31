@@ -1,4 +1,4 @@
-require 'nacre/concerns/collectible'
+require "nacre/concerns/collectible"
 
 module Nacre
   class Product::SalesChannelCollection
