@@ -2,7 +2,7 @@ module Nacre
   module Collectible
     def self.included(base)
       base.class_exec do
-        def initialize(resource_list = [])
+        def initialize(resource_list = []) # rubocop:disable NestedMethodDefinition
           @members = []
 
           resource_list.each do |resource_params|
