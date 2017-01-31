@@ -1,26 +1,14 @@
+require 'nacre/concerns/collectible'
+
 module Nacre
   class Product::SalesChannelCollection
 
+    include Collectible
     include Enumerable
     extend Inflectible
 
-    attr_accessor :members
-
-    def initialize(resource_list = [])
-      self.members = []
-      resource_list.each do |resource_params|
-        members << Nacre::Product::SalesChannel.new(resource_params)
-      end
-    end
-
-    def each(&block)
-      members.each do |member|
-        block.call(member)
-      end
-    end
-
-    def params
-      members.map(&:params)
+    def self.resource_class
+      Nacre::Product::SalesChannel
     end
 
     def product_name
@@ -34,6 +22,5 @@ module Nacre
         name_sources.first.product_name
       end
     end
-
   end
 end
