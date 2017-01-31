@@ -20,7 +20,7 @@ module Nacre
       @members = list
     end
 
-    def each(&block)
+    def each
       members.each do |member|
         yield member
       end
