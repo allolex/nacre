@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Nacre
   module Collectible
     def self.included(base)
