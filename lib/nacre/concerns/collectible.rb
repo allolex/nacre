@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 module Nacre
   module Collectible
-
     include Enumerable
 
     def self.included(base)
