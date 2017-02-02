@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 module Nacre
   module Collectible
+    include Enumerable
+
     def self.included(base)
       base.class_exec do
         def initialize(resource_list = []) # rubocop:disable NestedMethodDefinition
