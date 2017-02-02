@@ -2,9 +2,7 @@ require "nacre/concerns/collectible"
 
 module Nacre
   class Product::SalesChannelCollection
-
     include Collectible
-    include Enumerable
     extend Inflectible
 
     def self.resource_class
